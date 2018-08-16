@@ -1,0 +1,1671 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<Form version="1.3" maxVersion="1.9" type="org.netbeans.modules.form.forminfo.JFrameFormInfo">
+  <Properties>
+    <Property name="defaultCloseOperation" type="int" value="3"/>
+  </Properties>
+  <SyntheticProperties>
+    <SyntheticProperty name="formSizePolicy" type="int" value="1"/>
+    <SyntheticProperty name="generateCenter" type="boolean" value="false"/>
+  </SyntheticProperties>
+  <AuxValues>
+    <AuxValue name="FormSettings_autoResourcing" type="java.lang.Integer" value="0"/>
+    <AuxValue name="FormSettings_autoSetComponentName" type="java.lang.Boolean" value="false"/>
+    <AuxValue name="FormSettings_generateFQN" type="java.lang.Boolean" value="true"/>
+    <AuxValue name="FormSettings_generateMnemonicsCode" type="java.lang.Boolean" value="false"/>
+    <AuxValue name="FormSettings_i18nAutoMode" type="java.lang.Boolean" value="false"/>
+    <AuxValue name="FormSettings_layoutCodeTarget" type="java.lang.Integer" value="1"/>
+    <AuxValue name="FormSettings_listenerGenerationStyle" type="java.lang.Integer" value="0"/>
+    <AuxValue name="FormSettings_variablesLocal" type="java.lang.Boolean" value="false"/>
+    <AuxValue name="FormSettings_variablesModifier" type="java.lang.Integer" value="2"/>
+  </AuxValues>
+
+  <Layout>
+    <DimensionLayout dim="0">
+      <Group type="103" groupAlignment="0" attributes="0">
+          <Group type="102" alignment="0" attributes="0">
+              <EmptySpace max="-2" attributes="0"/>
+              <Component id="jTabbedPane1" max="32767" attributes="0"/>
+              <EmptySpace max="-2" attributes="0"/>
+          </Group>
+      </Group>
+    </DimensionLayout>
+    <DimensionLayout dim="1">
+      <Group type="103" groupAlignment="0" attributes="0">
+          <Group type="102" alignment="0" attributes="0">
+              <EmptySpace max="-2" attributes="0"/>
+              <Component id="jTabbedPane1" max="32767" attributes="0"/>
+              <EmptySpace max="-2" attributes="0"/>
+          </Group>
+      </Group>
+    </DimensionLayout>
+  </Layout>
+  <SubComponents>
+    <Container class="javax.swing.JTabbedPane" name="jTabbedPane1">
+
+      <Layout class="org.netbeans.modules.form.compat2.layouts.support.JTabbedPaneSupportLayout"/>
+      <SubComponents>
+        <Container class="javax.swing.JPanel" name="jPanel1">
+          <Constraints>
+            <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.support.JTabbedPaneSupportLayout" value="org.netbeans.modules.form.compat2.layouts.support.JTabbedPaneSupportLayout$JTabbedPaneConstraintsDescription">
+              <JTabbedPaneConstraints tabName="Kezl&#xe9;si Adatok">
+                <Property name="tabTitle" type="java.lang.String" value="Kezl&#xe9;si Adatok"/>
+              </JTabbedPaneConstraints>
+            </Constraint>
+          </Constraints>
+
+          <Layout>
+            <DimensionLayout dim="0">
+              <Group type="103" groupAlignment="0" attributes="0">
+                  <Group type="102" attributes="0">
+                      <EmptySpace max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="0" attributes="0">
+                          <Group type="102" alignment="0" attributes="0">
+                              <Component id="jLabelFelvetel" min="-2" max="-2" attributes="0"/>
+                              <EmptySpace max="-2" attributes="0"/>
+                              <Component id="jDateChooserFelvetel" min="-2" max="-2" attributes="0"/>
+                          </Group>
+                          <Group type="102" alignment="0" attributes="0">
+                              <Component id="jLabelTavozas" min="-2" max="-2" attributes="0"/>
+                              <EmptySpace max="-2" attributes="0"/>
+                              <Component id="jDateChooserTavozas" min="-2" max="-2" attributes="0"/>
+                          </Group>
+                          <Group type="102" alignment="0" attributes="0">
+                              <Group type="103" groupAlignment="0" attributes="0">
+                                  <Component id="jLabel1" alignment="0" min="-2" max="-2" attributes="0"/>
+                                  <Component id="jLabelFurdokura" alignment="0" min="-2" max="-2" attributes="0"/>
+                              </Group>
+                              <EmptySpace max="-2" attributes="0"/>
+                              <Group type="103" groupAlignment="1" max="-2" attributes="0">
+                                  <Component id="jTextFieldFurdokura" pref="82" max="32767" attributes="0"/>
+                                  <Component id="jTextFieldIvokura" alignment="1" max="32767" attributes="0"/>
+                              </Group>
+                          </Group>
+                      </Group>
+                      <EmptySpace pref="450" max="32767" attributes="0"/>
+                  </Group>
+              </Group>
+            </DimensionLayout>
+            <DimensionLayout dim="1">
+              <Group type="103" groupAlignment="0" attributes="0">
+                  <Group type="102" alignment="0" attributes="0">
+                      <EmptySpace min="-2" pref="19" max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="0" attributes="0">
+                          <Component id="jDateChooserFelvetel" min="-2" max="-2" attributes="0"/>
+                          <Component id="jLabelFelvetel" min="-2" max="-2" attributes="0"/>
+                      </Group>
+                      <EmptySpace type="separate" max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="0" attributes="0">
+                          <Component id="jLabelTavozas" min="-2" max="-2" attributes="0"/>
+                          <Component id="jDateChooserTavozas" min="-2" max="-2" attributes="0"/>
+                      </Group>
+                      <EmptySpace type="separate" max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="3" attributes="0">
+                          <Component id="jLabel1" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="jTextFieldIvokura" alignment="3" min="-2" max="-2" attributes="0"/>
+                      </Group>
+                      <EmptySpace max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="3" attributes="0">
+                          <Component id="jLabelFurdokura" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="jTextFieldFurdokura" alignment="3" min="-2" max="-2" attributes="0"/>
+                      </Group>
+                      <EmptySpace pref="524" max="32767" attributes="0"/>
+                  </Group>
+              </Group>
+            </DimensionLayout>
+          </Layout>
+          <SubComponents>
+            <Component class="javax.swing.JLabel" name="jLabelFelvetel">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="Felv&#xe9;tel: "/>
+              </Properties>
+            </Component>
+            <Component class="com.toedter.calendar.JDateChooser" name="jDateChooserFelvetel">
+            </Component>
+            <Component class="javax.swing.JLabel" name="jLabelTavozas">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="T&#xe1;voz&#xe1;s: "/>
+              </Properties>
+            </Component>
+            <Component class="com.toedter.calendar.JDateChooser" name="jDateChooserTavozas">
+            </Component>
+            <Component class="javax.swing.JLabel" name="jLabel1">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="Iv&#xf3;k&#xfa;ra: "/>
+              </Properties>
+            </Component>
+            <Component class="javax.swing.JTextField" name="jTextFieldIvokura">
+            </Component>
+            <Component class="javax.swing.JLabel" name="jLabelFurdokura">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="F&#xfc;rd&#x151;k&#xfa;ra:"/>
+              </Properties>
+            </Component>
+            <Component class="javax.swing.JTextField" name="jTextFieldFurdokura">
+            </Component>
+          </SubComponents>
+        </Container>
+        <Container class="javax.swing.JPanel" name="jPanel3">
+          <Constraints>
+            <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.support.JTabbedPaneSupportLayout" value="org.netbeans.modules.form.compat2.layouts.support.JTabbedPaneSupportLayout$JTabbedPaneConstraintsDescription">
+              <JTabbedPaneConstraints tabName="Immunst&#xe1;tusz">
+                <Property name="tabTitle" type="java.lang.String" value="Immunst&#xe1;tusz"/>
+              </JTabbedPaneConstraints>
+            </Constraint>
+          </Constraints>
+
+          <Layout>
+            <DimensionLayout dim="0">
+              <Group type="103" groupAlignment="0" attributes="0">
+                  <Group type="102" attributes="0">
+                      <EmptySpace max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="0" attributes="0">
+                          <Group type="103" alignment="0" groupAlignment="0" max="-2" attributes="0">
+                              <Group type="102" alignment="0" attributes="0">
+                                  <Component id="jLabelT_sejt" min="-2" max="-2" attributes="0"/>
+                                  <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                                  <Component id="jTextFieldT_sejt" min="-2" pref="132" max="-2" attributes="0"/>
+                              </Group>
+                              <Group type="102" alignment="0" attributes="0">
+                                  <Component id="jLabelCd_negy" min="-2" max="-2" attributes="0"/>
+                                  <EmptySpace max="-2" attributes="0"/>
+                                  <Component id="jTextFieldCd_negy" pref="132" max="32767" attributes="0"/>
+                              </Group>
+                              <Group type="102" alignment="0" attributes="0">
+                                  <Component id="jLabelCd_nyolc" min="-2" max="-2" attributes="0"/>
+                                  <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                                  <Component id="jTextFieldCd_nyolc" max="32767" attributes="0"/>
+                              </Group>
+                              <Group type="102" alignment="0" attributes="0">
+                                  <Component id="jLabelCd_negynyolc_arany" min="-2" max="-2" attributes="0"/>
+                                  <EmptySpace max="-2" attributes="0"/>
+                                  <Component id="jTextFieldCd_negynyolc" min="-2" pref="133" max="-2" attributes="0"/>
+                              </Group>
+                              <Group type="102" alignment="0" attributes="0">
+                                  <Component id="jLabelNk_funkcio" min="-2" max="-2" attributes="0"/>
+                                  <EmptySpace max="-2" attributes="0"/>
+                                  <Component id="jTextFieldNk_funkcio" min="-2" pref="112" max="-2" attributes="0"/>
+                              </Group>
+                              <Group type="102" alignment="0" attributes="0">
+                                  <Component id="jLabelCitotoxicitas" min="-2" max="-2" attributes="0"/>
+                                  <EmptySpace max="-2" attributes="0"/>
+                                  <Component id="jTextFieldCitotoxicitasi_index" min="-2" pref="115" max="-2" attributes="0"/>
+                              </Group>
+                              <Group type="102" alignment="0" attributes="0">
+                                  <Component id="jLabelNk_szamitott" min="-2" max="-2" attributes="0"/>
+                                  <EmptySpace max="-2" attributes="0"/>
+                                  <Component id="jTextFieldNk_szamitott" min="-2" pref="119" max="-2" attributes="0"/>
+                              </Group>
+                              <Group type="102" alignment="0" attributes="0">
+                                  <Component id="jLabelCitotoxicitas_szamitott" min="-2" max="-2" attributes="0"/>
+                                  <EmptySpace max="-2" attributes="0"/>
+                                  <Component id="jTextFieldCitotoxicitas_szamitott" min="-2" pref="94" max="-2" attributes="0"/>
+                              </Group>
+                              <Group type="102" alignment="0" attributes="0">
+                                  <Component id="jLabelNk_limfocita_szam" min="-2" max="-2" attributes="0"/>
+                                  <EmptySpace max="-2" attributes="0"/>
+                                  <Component id="jTextFieldNk_limfoctaszam" min="-2" pref="103" max="-2" attributes="0"/>
+                              </Group>
+                              <Group type="102" alignment="0" attributes="0">
+                                  <Group type="103" groupAlignment="0" attributes="0">
+                                      <Component id="jLabelB_sejt" alignment="0" min="-2" max="-2" attributes="0"/>
+                                      <Component id="jLabelNk_sejt" alignment="0" min="-2" max="-2" attributes="0"/>
+                                  </Group>
+                                  <EmptySpace max="-2" attributes="0"/>
+                                  <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                                      <Component id="jTextFieldNk_sejt" pref="132" max="32767" attributes="0"/>
+                                      <Component id="jTextFieldB_sejt" max="32767" attributes="0"/>
+                                  </Group>
+                              </Group>
+                              <Group type="102" alignment="0" attributes="0">
+                                  <Component id="jLabelHif" min="-2" max="-2" attributes="0"/>
+                                  <EmptySpace max="-2" attributes="0"/>
+                                  <Component id="jTextFieldHif" max="32767" attributes="0"/>
+                              </Group>
+                              <Group type="102" alignment="0" attributes="0">
+                                  <Component id="jLabelC_vitamin" min="-2" max="-2" attributes="0"/>
+                                  <EmptySpace max="-2" attributes="0"/>
+                                  <Component id="jTextFieldC_vitamin" min="-2" pref="101" max="-2" attributes="0"/>
+                              </Group>
+                          </Group>
+                          <Group type="102" alignment="0" attributes="0">
+                              <Component id="jLabelHla_dr" min="-2" max="-2" attributes="0"/>
+                              <EmptySpace max="-2" attributes="0"/>
+                              <Component id="jTextFieldHla_dr" min="-2" pref="114" max="-2" attributes="0"/>
+                          </Group>
+                          <Group type="102" alignment="0" attributes="0">
+                              <Component id="jLabelCd_harom" min="-2" max="-2" attributes="0"/>
+                              <EmptySpace max="-2" attributes="0"/>
+                              <Component id="jTextFieldCd_haromnyolc" min="-2" pref="113" max="-2" attributes="0"/>
+                          </Group>
+                      </Group>
+                      <EmptySpace pref="280" max="32767" attributes="0"/>
+                  </Group>
+                  <Group type="102" alignment="1" attributes="0">
+                      <EmptySpace max="32767" attributes="0"/>
+                      <Component id="jButtonImmun" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace min="-2" pref="166" max="-2" attributes="0"/>
+                  </Group>
+              </Group>
+            </DimensionLayout>
+            <DimensionLayout dim="1">
+              <Group type="103" groupAlignment="0" attributes="0">
+                  <Group type="102" alignment="0" attributes="0">
+                      <EmptySpace max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="3" attributes="0">
+                          <Component id="jLabelT_sejt" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="jTextFieldT_sejt" alignment="3" min="-2" max="-2" attributes="0"/>
+                      </Group>
+                      <EmptySpace max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="3" attributes="0">
+                          <Component id="jLabelB_sejt" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="jTextFieldB_sejt" alignment="3" min="-2" max="-2" attributes="0"/>
+                      </Group>
+                      <EmptySpace max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="3" attributes="0">
+                          <Component id="jLabelNk_sejt" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="jTextFieldNk_sejt" alignment="3" min="-2" max="-2" attributes="0"/>
+                      </Group>
+                      <EmptySpace max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="3" attributes="0">
+                          <Component id="jLabelCd_negy" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="jTextFieldCd_negy" alignment="3" min="-2" max="-2" attributes="0"/>
+                      </Group>
+                      <EmptySpace max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="3" attributes="0">
+                          <Component id="jLabelCd_nyolc" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="jTextFieldCd_nyolc" alignment="3" min="-2" max="-2" attributes="0"/>
+                      </Group>
+                      <EmptySpace max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="3" attributes="0">
+                          <Component id="jLabelHla_dr" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="jTextFieldHla_dr" alignment="3" min="-2" max="-2" attributes="0"/>
+                      </Group>
+                      <EmptySpace max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="3" attributes="0">
+                          <Component id="jLabelCd_harom" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="jTextFieldCd_haromnyolc" alignment="3" min="-2" max="-2" attributes="0"/>
+                      </Group>
+                      <EmptySpace max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="3" attributes="0">
+                          <Component id="jLabelCd_negynyolc_arany" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="jTextFieldCd_negynyolc" alignment="3" min="-2" max="-2" attributes="0"/>
+                      </Group>
+                      <EmptySpace max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="3" attributes="0">
+                          <Component id="jLabelNk_funkcio" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="jTextFieldNk_funkcio" alignment="3" min="-2" max="-2" attributes="0"/>
+                      </Group>
+                      <EmptySpace max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="3" attributes="0">
+                          <Component id="jLabelCitotoxicitas" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="jTextFieldCitotoxicitasi_index" alignment="3" min="-2" max="-2" attributes="0"/>
+                      </Group>
+                      <EmptySpace max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="3" attributes="0">
+                          <Component id="jLabelNk_szamitott" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="jTextFieldNk_szamitott" alignment="3" min="-2" max="-2" attributes="0"/>
+                      </Group>
+                      <EmptySpace max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="3" attributes="0">
+                          <Component id="jLabelCitotoxicitas_szamitott" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="jTextFieldCitotoxicitas_szamitott" alignment="3" min="-2" max="-2" attributes="0"/>
+                      </Group>
+                      <EmptySpace max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="3" attributes="0">
+                          <Component id="jLabelNk_limfocita_szam" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="jTextFieldNk_limfoctaszam" alignment="3" min="-2" max="-2" attributes="0"/>
+                      </Group>
+                      <EmptySpace max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="3" attributes="0">
+                          <Component id="jLabelC_vitamin" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="jTextFieldC_vitamin" alignment="3" min="-2" max="-2" attributes="0"/>
+                      </Group>
+                      <EmptySpace max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="3" attributes="0">
+                          <Component id="jLabelHif" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="jTextFieldHif" alignment="3" min="-2" max="-2" attributes="0"/>
+                      </Group>
+                      <EmptySpace min="-2" pref="34" max="-2" attributes="0"/>
+                      <Component id="jButtonImmun" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace pref="213" max="32767" attributes="0"/>
+                  </Group>
+              </Group>
+            </DimensionLayout>
+          </Layout>
+          <SubComponents>
+            <Component class="javax.swing.JLabel" name="jLabelT_sejt">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="T sejt % limfocit&#xe1;kon bel&#xfc;l: "/>
+              </Properties>
+            </Component>
+            <Component class="javax.swing.JLabel" name="jLabelB_sejt">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="B sejt % limfocit&#xe1;kon bel&#xfc;l: "/>
+              </Properties>
+            </Component>
+            <Component class="javax.swing.JLabel" name="jLabelNk_sejt">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="NK sejt % limfocit&#xe1;kon bel&#xfc;l: "/>
+              </Properties>
+            </Component>
+            <Component class="javax.swing.JLabel" name="jLabelCd_negy">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="CD4+ % a limfocit&#xe1;kon bel&#xfc;l:"/>
+              </Properties>
+            </Component>
+            <Component class="javax.swing.JLabel" name="jLabelCd_nyolc">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="CD8+ % limfocit&#xe1;kon bel&#xfc;l: "/>
+              </Properties>
+            </Component>
+            <Component class="javax.swing.JLabel" name="jLabelHla_dr">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="HLA-DR+/CD3+ % limfocit&#xe1;kon bel&#xfc;l: "/>
+              </Properties>
+            </Component>
+            <Component class="javax.swing.JLabel" name="jLabelCd_harom">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="CD3+CD8+CD56+ % limfocit&#xe1;kon bel&#xfc;l: "/>
+              </Properties>
+            </Component>
+            <Component class="javax.swing.JLabel" name="jLabelCd_negynyolc_arany">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="CD4+/CD8+ ar&#xe1;ny: "/>
+              </Properties>
+            </Component>
+            <Component class="javax.swing.JLabel" name="jLabelNk_funkcio">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="Nk funkci&#xf3;: "/>
+              </Properties>
+            </Component>
+            <Component class="javax.swing.JLabel" name="jLabelCitotoxicitas">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="Citotoxicit&#xe1;si index: "/>
+              </Properties>
+            </Component>
+            <Component class="javax.swing.JLabel" name="jLabelNk_szamitott">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="NK funkci&#xf3; sz&#xe1;mitott: "/>
+              </Properties>
+            </Component>
+            <Component class="javax.swing.JLabel" name="jLabelCitotoxicitas_szamitott">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="Citotoxicit&#xe1;si index - sz&#xe1;mitott: "/>
+              </Properties>
+            </Component>
+            <Component class="javax.swing.JLabel" name="jLabelNk_limfocita_szam">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="NK limfocita sz&#xe1;m:"/>
+              </Properties>
+            </Component>
+            <Component class="javax.swing.JLabel" name="jLabelC_vitamin">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="C-vitamin: "/>
+              </Properties>
+            </Component>
+            <Component class="javax.swing.JLabel" name="jLabelHif">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="HIF 1 alfa: "/>
+              </Properties>
+            </Component>
+            <Component class="javax.swing.JTextField" name="jTextFieldT_sejt">
+            </Component>
+            <Component class="javax.swing.JTextField" name="jTextFieldB_sejt">
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jTextFieldB_sejtActionPerformed"/>
+              </Events>
+            </Component>
+            <Component class="javax.swing.JTextField" name="jTextFieldNk_sejt">
+            </Component>
+            <Component class="javax.swing.JTextField" name="jTextFieldCd_negy">
+            </Component>
+            <Component class="javax.swing.JTextField" name="jTextFieldCd_nyolc">
+            </Component>
+            <Component class="javax.swing.JTextField" name="jTextFieldHla_dr">
+            </Component>
+            <Component class="javax.swing.JTextField" name="jTextFieldCd_haromnyolc">
+            </Component>
+            <Component class="javax.swing.JTextField" name="jTextFieldCd_negynyolc">
+            </Component>
+            <Component class="javax.swing.JTextField" name="jTextFieldNk_funkcio">
+            </Component>
+            <Component class="javax.swing.JTextField" name="jTextFieldCitotoxicitasi_index">
+            </Component>
+            <Component class="javax.swing.JTextField" name="jTextFieldNk_szamitott">
+            </Component>
+            <Component class="javax.swing.JTextField" name="jTextFieldCitotoxicitas_szamitott">
+            </Component>
+            <Component class="javax.swing.JTextField" name="jTextFieldNk_limfoctaszam">
+            </Component>
+            <Component class="javax.swing.JTextField" name="jTextFieldC_vitamin">
+            </Component>
+            <Component class="javax.swing.JTextField" name="jTextFieldHif">
+            </Component>
+            <Component class="javax.swing.JButton" name="jButtonImmun">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="R&#xf6;gzit"/>
+              </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButtonImmunActionPerformed"/>
+              </Events>
+            </Component>
+          </SubComponents>
+        </Container>
+        <Container class="javax.swing.JPanel" name="jPanel4">
+          <Constraints>
+            <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.support.JTabbedPaneSupportLayout" value="org.netbeans.modules.form.compat2.layouts.support.JTabbedPaneSupportLayout$JTabbedPaneConstraintsDescription">
+              <JTabbedPaneConstraints tabName="V&#xe9;rk&#xe9;p">
+                <Property name="tabTitle" type="java.lang.String" value="V&#xe9;rk&#xe9;p"/>
+              </JTabbedPaneConstraints>
+            </Constraint>
+          </Constraints>
+
+          <Layout>
+            <DimensionLayout dim="0">
+              <Group type="103" groupAlignment="0" attributes="0">
+                  <Group type="102" attributes="0">
+                      <EmptySpace max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                          <Group type="102" alignment="0" attributes="0">
+                              <Component id="jLabelFeherversejt" min="-2" max="-2" attributes="0"/>
+                              <EmptySpace max="-2" attributes="0"/>
+                              <Component id="jTextFieldFeherversejt" min="-2" pref="100" max="-2" attributes="0"/>
+                          </Group>
+                          <Group type="102" alignment="0" attributes="0">
+                              <Component id="jLabelVvt" min="-2" max="-2" attributes="0"/>
+                              <EmptySpace max="-2" attributes="0"/>
+                              <Component id="jTextFieldVvt" max="32767" attributes="0"/>
+                          </Group>
+                          <Group type="102" alignment="0" attributes="0">
+                              <Group type="103" groupAlignment="0" attributes="0">
+                                  <Component id="jLabelVorosversejt" alignment="0" min="-2" max="-2" attributes="0"/>
+                                  <Component id="jLabelHemoglobin" alignment="0" min="-2" max="-2" attributes="0"/>
+                                  <Component id="jLabelHematokrit" alignment="0" min="-2" max="-2" attributes="0"/>
+                                  <Component id="jLabelMcv" alignment="0" min="-2" max="-2" attributes="0"/>
+                                  <Component id="jLabelMch" alignment="0" min="-2" max="-2" attributes="0"/>
+                                  <Component id="jLabelMchc" alignment="0" min="-2" max="-2" attributes="0"/>
+                                  <Component id="jLabelTrombocitaszam" alignment="0" min="-2" max="-2" attributes="0"/>
+                                  <Component id="jLabelRdwcv" alignment="0" min="-2" max="-2" attributes="0"/>
+                                  <Component id="jLabelMpv" alignment="0" min="-2" max="-2" attributes="0"/>
+                                  <Component id="jLabelNeut" alignment="0" min="-2" max="-2" attributes="0"/>
+                                  <Component id="jLabelLymph" alignment="0" min="-2" max="-2" attributes="0"/>
+                                  <Component id="jLabelMono" alignment="0" min="-2" max="-2" attributes="0"/>
+                                  <Component id="jLabelEo" alignment="0" min="-2" max="-2" attributes="0"/>
+                                  <Component id="jLabelBaso" alignment="0" min="-2" max="-2" attributes="0"/>
+                                  <Component id="jLabelLuc" alignment="0" min="-2" max="-2" attributes="0"/>
+                                  <Component id="jLabelNeutabsz" alignment="0" min="-2" max="-2" attributes="0"/>
+                                  <Component id="jLabelLymphabsz" alignment="0" min="-2" max="-2" attributes="0"/>
+                                  <Component id="jLabelMonoabsz" alignment="0" min="-2" max="-2" attributes="0"/>
+                                  <Component id="jLabelEoabsz" alignment="0" min="-2" max="-2" attributes="0"/>
+                                  <Component id="jLabelBasoabsz" alignment="0" min="-2" max="-2" attributes="0"/>
+                                  <Component id="jLabelLucabsz" alignment="0" min="-2" max="-2" attributes="0"/>
+                              </Group>
+                              <EmptySpace max="-2" attributes="0"/>
+                              <Group type="103" groupAlignment="0" attributes="0">
+                                  <Component id="jTextFieldTrombocitaszam" max="32767" attributes="0"/>
+                                  <Component id="jTextFieldVorosoversejt" max="32767" attributes="0"/>
+                                  <Component id="jTextFieldHemoglobin" max="32767" attributes="0"/>
+                                  <Component id="jTextFieldHematokrit" max="32767" attributes="0"/>
+                                  <Component id="jTextFieldMcv" max="32767" attributes="0"/>
+                                  <Component id="jTextFieldMch" max="32767" attributes="0"/>
+                                  <Component id="jTextFieldMchc" max="32767" attributes="0"/>
+                                  <Component id="jTextFieldRdwcv" max="32767" attributes="0"/>
+                                  <Component id="jTextFieldMpv" max="32767" attributes="0"/>
+                                  <Component id="jTextFieldNeut" max="32767" attributes="0"/>
+                                  <Component id="jTextFieldLymph" max="32767" attributes="0"/>
+                                  <Component id="jTextFieldMono" max="32767" attributes="0"/>
+                                  <Component id="jTextFieldEo" max="32767" attributes="0"/>
+                                  <Component id="jTextFieldBaso" max="32767" attributes="0"/>
+                                  <Component id="jTextFieldLuc" max="32767" attributes="0"/>
+                                  <Component id="jTextFieldNeutabsz" max="32767" attributes="0"/>
+                                  <Component id="jTextFieldLymphabsz" max="32767" attributes="0"/>
+                                  <Component id="jTextFieldMonoabsz" max="32767" attributes="0"/>
+                                  <Component id="jTextFieldEoabsz" max="32767" attributes="0"/>
+                                  <Component id="jTextFieldBasoabsz" max="32767" attributes="0"/>
+                                  <Component id="jTextFieldLucabsz" max="32767" attributes="0"/>
+                              </Group>
+                          </Group>
+                      </Group>
+                      <EmptySpace pref="395" max="32767" attributes="0"/>
+                  </Group>
+                  <Group type="102" alignment="1" attributes="0">
+                      <EmptySpace max="32767" attributes="0"/>
+                      <Component id="jButtonRogzitverkep" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace min="-2" pref="124" max="-2" attributes="0"/>
+                  </Group>
+              </Group>
+            </DimensionLayout>
+            <DimensionLayout dim="1">
+              <Group type="103" groupAlignment="0" attributes="0">
+                  <Group type="102" alignment="0" attributes="0">
+                      <EmptySpace min="-2" pref="19" max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="3" attributes="0">
+                          <Component id="jLabelFeherversejt" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="jTextFieldFeherversejt" alignment="3" min="-2" max="-2" attributes="0"/>
+                      </Group>
+                      <EmptySpace max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="0" attributes="0">
+                          <Component id="jLabelVorosversejt" min="-2" max="-2" attributes="0"/>
+                          <Component id="jTextFieldVorosoversejt" min="-2" max="-2" attributes="0"/>
+                      </Group>
+                      <EmptySpace max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="3" attributes="0">
+                          <Component id="jLabelHemoglobin" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="jTextFieldHemoglobin" alignment="3" min="-2" max="-2" attributes="0"/>
+                      </Group>
+                      <EmptySpace max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="3" attributes="0">
+                          <Component id="jLabelHematokrit" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="jTextFieldHematokrit" alignment="3" min="-2" max="-2" attributes="0"/>
+                      </Group>
+                      <EmptySpace max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="3" attributes="0">
+                          <Component id="jLabelMcv" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="jTextFieldMcv" alignment="3" min="-2" max="-2" attributes="0"/>
+                      </Group>
+                      <EmptySpace max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="3" attributes="0">
+                          <Component id="jLabelMch" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="jTextFieldMch" alignment="3" min="-2" max="-2" attributes="0"/>
+                      </Group>
+                      <EmptySpace max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="3" attributes="0">
+                          <Component id="jLabelMchc" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="jTextFieldMchc" alignment="3" min="-2" max="-2" attributes="0"/>
+                      </Group>
+                      <EmptySpace max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="3" attributes="0">
+                          <Component id="jLabelTrombocitaszam" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="jTextFieldTrombocitaszam" alignment="3" min="-2" max="-2" attributes="0"/>
+                      </Group>
+                      <EmptySpace max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="0" attributes="0">
+                          <Component id="jLabelRdwcv" min="-2" max="-2" attributes="0"/>
+                          <Component id="jTextFieldRdwcv" min="-2" max="-2" attributes="0"/>
+                      </Group>
+                      <EmptySpace max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="0" attributes="0">
+                          <Component id="jLabelMpv" min="-2" max="-2" attributes="0"/>
+                          <Component id="jTextFieldMpv" min="-2" max="-2" attributes="0"/>
+                      </Group>
+                      <EmptySpace max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="0" attributes="0">
+                          <Component id="jLabelNeut" min="-2" max="-2" attributes="0"/>
+                          <Component id="jTextFieldNeut" min="-2" max="-2" attributes="0"/>
+                      </Group>
+                      <EmptySpace max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="0" attributes="0">
+                          <Component id="jLabelLymph" min="-2" max="-2" attributes="0"/>
+                          <Component id="jTextFieldLymph" min="-2" max="-2" attributes="0"/>
+                      </Group>
+                      <EmptySpace max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="0" attributes="0">
+                          <Component id="jLabelMono" min="-2" max="-2" attributes="0"/>
+                          <Component id="jTextFieldMono" min="-2" max="-2" attributes="0"/>
+                      </Group>
+                      <EmptySpace max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="0" attributes="0">
+                          <Component id="jLabelEo" min="-2" max="-2" attributes="0"/>
+                          <Component id="jTextFieldEo" min="-2" max="-2" attributes="0"/>
+                      </Group>
+                      <EmptySpace max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="0" attributes="0">
+                          <Component id="jLabelBaso" min="-2" max="-2" attributes="0"/>
+                          <Component id="jTextFieldBaso" min="-2" max="-2" attributes="0"/>
+                      </Group>
+                      <EmptySpace max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="0" attributes="0">
+                          <Component id="jLabelLuc" min="-2" max="-2" attributes="0"/>
+                          <Component id="jTextFieldLuc" min="-2" max="-2" attributes="0"/>
+                      </Group>
+                      <EmptySpace max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="3" attributes="0">
+                          <Component id="jLabelNeutabsz" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="jTextFieldNeutabsz" alignment="3" min="-2" max="-2" attributes="0"/>
+                      </Group>
+                      <EmptySpace max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="3" attributes="0">
+                          <Component id="jLabelLymphabsz" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="jTextFieldLymphabsz" alignment="3" min="-2" max="-2" attributes="0"/>
+                      </Group>
+                      <EmptySpace max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="3" attributes="0">
+                          <Component id="jLabelMonoabsz" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="jTextFieldMonoabsz" alignment="3" min="-2" max="-2" attributes="0"/>
+                      </Group>
+                      <EmptySpace max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="3" attributes="0">
+                          <Component id="jLabelEoabsz" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="jTextFieldEoabsz" alignment="3" min="-2" max="-2" attributes="0"/>
+                      </Group>
+                      <EmptySpace max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="3" attributes="0">
+                          <Component id="jLabelBasoabsz" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="jTextFieldBasoabsz" alignment="3" min="-2" max="-2" attributes="0"/>
+                      </Group>
+                      <EmptySpace max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="3" attributes="0">
+                          <Component id="jLabelLucabsz" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="jTextFieldLucabsz" alignment="3" min="-2" max="-2" attributes="0"/>
+                      </Group>
+                      <EmptySpace max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="3" attributes="0">
+                          <Component id="jLabelVvt" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="jTextFieldVvt" alignment="3" min="-2" max="-2" attributes="0"/>
+                      </Group>
+                      <EmptySpace max="-2" attributes="0"/>
+                      <Component id="jButtonRogzitverkep" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace pref="25" max="32767" attributes="0"/>
+                  </Group>
+              </Group>
+            </DimensionLayout>
+          </Layout>
+          <SubComponents>
+            <Component class="javax.swing.JLabel" name="jLabelFeherversejt">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="Feh&#xe9;rv&#xe9;rsejtsz&#xe1;m: "/>
+              </Properties>
+            </Component>
+            <Component class="javax.swing.JLabel" name="jLabelVorosversejt">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="V&#xf6;r&#xf6;sv&#xe9;rsejtsz&#xe1;m: "/>
+              </Properties>
+            </Component>
+            <Component class="javax.swing.JLabel" name="jLabelHemoglobin">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="Hemoglobin: "/>
+              </Properties>
+            </Component>
+            <Component class="javax.swing.JLabel" name="jLabelHematokrit">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="Hematokrit: "/>
+              </Properties>
+            </Component>
+            <Component class="javax.swing.JLabel" name="jLabelMcv">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="MCV: "/>
+              </Properties>
+            </Component>
+            <Component class="javax.swing.JLabel" name="jLabelMch">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="MCH: "/>
+              </Properties>
+            </Component>
+            <Component class="javax.swing.JLabel" name="jLabelMchc">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="MCHC: "/>
+              </Properties>
+            </Component>
+            <Component class="javax.swing.JLabel" name="jLabelTrombocitaszam">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="Trombocitasz&#xe1;m: "/>
+              </Properties>
+            </Component>
+            <Component class="javax.swing.JLabel" name="jLabelRdwcv">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="RDW-CV: "/>
+              </Properties>
+            </Component>
+            <Component class="javax.swing.JLabel" name="jLabelMpv">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="MPV: "/>
+              </Properties>
+            </Component>
+            <Component class="javax.swing.JLabel" name="jLabelNeut">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="NEUT: "/>
+              </Properties>
+            </Component>
+            <Component class="javax.swing.JLabel" name="jLabelLymph">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="LYMPH: "/>
+              </Properties>
+            </Component>
+            <Component class="javax.swing.JLabel" name="jLabelMono">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="MONO: "/>
+              </Properties>
+            </Component>
+            <Component class="javax.swing.JLabel" name="jLabelEo">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="EO: "/>
+              </Properties>
+            </Component>
+            <Component class="javax.swing.JLabel" name="jLabelBaso">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="BASO: "/>
+              </Properties>
+            </Component>
+            <Component class="javax.swing.JLabel" name="jLabelLuc">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="LUC: "/>
+              </Properties>
+            </Component>
+            <Component class="javax.swing.JLabel" name="jLabelNeutabsz">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="NEUT absz.:"/>
+              </Properties>
+            </Component>
+            <Component class="javax.swing.JLabel" name="jLabelLymphabsz">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="LYMPH absz.:"/>
+              </Properties>
+            </Component>
+            <Component class="javax.swing.JLabel" name="jLabelMonoabsz">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="MONO absz.:"/>
+              </Properties>
+            </Component>
+            <Component class="javax.swing.JLabel" name="jLabelEoabsz">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="EO absz.:"/>
+              </Properties>
+            </Component>
+            <Component class="javax.swing.JLabel" name="jLabelBasoabsz">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="BASO absz.:"/>
+              </Properties>
+            </Component>
+            <Component class="javax.swing.JLabel" name="jLabelLucabsz">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="LUC absz.:"/>
+              </Properties>
+            </Component>
+            <Component class="javax.swing.JLabel" name="jLabelVvt">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="Vvt s&#xfc;llyed&#xe9;si sebess&#xe9;g: "/>
+              </Properties>
+            </Component>
+            <Component class="javax.swing.JTextField" name="jTextFieldFeherversejt">
+              <Properties>
+                <Property name="text" type="java.lang.String" value=" "/>
+              </Properties>
+            </Component>
+            <Component class="javax.swing.JTextField" name="jTextFieldVorosoversejt">
+            </Component>
+            <Component class="javax.swing.JTextField" name="jTextFieldHemoglobin">
+            </Component>
+            <Component class="javax.swing.JTextField" name="jTextFieldHematokrit">
+            </Component>
+            <Component class="javax.swing.JTextField" name="jTextFieldMcv">
+            </Component>
+            <Component class="javax.swing.JTextField" name="jTextFieldMch">
+            </Component>
+            <Component class="javax.swing.JTextField" name="jTextFieldMchc">
+            </Component>
+            <Component class="javax.swing.JTextField" name="jTextFieldTrombocitaszam">
+            </Component>
+            <Component class="javax.swing.JTextField" name="jTextFieldRdwcv">
+            </Component>
+            <Component class="javax.swing.JTextField" name="jTextFieldMpv">
+            </Component>
+            <Component class="javax.swing.JTextField" name="jTextFieldNeut">
+            </Component>
+            <Component class="javax.swing.JTextField" name="jTextFieldLymph">
+            </Component>
+            <Component class="javax.swing.JTextField" name="jTextFieldMono">
+            </Component>
+            <Component class="javax.swing.JTextField" name="jTextFieldEo">
+            </Component>
+            <Component class="javax.swing.JTextField" name="jTextFieldBaso">
+            </Component>
+            <Component class="javax.swing.JTextField" name="jTextFieldLuc">
+            </Component>
+            <Component class="javax.swing.JTextField" name="jTextFieldNeutabsz">
+            </Component>
+            <Component class="javax.swing.JTextField" name="jTextFieldLymphabsz">
+            </Component>
+            <Component class="javax.swing.JTextField" name="jTextFieldMonoabsz">
+            </Component>
+            <Component class="javax.swing.JTextField" name="jTextFieldEoabsz">
+            </Component>
+            <Component class="javax.swing.JTextField" name="jTextFieldBasoabsz">
+            </Component>
+            <Component class="javax.swing.JTextField" name="jTextFieldLucabsz">
+            </Component>
+            <Component class="javax.swing.JTextField" name="jTextFieldVvt">
+            </Component>
+            <Component class="javax.swing.JButton" name="jButtonRogzitverkep">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="R&#xf6;gzit"/>
+              </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButtonRogzitverkepActionPerformed"/>
+              </Events>
+            </Component>
+          </SubComponents>
+        </Container>
+        <Container class="javax.swing.JPanel" name="jPanel5">
+          <Constraints>
+            <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.support.JTabbedPaneSupportLayout" value="org.netbeans.modules.form.compat2.layouts.support.JTabbedPaneSupportLayout$JTabbedPaneConstraintsDescription">
+              <JTabbedPaneConstraints tabName="K&#xe9;palkot&#xf3;">
+                <Property name="tabTitle" type="java.lang.String" value="K&#xe9;palkot&#xf3;"/>
+              </JTabbedPaneConstraints>
+            </Constraint>
+          </Constraints>
+
+          <Layout>
+            <DimensionLayout dim="0">
+              <Group type="103" groupAlignment="0" attributes="0">
+                  <Group type="102" attributes="0">
+                      <EmptySpace max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="0" attributes="0">
+                          <Group type="102" alignment="0" attributes="0">
+                              <Component id="jLabelKepalkotoct" min="-2" max="-2" attributes="0"/>
+                              <EmptySpace max="-2" attributes="0"/>
+                              <Component id="jScrollPane1" max="32767" attributes="0"/>
+                          </Group>
+                          <Group type="102" alignment="0" attributes="0">
+                              <Component id="jLabelKepalkotopetct" min="-2" max="-2" attributes="0"/>
+                              <EmptySpace max="-2" attributes="0"/>
+                              <Component id="jScrollPane2" max="32767" attributes="0"/>
+                          </Group>
+                          <Group type="102" alignment="0" attributes="0">
+                              <Component id="jLabelUltrahang" min="-2" max="-2" attributes="0"/>
+                              <EmptySpace max="-2" attributes="0"/>
+                              <Component id="jScrollPane3" pref="524" max="32767" attributes="0"/>
+                          </Group>
+                          <Group type="102" alignment="0" attributes="0">
+                              <Component id="jLabelMri" min="-2" max="-2" attributes="0"/>
+                              <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                              <Component id="jScrollPane4" max="32767" attributes="0"/>
+                          </Group>
+                      </Group>
+                      <EmptySpace max="-2" attributes="0"/>
+                  </Group>
+                  <Group type="102" alignment="1" attributes="0">
+                      <EmptySpace max="32767" attributes="0"/>
+                      <Component id="jButtonRogzitkepalkoto" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace min="-2" pref="58" max="-2" attributes="0"/>
+                  </Group>
+              </Group>
+            </DimensionLayout>
+            <DimensionLayout dim="1">
+              <Group type="103" groupAlignment="0" attributes="0">
+                  <Group type="102" alignment="0" attributes="0">
+                      <EmptySpace max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="0" attributes="0">
+                          <Component id="jLabelKepalkotoct" min="-2" max="-2" attributes="0"/>
+                          <Component id="jScrollPane1" min="-2" pref="152" max="-2" attributes="0"/>
+                      </Group>
+                      <Group type="103" groupAlignment="0" attributes="0">
+                          <Group type="102" attributes="0">
+                              <EmptySpace min="-2" pref="17" max="-2" attributes="0"/>
+                              <Component id="jLabelKepalkotopetct" min="-2" max="-2" attributes="0"/>
+                          </Group>
+                          <Group type="102" alignment="0" attributes="0">
+                              <EmptySpace min="-2" pref="26" max="-2" attributes="0"/>
+                              <Component id="jScrollPane2" min="-2" pref="139" max="-2" attributes="0"/>
+                          </Group>
+                      </Group>
+                      <Group type="103" groupAlignment="0" attributes="0">
+                          <Group type="102" attributes="0">
+                              <EmptySpace min="-2" pref="12" max="-2" attributes="0"/>
+                              <Component id="jLabelUltrahang" min="-2" max="-2" attributes="0"/>
+                          </Group>
+                          <Group type="102" alignment="0" attributes="0">
+                              <EmptySpace type="separate" max="-2" attributes="0"/>
+                              <Component id="jScrollPane3" min="-2" pref="127" max="-2" attributes="0"/>
+                          </Group>
+                      </Group>
+                      <EmptySpace min="-2" pref="14" max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="0" attributes="0">
+                          <Component id="jLabelMri" min="-2" max="-2" attributes="0"/>
+                          <Component id="jScrollPane4" min="-2" pref="133" max="-2" attributes="0"/>
+                      </Group>
+                      <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                      <Component id="jButtonRogzitkepalkoto" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace max="32767" attributes="0"/>
+                  </Group>
+              </Group>
+            </DimensionLayout>
+          </Layout>
+          <SubComponents>
+            <Component class="javax.swing.JLabel" name="jLabelKepalkotoct">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="CT: "/>
+              </Properties>
+            </Component>
+            <Container class="javax.swing.JScrollPane" name="jScrollPane1">
+              <AuxValues>
+                <AuxValue name="autoScrollPane" type="java.lang.Boolean" value="true"/>
+              </AuxValues>
+
+              <Layout class="org.netbeans.modules.form.compat2.layouts.support.JScrollPaneSupportLayout"/>
+              <SubComponents>
+                <Component class="javax.swing.JTextArea" name="jTextArea1">
+                  <Properties>
+                    <Property name="columns" type="int" value="20"/>
+                    <Property name="rows" type="int" value="5"/>
+                  </Properties>
+                </Component>
+              </SubComponents>
+            </Container>
+            <Component class="javax.swing.JLabel" name="jLabelKepalkotopetct">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="Petct:"/>
+              </Properties>
+            </Component>
+            <Container class="javax.swing.JScrollPane" name="jScrollPane2">
+              <AuxValues>
+                <AuxValue name="autoScrollPane" type="java.lang.Boolean" value="true"/>
+              </AuxValues>
+
+              <Layout class="org.netbeans.modules.form.compat2.layouts.support.JScrollPaneSupportLayout"/>
+              <SubComponents>
+                <Component class="javax.swing.JTextArea" name="jTextArea2">
+                  <Properties>
+                    <Property name="columns" type="int" value="20"/>
+                    <Property name="rows" type="int" value="5"/>
+                  </Properties>
+                </Component>
+              </SubComponents>
+            </Container>
+            <Component class="javax.swing.JLabel" name="jLabelUltrahang">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="Ultrahang: "/>
+              </Properties>
+            </Component>
+            <Container class="javax.swing.JScrollPane" name="jScrollPane3">
+              <AuxValues>
+                <AuxValue name="autoScrollPane" type="java.lang.Boolean" value="true"/>
+              </AuxValues>
+
+              <Layout class="org.netbeans.modules.form.compat2.layouts.support.JScrollPaneSupportLayout"/>
+              <SubComponents>
+                <Component class="javax.swing.JTextArea" name="jTextArea3">
+                  <Properties>
+                    <Property name="columns" type="int" value="20"/>
+                    <Property name="rows" type="int" value="5"/>
+                  </Properties>
+                </Component>
+              </SubComponents>
+            </Container>
+            <Component class="javax.swing.JLabel" name="jLabelMri">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="MRI: "/>
+              </Properties>
+            </Component>
+            <Container class="javax.swing.JScrollPane" name="jScrollPane4">
+              <AuxValues>
+                <AuxValue name="autoScrollPane" type="java.lang.Boolean" value="true"/>
+              </AuxValues>
+
+              <Layout class="org.netbeans.modules.form.compat2.layouts.support.JScrollPaneSupportLayout"/>
+              <SubComponents>
+                <Component class="javax.swing.JTextArea" name="jTextArea4">
+                  <Properties>
+                    <Property name="columns" type="int" value="20"/>
+                    <Property name="rows" type="int" value="5"/>
+                  </Properties>
+                </Component>
+              </SubComponents>
+            </Container>
+            <Component class="javax.swing.JButton" name="jButtonRogzitkepalkoto">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="R&#xf6;gzit"/>
+              </Properties>
+            </Component>
+          </SubComponents>
+        </Container>
+        <Container class="javax.swing.JPanel" name="jPanel6">
+          <Constraints>
+            <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.support.JTabbedPaneSupportLayout" value="org.netbeans.modules.form.compat2.layouts.support.JTabbedPaneSupportLayout$JTabbedPaneConstraintsDescription">
+              <JTabbedPaneConstraints tabName="Klinikai K&#xe9;miai">
+                <Property name="tabTitle" type="java.lang.String" value="Klinikai K&#xe9;miai"/>
+              </JTabbedPaneConstraints>
+            </Constraint>
+          </Constraints>
+
+          <Layout>
+            <DimensionLayout dim="0">
+              <Group type="103" groupAlignment="0" attributes="0">
+                  <Group type="102" attributes="0">
+                      <EmptySpace max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="0" attributes="0">
+                          <Group type="102" alignment="0" attributes="0">
+                              <Component id="jLabelGlukoz" min="-2" max="-2" attributes="0"/>
+                              <EmptySpace max="-2" attributes="0"/>
+                              <Component id="jTextFieldGlukoz" min="-2" pref="100" max="-2" attributes="0"/>
+                          </Group>
+                          <Component id="jLabelHemoglobin_klinikakemia" alignment="0" min="-2" max="-2" attributes="0"/>
+                          <Component id="jLabelHugysav" alignment="0" min="-2" max="-2" attributes="0"/>
+                          <Component id="jLabelKalium" alignment="0" min="-2" max="-2" attributes="0"/>
+                          <Component id="jLabelOsszfeherje" alignment="0" min="-2" max="-2" attributes="0"/>
+                          <Component id="jLabelAlbumin" alignment="0" min="-2" max="-2" attributes="0"/>
+                          <Component id="jLabelCrp" alignment="0" min="-2" max="-2" attributes="0"/>
+                          <Component id="jLabelVas" alignment="0" min="-2" max="-2" attributes="0"/>
+                          <Component id="jLabelTranszferrin" alignment="0" min="-2" max="-2" attributes="0"/>
+                          <Component id="jLabelGot" alignment="0" min="-2" max="-2" attributes="0"/>
+                          <Component id="jLabelGpt" alignment="0" min="-2" max="-2" attributes="0"/>
+                          <Component id="jLabelGgt" alignment="0" min="-2" max="-2" attributes="0"/>
+                          <Component id="jLabelAlkalikus_foszfataz" alignment="0" min="-2" max="-2" attributes="0"/>
+                          <Component id="jLabelCsontspecifikus" alignment="0" min="-2" max="-2" attributes="0"/>
+                          <Component id="jLabelLdh" alignment="0" min="-2" max="-2" attributes="0"/>
+                          <Component id="jLabelLipaz" alignment="0" min="-2" max="-2" attributes="0"/>
+                          <Component id="jLabelKortizol" alignment="0" min="-2" max="-2" attributes="0"/>
+                          <Component id="jLabelHoma" alignment="0" min="-2" max="-2" attributes="0"/>
+                          <Component id="jLabelInzulin" alignment="0" min="-2" max="-2" attributes="0"/>
+                          <Component id="jLabelCa" alignment="0" min="-2" max="-2" attributes="0"/>
+                          <Component id="jLabelHe" alignment="0" min="-2" max="-2" attributes="0"/>
+                          <Component id="jLabelCa_egyot" alignment="0" min="-2" max="-2" attributes="0"/>
+                          <Component id="jLabelCa_hetketto" alignment="0" min="-2" max="-2" attributes="0"/>
+                          <Component id="jLabelCa_egykilenc" alignment="0" min="-2" max="-2" attributes="0"/>
+                          <Component id="jLabelAfp" alignment="0" min="-2" max="-2" attributes="0"/>
+                          <Component id="jLabelCea" alignment="0" min="-2" max="-2" attributes="0"/>
+                          <Component id="jLabelPsa" alignment="0" min="-2" max="-2" attributes="0"/>
+                          <Component id="jLabelFpsa" alignment="0" min="-2" max="-2" attributes="0"/>
+                          <Component id="jLabelReuma" alignment="0" min="-2" max="-2" attributes="0"/>
+                          <Component id="jLabelFeherje" alignment="0" min="-2" max="-2" attributes="0"/>
+                          <Component id="jLabelElfo_para" alignment="0" min="-2" max="-2" attributes="0"/>
+                      </Group>
+                      <EmptySpace pref="450" max="32767" attributes="0"/>
+                  </Group>
+              </Group>
+            </DimensionLayout>
+            <DimensionLayout dim="1">
+              <Group type="103" groupAlignment="0" attributes="0">
+                  <Group type="102" alignment="0" attributes="0">
+                      <EmptySpace max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="3" attributes="0">
+                          <Component id="jLabelGlukoz" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="jTextFieldGlukoz" alignment="3" min="-2" max="-2" attributes="0"/>
+                      </Group>
+                      <EmptySpace max="-2" attributes="0"/>
+                      <Component id="jLabelHemoglobin_klinikakemia" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace max="-2" attributes="0"/>
+                      <Component id="jLabelHugysav" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace max="-2" attributes="0"/>
+                      <Component id="jLabelKalium" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace max="-2" attributes="0"/>
+                      <Component id="jLabelOsszfeherje" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace max="-2" attributes="0"/>
+                      <Component id="jLabelAlbumin" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace max="-2" attributes="0"/>
+                      <Component id="jLabelCrp" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace max="-2" attributes="0"/>
+                      <Component id="jLabelVas" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace max="-2" attributes="0"/>
+                      <Component id="jLabelTranszferrin" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace max="-2" attributes="0"/>
+                      <Component id="jLabelGot" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace max="-2" attributes="0"/>
+                      <Component id="jLabelGpt" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace max="-2" attributes="0"/>
+                      <Component id="jLabelGgt" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace max="-2" attributes="0"/>
+                      <Component id="jLabelAlkalikus_foszfataz" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace max="-2" attributes="0"/>
+                      <Component id="jLabelCsontspecifikus" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace max="-2" attributes="0"/>
+                      <Component id="jLabelLdh" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace max="-2" attributes="0"/>
+                      <Component id="jLabelLipaz" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace max="-2" attributes="0"/>
+                      <Component id="jLabelKortizol" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace max="-2" attributes="0"/>
+                      <Component id="jLabelHoma" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace max="-2" attributes="0"/>
+                      <Component id="jLabelInzulin" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace max="-2" attributes="0"/>
+                      <Component id="jLabelCa" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace max="-2" attributes="0"/>
+                      <Component id="jLabelHe" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace max="-2" attributes="0"/>
+                      <Component id="jLabelCa_egyot" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace max="-2" attributes="0"/>
+                      <Component id="jLabelCa_hetketto" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace max="-2" attributes="0"/>
+                      <Component id="jLabelCa_egykilenc" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace max="-2" attributes="0"/>
+                      <Component id="jLabelAfp" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace max="-2" attributes="0"/>
+                      <Component id="jLabelCea" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace max="-2" attributes="0"/>
+                      <Component id="jLabelPsa" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace max="-2" attributes="0"/>
+                      <Component id="jLabelFpsa" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace max="-2" attributes="0"/>
+                      <Component id="jLabelReuma" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace max="-2" attributes="0"/>
+                      <Component id="jLabelFeherje" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace max="-2" attributes="0"/>
+                      <Component id="jLabelElfo_para" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace pref="34" max="32767" attributes="0"/>
+                  </Group>
+              </Group>
+            </DimensionLayout>
+          </Layout>
+          <SubComponents>
+            <Component class="javax.swing.JLabel" name="jLabelGlukoz">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="Gluk&#xf3;z: "/>
+              </Properties>
+            </Component>
+            <Component class="javax.swing.JTextField" name="jTextFieldGlukoz">
+            </Component>
+            <Component class="javax.swing.JLabel" name="jLabelHemoglobin_klinikakemia">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="Hemoglobin: "/>
+              </Properties>
+            </Component>
+            <Component class="javax.swing.JLabel" name="jLabelHugysav">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="Hugysav: "/>
+              </Properties>
+            </Component>
+            <Component class="javax.swing.JLabel" name="jLabelKalium">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="K&#xe1;lium: "/>
+              </Properties>
+            </Component>
+            <Component class="javax.swing.JLabel" name="jLabelOsszfeherje">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="&#xd6;sszfeh&#xe9;rje: "/>
+              </Properties>
+            </Component>
+            <Component class="javax.swing.JLabel" name="jLabelAlbumin">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="Albumin: "/>
+              </Properties>
+            </Component>
+            <Component class="javax.swing.JLabel" name="jLabelCrp">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="CRP:"/>
+              </Properties>
+            </Component>
+            <Component class="javax.swing.JLabel" name="jLabelVas">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="Vas: "/>
+              </Properties>
+            </Component>
+            <Component class="javax.swing.JLabel" name="jLabelTranszferrin">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="Transzferrin: "/>
+              </Properties>
+            </Component>
+            <Component class="javax.swing.JLabel" name="jLabelGot">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="GOT: "/>
+              </Properties>
+            </Component>
+            <Component class="javax.swing.JLabel" name="jLabelGpt">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="GPT: "/>
+              </Properties>
+            </Component>
+            <Component class="javax.swing.JLabel" name="jLabelGgt">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="GGT: "/>
+              </Properties>
+            </Component>
+            <Component class="javax.swing.JLabel" name="jLabelAlkalikus_foszfataz">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="Alkalikus foszfat&#xe1;z: "/>
+              </Properties>
+            </Component>
+            <Component class="javax.swing.JLabel" name="jLabelCsontspecifikus">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="Csontspecifikus AP:"/>
+              </Properties>
+            </Component>
+            <Component class="javax.swing.JLabel" name="jLabelLdh">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="LDH: "/>
+              </Properties>
+            </Component>
+            <Component class="javax.swing.JLabel" name="jLabelLipaz">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="Lip&#xe1;z: "/>
+              </Properties>
+            </Component>
+            <Component class="javax.swing.JLabel" name="jLabelKortizol">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="Kortizol: "/>
+              </Properties>
+            </Component>
+            <Component class="javax.swing.JLabel" name="jLabelHoma">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="HOMA index: "/>
+              </Properties>
+            </Component>
+            <Component class="javax.swing.JLabel" name="jLabelInzulin">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="Inzulin: "/>
+              </Properties>
+            </Component>
+            <Component class="javax.swing.JLabel" name="jLabelCa">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="CA-125: "/>
+              </Properties>
+            </Component>
+            <Component class="javax.swing.JLabel" name="jLabelHe">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="HE-4: "/>
+              </Properties>
+            </Component>
+            <Component class="javax.swing.JLabel" name="jLabelCa_egyot">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="CA-15-3:"/>
+              </Properties>
+            </Component>
+            <Component class="javax.swing.JLabel" name="jLabelCa_hetketto">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="CA-72-4:"/>
+              </Properties>
+            </Component>
+            <Component class="javax.swing.JLabel" name="jLabelCa_egykilenc">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="CA-19-9:"/>
+              </Properties>
+            </Component>
+            <Component class="javax.swing.JLabel" name="jLabelAfp">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="AFP:"/>
+              </Properties>
+            </Component>
+            <Component class="javax.swing.JLabel" name="jLabelCea">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="CEA:"/>
+              </Properties>
+            </Component>
+            <Component class="javax.swing.JLabel" name="jLabelPsa">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="PSA: "/>
+              </Properties>
+            </Component>
+            <Component class="javax.swing.JLabel" name="jLabelFpsa">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="FPSA: "/>
+              </Properties>
+            </Component>
+            <Component class="javax.swing.JLabel" name="jLabelReuma">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="Reuma faktor: "/>
+              </Properties>
+            </Component>
+            <Component class="javax.swing.JLabel" name="jLabelFeherje">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="Feh&#xe9;rje ELFO: "/>
+              </Properties>
+            </Component>
+            <Component class="javax.swing.JLabel" name="jLabelElfo_para">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="ELFO + Paraprot.:"/>
+              </Properties>
+            </Component>
+          </SubComponents>
+        </Container>
+        <Container class="javax.swing.JPanel" name="jPanel7">
+          <Constraints>
+            <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.support.JTabbedPaneSupportLayout" value="org.netbeans.modules.form.compat2.layouts.support.JTabbedPaneSupportLayout$JTabbedPaneConstraintsDescription">
+              <JTabbedPaneConstraints tabName="Vizsg&#xe1;lati Adatok">
+                <Property name="tabTitle" type="java.lang.String" value="Vizsg&#xe1;lati Adatok"/>
+              </JTabbedPaneConstraints>
+            </Constraint>
+          </Constraints>
+
+          <Layout>
+            <DimensionLayout dim="0">
+              <Group type="103" groupAlignment="0" attributes="0">
+                  <Group type="102" attributes="0">
+                      <EmptySpace max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="0" attributes="0">
+                          <Group type="102" alignment="0" attributes="0">
+                              <Component id="jLabelMegjegyzes" min="-2" max="-2" attributes="0"/>
+                              <EmptySpace max="-2" attributes="0"/>
+                              <Component id="jScrollPane5" max="32767" attributes="0"/>
+                          </Group>
+                          <Group type="102" attributes="0">
+                              <Group type="103" groupAlignment="0" attributes="0">
+                                  <Group type="103" groupAlignment="1" attributes="0">
+                                      <Group type="102" attributes="0">
+                                          <Group type="103" groupAlignment="0" attributes="0">
+                                              <Component id="jLabelRr" alignment="0" min="-2" max="-2" attributes="0"/>
+                                              <Component id="jLabelTpo" alignment="0" min="-2" max="-2" attributes="0"/>
+                                          </Group>
+                                          <EmptySpace max="-2" attributes="0"/>
+                                          <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                                              <Component id="jTextFieldRr" max="32767" attributes="0"/>
+                                              <Component id="jTextFieldTpo" pref="103" max="32767" attributes="0"/>
+                                          </Group>
+                                      </Group>
+                                      <Group type="102" attributes="0">
+                                          <Component id="jLabelSpo" min="-2" max="-2" attributes="0"/>
+                                          <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                                          <Component id="jTextFieldSpo" min="-2" pref="100" max="-2" attributes="0"/>
+                                      </Group>
+                                  </Group>
+                                  <Group type="102" alignment="0" attributes="0">
+                                      <Component id="jLabelOxihemoglobin" min="-2" max="-2" attributes="0"/>
+                                      <EmptySpace max="-2" attributes="0"/>
+                                      <Component id="jTextFieldOxihemoglobin" min="-2" pref="106" max="-2" attributes="0"/>
+                                  </Group>
+                                  <Group type="102" alignment="0" attributes="0">
+                                      <Component id="jLabelDezoxihemoglobin" min="-2" max="-2" attributes="0"/>
+                                      <EmptySpace max="-2" attributes="0"/>
+                                      <Component id="jTextFieldDezoxihemoglobin" min="-2" pref="107" max="-2" attributes="0"/>
+                                  </Group>
+                                  <Group type="102" alignment="0" attributes="0">
+                                      <Component id="jLabelOxsat" min="-2" max="-2" attributes="0"/>
+                                      <EmptySpace max="-2" attributes="0"/>
+                                      <Component id="jTextFieldOxsat" min="-2" pref="110" max="-2" attributes="0"/>
+                                  </Group>
+                              </Group>
+                              <EmptySpace min="0" pref="378" max="32767" attributes="0"/>
+                          </Group>
+                      </Group>
+                      <EmptySpace max="-2" attributes="0"/>
+                  </Group>
+                  <Group type="102" alignment="1" attributes="0">
+                      <EmptySpace max="32767" attributes="0"/>
+                      <Component id="jButtonRogzitvizsgalat" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace min="-2" pref="122" max="-2" attributes="0"/>
+                  </Group>
+              </Group>
+            </DimensionLayout>
+            <DimensionLayout dim="1">
+              <Group type="103" groupAlignment="0" attributes="0">
+                  <Group type="102" alignment="0" attributes="0">
+                      <EmptySpace max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="3" attributes="0">
+                          <Component id="jLabelRr" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="jTextFieldRr" alignment="3" min="-2" max="-2" attributes="0"/>
+                      </Group>
+                      <EmptySpace max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="3" attributes="0">
+                          <Component id="jLabelTpo" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="jTextFieldTpo" alignment="3" min="-2" max="-2" attributes="0"/>
+                      </Group>
+                      <EmptySpace max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="3" attributes="0">
+                          <Component id="jLabelSpo" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="jTextFieldSpo" alignment="3" min="-2" max="-2" attributes="0"/>
+                      </Group>
+                      <EmptySpace max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="3" attributes="0">
+                          <Component id="jLabelOxihemoglobin" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="jTextFieldOxihemoglobin" alignment="3" min="-2" max="-2" attributes="0"/>
+                      </Group>
+                      <EmptySpace max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="3" attributes="0">
+                          <Component id="jLabelDezoxihemoglobin" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="jTextFieldDezoxihemoglobin" alignment="3" min="-2" max="-2" attributes="0"/>
+                      </Group>
+                      <EmptySpace max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="0" attributes="0">
+                          <Component id="jLabelOxsat" min="-2" max="-2" attributes="0"/>
+                          <Component id="jTextFieldOxsat" min="-2" max="-2" attributes="0"/>
+                      </Group>
+                      <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="0" attributes="0">
+                          <Component id="jLabelMegjegyzes" min="-2" max="-2" attributes="0"/>
+                          <Component id="jScrollPane5" min="-2" pref="124" max="-2" attributes="0"/>
+                      </Group>
+                      <EmptySpace min="-2" pref="41" max="-2" attributes="0"/>
+                      <Component id="jButtonRogzitvizsgalat" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace pref="305" max="32767" attributes="0"/>
+                  </Group>
+              </Group>
+            </DimensionLayout>
+          </Layout>
+          <SubComponents>
+            <Component class="javax.swing.JLabel" name="jLabelRr">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="RR: "/>
+              </Properties>
+            </Component>
+            <Component class="javax.swing.JTextField" name="jTextFieldRr">
+            </Component>
+            <Component class="javax.swing.JLabel" name="jLabelTpo">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="Tpo: "/>
+              </Properties>
+            </Component>
+            <Component class="javax.swing.JTextField" name="jTextFieldTpo">
+            </Component>
+            <Component class="javax.swing.JLabel" name="jLabelSpo">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="Spo:"/>
+              </Properties>
+            </Component>
+            <Component class="javax.swing.JTextField" name="jTextFieldSpo">
+            </Component>
+            <Component class="javax.swing.JLabel" name="jLabelOxihemoglobin">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="Oxihemoglobin: "/>
+              </Properties>
+            </Component>
+            <Component class="javax.swing.JTextField" name="jTextFieldOxihemoglobin">
+            </Component>
+            <Component class="javax.swing.JLabel" name="jLabelDezoxihemoglobin">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="Dezoxihemoglobin: "/>
+              </Properties>
+            </Component>
+            <Component class="javax.swing.JTextField" name="jTextFieldDezoxihemoglobin">
+            </Component>
+            <Component class="javax.swing.JLabel" name="jLabelOxsat">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="Oxsat: "/>
+              </Properties>
+            </Component>
+            <Component class="javax.swing.JTextField" name="jTextFieldOxsat">
+            </Component>
+            <Component class="javax.swing.JLabel" name="jLabelMegjegyzes">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="Megjegyz&#xe9;s: "/>
+              </Properties>
+            </Component>
+            <Container class="javax.swing.JScrollPane" name="jScrollPane5">
+              <AuxValues>
+                <AuxValue name="autoScrollPane" type="java.lang.Boolean" value="true"/>
+              </AuxValues>
+
+              <Layout class="org.netbeans.modules.form.compat2.layouts.support.JScrollPaneSupportLayout"/>
+              <SubComponents>
+                <Component class="javax.swing.JTextArea" name="jTextAreaMegjegyzes">
+                  <Properties>
+                    <Property name="columns" type="int" value="20"/>
+                    <Property name="rows" type="int" value="5"/>
+                  </Properties>
+                </Component>
+              </SubComponents>
+            </Container>
+            <Component class="javax.swing.JButton" name="jButtonRogzitvizsgalat">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="R&#xf6;gzit"/>
+              </Properties>
+            </Component>
+          </SubComponents>
+        </Container>
+        <Container class="javax.swing.JPanel" name="jPanel2">
+          <Constraints>
+            <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.support.JTabbedPaneSupportLayout" value="org.netbeans.modules.form.compat2.layouts.support.JTabbedPaneSupportLayout$JTabbedPaneConstraintsDescription">
+              <JTabbedPaneConstraints tabName="Diagn&#xf3;zis">
+                <Property name="tabTitle" type="java.lang.String" value="Diagn&#xf3;zis"/>
+              </JTabbedPaneConstraints>
+            </Constraint>
+          </Constraints>
+
+          <Layout>
+            <DimensionLayout dim="0">
+              <Group type="103" groupAlignment="0" attributes="0">
+                  <Group type="102" attributes="0">
+                      <EmptySpace max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="0" attributes="0">
+                          <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                              <Group type="102" alignment="0" attributes="0">
+                                  <Component id="jLabelDiagnozisegy" min="-2" max="-2" attributes="0"/>
+                                  <EmptySpace max="-2" attributes="0"/>
+                                  <Component id="jTextFieldDiagnozisegy" min="-2" pref="406" max="-2" attributes="0"/>
+                              </Group>
+                              <Group type="102" alignment="0" attributes="0">
+                                  <Group type="103" groupAlignment="0" attributes="0">
+                                      <Component id="jLabelDiagnozisketto" alignment="0" min="-2" max="-2" attributes="0"/>
+                                      <Component id="jLabelDiagnozisharom" alignment="0" min="-2" max="-2" attributes="0"/>
+                                  </Group>
+                                  <EmptySpace max="-2" attributes="0"/>
+                                  <Group type="103" groupAlignment="0" attributes="0">
+                                      <Component id="jTextFieldDiagnozisketto" max="32767" attributes="0"/>
+                                      <Component id="jTextFieldDiganozisharom" max="32767" attributes="0"/>
+                                  </Group>
+                              </Group>
+                              <Group type="102" alignment="0" attributes="0">
+                                  <Component id="jLabelDiagnozisnegy" min="-2" max="-2" attributes="0"/>
+                                  <EmptySpace max="-2" attributes="0"/>
+                                  <Component id="jTextFieldDiagnozisnegy" max="32767" attributes="0"/>
+                              </Group>
+                              <Group type="102" alignment="0" attributes="0">
+                                  <Component id="jLabelDiagnozisot" min="-2" max="-2" attributes="0"/>
+                                  <EmptySpace max="-2" attributes="0"/>
+                                  <Component id="jTextFieldDiagnozisot" max="32767" attributes="0"/>
+                              </Group>
+                          </Group>
+                          <Group type="103" alignment="0" groupAlignment="1" max="-2" attributes="0">
+                              <Group type="102" alignment="0" attributes="0">
+                                  <Component id="jLabelN" min="-2" max="-2" attributes="0"/>
+                                  <EmptySpace max="-2" attributes="0"/>
+                                  <Component id="jTextFieldN" max="32767" attributes="0"/>
+                              </Group>
+                              <Group type="102" alignment="0" attributes="0">
+                                  <Group type="103" groupAlignment="0" attributes="0">
+                                      <Component id="jLabelT" alignment="0" min="-2" max="-2" attributes="0"/>
+                                      <Component id="jLabelM" alignment="0" min="-2" max="-2" attributes="0"/>
+                                  </Group>
+                                  <EmptySpace max="-2" attributes="0"/>
+                                  <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                                      <Component id="jTextFieldT" max="32767" attributes="0"/>
+                                      <Component id="jTextFieldM" pref="72" max="32767" attributes="0"/>
+                                  </Group>
+                              </Group>
+                          </Group>
+                      </Group>
+                      <EmptySpace pref="124" max="32767" attributes="0"/>
+                  </Group>
+                  <Group type="102" alignment="1" attributes="0">
+                      <EmptySpace max="32767" attributes="0"/>
+                      <Component id="jButtonRogzitdiag" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace min="-2" pref="176" max="-2" attributes="0"/>
+                  </Group>
+              </Group>
+            </DimensionLayout>
+            <DimensionLayout dim="1">
+              <Group type="103" groupAlignment="0" attributes="0">
+                  <Group type="102" alignment="0" attributes="0">
+                      <EmptySpace max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="3" attributes="0">
+                          <Component id="jLabelDiagnozisegy" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="jTextFieldDiagnozisegy" alignment="3" min="-2" max="-2" attributes="0"/>
+                      </Group>
+                      <EmptySpace max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="3" attributes="0">
+                          <Component id="jLabelDiagnozisketto" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="jTextFieldDiagnozisketto" alignment="3" min="-2" max="-2" attributes="0"/>
+                      </Group>
+                      <EmptySpace max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="3" attributes="0">
+                          <Component id="jLabelDiagnozisharom" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="jTextFieldDiganozisharom" alignment="3" min="-2" max="-2" attributes="0"/>
+                      </Group>
+                      <EmptySpace max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="3" attributes="0">
+                          <Component id="jLabelDiagnozisnegy" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="jTextFieldDiagnozisnegy" alignment="3" min="-2" max="-2" attributes="0"/>
+                      </Group>
+                      <EmptySpace max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="3" attributes="0">
+                          <Component id="jLabelDiagnozisot" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="jTextFieldDiagnozisot" alignment="3" min="-2" max="-2" attributes="0"/>
+                      </Group>
+                      <EmptySpace max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="3" attributes="0">
+                          <Component id="jLabelT" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="jTextFieldT" alignment="3" min="-2" max="-2" attributes="0"/>
+                      </Group>
+                      <EmptySpace max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="3" attributes="0">
+                          <Component id="jLabelM" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="jTextFieldM" alignment="3" min="-2" max="-2" attributes="0"/>
+                      </Group>
+                      <EmptySpace max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="3" attributes="0">
+                          <Component id="jLabelN" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="jTextFieldN" alignment="3" min="-2" max="-2" attributes="0"/>
+                      </Group>
+                      <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                      <Component id="jButtonRogzitdiag" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace pref="418" max="32767" attributes="0"/>
+                  </Group>
+              </Group>
+            </DimensionLayout>
+          </Layout>
+          <SubComponents>
+            <Component class="javax.swing.JLabel" name="jLabelDiagnozisegy">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="Diagn&#xf3;zis 1:"/>
+              </Properties>
+            </Component>
+            <Component class="javax.swing.JTextField" name="jTextFieldDiagnozisegy">
+            </Component>
+            <Component class="javax.swing.JLabel" name="jLabelDiagnozisketto">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="Diagn&#xf3;zis 2:"/>
+              </Properties>
+            </Component>
+            <Component class="javax.swing.JTextField" name="jTextFieldDiagnozisketto">
+            </Component>
+            <Component class="javax.swing.JLabel" name="jLabelDiagnozisharom">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="Diagn&#xf3;zis 3: "/>
+              </Properties>
+            </Component>
+            <Component class="javax.swing.JTextField" name="jTextFieldDiganozisharom">
+            </Component>
+            <Component class="javax.swing.JLabel" name="jLabelDiagnozisnegy">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="Diagn&#xf3;zis 4: "/>
+              </Properties>
+            </Component>
+            <Component class="javax.swing.JTextField" name="jTextFieldDiagnozisnegy">
+            </Component>
+            <Component class="javax.swing.JLabel" name="jLabelDiagnozisot">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="Diagn&#xf3;zis 5: "/>
+              </Properties>
+            </Component>
+            <Component class="javax.swing.JTextField" name="jTextFieldDiagnozisot">
+            </Component>
+            <Component class="javax.swing.JLabel" name="jLabelT">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="T: "/>
+              </Properties>
+            </Component>
+            <Component class="javax.swing.JTextField" name="jTextFieldT">
+            </Component>
+            <Component class="javax.swing.JLabel" name="jLabelM">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="M: "/>
+              </Properties>
+            </Component>
+            <Component class="javax.swing.JTextField" name="jTextFieldM">
+            </Component>
+            <Component class="javax.swing.JLabel" name="jLabelN">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="N: "/>
+              </Properties>
+            </Component>
+            <Component class="javax.swing.JTextField" name="jTextFieldN">
+            </Component>
+            <Component class="javax.swing.JButton" name="jButtonRogzitdiag">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="R&#xf6;gzit"/>
+              </Properties>
+            </Component>
+          </SubComponents>
+        </Container>
+      </SubComponents>
+    </Container>
+  </SubComponents>
+</Form>
