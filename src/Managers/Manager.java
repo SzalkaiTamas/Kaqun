@@ -9,6 +9,7 @@ import Entity.KezAdat;
 import Entity.KlinikaKemia;
 import Entity.Verkep;
 import Entity.VizsgalatiAdatok;
+import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.cfg.Configuration;
 
@@ -30,6 +31,8 @@ public class Manager {
         return factory;
       
 }
+     
+     
 }
      
    

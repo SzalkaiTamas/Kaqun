@@ -5,9 +5,28 @@
  */
 package GUI;
 
+import Entity.Beteg_Adat;
+import Entity.Diagnozis;
 import Entity.Immun;
+import Entity.Kepalkoto;
+import Entity.KezAdat;
+import Entity.KlinikaKemia;
 import Entity.Verkep;
+import Entity.VizsgalatiAdatok;
+import Managers.Beteg_Adat_Manager;
+import Managers.Diagnozis_Manager;
+import Managers.Kepalkoto_Manager;
+import Managers.Immun_Manager;
+import Managers.KezAdat_Manager;
+import Managers.KlinikaKemia_Manager;
+import Managers.Verkep_Manager;
+import Managers.VizsgalatiAdatok_Manager;
+import java.time.LocalDate;
+import java.time.ZoneId;
+import java.util.Date;
+import java.util.Vector;
 import javax.swing.JOptionPane;
+import javax.swing.table.DefaultTableModel;
 
 /**
  *
@@ -16,6 +35,9 @@ import javax.swing.JOptionPane;
 public class Kezelesek extends javax.swing.JFrame {
     
     private Integer betegAdatId;
+    private Beteg_Adat beteg_adat;
+    
+    boolean update;
     
     public Kezelesek(){
         initComponents();
@@ -26,7 +48,7 @@ public class Kezelesek extends javax.swing.JFrame {
      */
     public Kezelesek(Integer betegAdatId) {
         this.betegAdatId = betegAdatId;
-        
+        beteg_adat = Beteg_Adat_Manager.findById(this.betegAdatId);
         
         
     }
@@ -50,6 +72,37 @@ public class Kezelesek extends javax.swing.JFrame {
         jTextFieldIvokura = new javax.swing.JTextField();
         jLabelFurdokura = new javax.swing.JLabel();
         jTextFieldFurdokura = new javax.swing.JTextField();
+        jLabelOxigen_kamra = new javax.swing.JLabel();
+        jTextFieldOxigen_kamra = new javax.swing.JTextField();
+        jLabelKemo = new javax.swing.JLabel();
+        jTextFieldKemo = new javax.swing.JTextField();
+        jLabelSugar_terapia = new javax.swing.JLabel();
+        jTextFieldSugar_terapia = new javax.swing.JTextField();
+        jLabelHormonterapia = new javax.swing.JLabel();
+        jTextFieldHormonterapia = new javax.swing.JTextField();
+        jButtonRogzit_kezadat = new javax.swing.JButton();
+        jLabeladat_felvetel_kezadat = new javax.swing.JLabel();
+        jDateChooseradat_felvetel_kezadat = new com.toedter.calendar.JDateChooser();
+        jPanel2 = new javax.swing.JPanel();
+        jLabelDiagnozisegy = new javax.swing.JLabel();
+        jTextFieldDiagnozisegy = new javax.swing.JTextField();
+        jLabelDiagnozisketto = new javax.swing.JLabel();
+        jTextFieldDiagnozisketto = new javax.swing.JTextField();
+        jLabelDiagnozisharom = new javax.swing.JLabel();
+        jTextFieldDiganozisharom = new javax.swing.JTextField();
+        jLabelDiagnozisnegy = new javax.swing.JLabel();
+        jTextFieldDiagnozisnegy = new javax.swing.JTextField();
+        jLabelDiagnozisot = new javax.swing.JLabel();
+        jTextFieldDiagnozisot = new javax.swing.JTextField();
+        jLabelT = new javax.swing.JLabel();
+        jTextFieldT = new javax.swing.JTextField();
+        jLabelM = new javax.swing.JLabel();
+        jTextFieldM = new javax.swing.JTextField();
+        jLabelN = new javax.swing.JLabel();
+        jTextFieldN = new javax.swing.JTextField();
+        jButtonRogzitdiag = new javax.swing.JButton();
+        jLabelDiag_adat_felvetel = new javax.swing.JLabel();
+        jDateChooserDiag_adat_felvetel = new com.toedter.calendar.JDateChooser();
         jPanel3 = new javax.swing.JPanel();
         jLabelT_sejt = new javax.swing.JLabel();
         jLabelB_sejt = new javax.swing.JLabel();
@@ -57,7 +110,7 @@ public class Kezelesek extends javax.swing.JFrame {
         jLabelCd_negy = new javax.swing.JLabel();
         jLabelCd_nyolc = new javax.swing.JLabel();
         jLabelHla_dr = new javax.swing.JLabel();
-        jLabelCd_harom = new javax.swing.JLabel();
+        jLabelCd_haromnyolc = new javax.swing.JLabel();
         jLabelCd_negynyolc_arany = new javax.swing.JLabel();
         jLabelNk_funkcio = new javax.swing.JLabel();
         jLabelCitotoxicitas = new javax.swing.JLabel();
@@ -82,6 +135,8 @@ public class Kezelesek extends javax.swing.JFrame {
         jTextFieldC_vitamin = new javax.swing.JTextField();
         jTextFieldHif = new javax.swing.JTextField();
         jButtonImmun = new javax.swing.JButton();
+        jLabelImmun_adat_felvetel = new javax.swing.JLabel();
+        jDateChooserImmun_adat_felvetel = new com.toedter.calendar.JDateChooser();
         jPanel4 = new javax.swing.JPanel();
         jLabelFeherversejt = new javax.swing.JLabel();
         jLabelVorosversejt = new javax.swing.JLabel();
@@ -130,20 +185,24 @@ public class Kezelesek extends javax.swing.JFrame {
         jTextFieldLucabsz = new javax.swing.JTextField();
         jTextFieldVvt = new javax.swing.JTextField();
         jButtonRogzitverkep = new javax.swing.JButton();
+        jLabelVerkep_adat_felvetel = new javax.swing.JLabel();
+        jDateChooserVerkep_adat_felvetel = new com.toedter.calendar.JDateChooser();
         jPanel5 = new javax.swing.JPanel();
         jLabelKepalkotoct = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
-        jTextArea1 = new javax.swing.JTextArea();
+        jTextAreaCt = new javax.swing.JTextArea();
         jLabelKepalkotopetct = new javax.swing.JLabel();
         jScrollPane2 = new javax.swing.JScrollPane();
-        jTextArea2 = new javax.swing.JTextArea();
+        jTextAreaPetct = new javax.swing.JTextArea();
         jLabelUltrahang = new javax.swing.JLabel();
         jScrollPane3 = new javax.swing.JScrollPane();
-        jTextArea3 = new javax.swing.JTextArea();
+        jTextAreaUltrahang = new javax.swing.JTextArea();
         jLabelMri = new javax.swing.JLabel();
         jScrollPane4 = new javax.swing.JScrollPane();
-        jTextArea4 = new javax.swing.JTextArea();
+        jTextAreaMri = new javax.swing.JTextArea();
         jButtonRogzitkepalkoto = new javax.swing.JButton();
+        jLabelKepalkoto_adat_felvetel = new javax.swing.JLabel();
+        jDateChooserKepalkoto_adat_felvetel = new com.toedter.calendar.JDateChooser();
         jPanel6 = new javax.swing.JPanel();
         jLabelGlukoz = new javax.swing.JLabel();
         jTextFieldGlukoz = new javax.swing.JTextField();
@@ -177,6 +236,109 @@ public class Kezelesek extends javax.swing.JFrame {
         jLabelReuma = new javax.swing.JLabel();
         jLabelFeherje = new javax.swing.JLabel();
         jLabelElfo_para = new javax.swing.JLabel();
+        jTextFieldKlinikai_hemoglobin = new javax.swing.JTextField();
+        jTextFieldHugysav = new javax.swing.JTextField();
+        jTextFieldKalium = new javax.swing.JTextField();
+        jTextFieldOsszfeherje = new javax.swing.JTextField();
+        jTextFieldAlbumin = new javax.swing.JTextField();
+        jTextFieldCrp = new javax.swing.JTextField();
+        jTextFieldVas = new javax.swing.JTextField();
+        jTextFieldTranszferrin = new javax.swing.JTextField();
+        jTextFieldGot = new javax.swing.JTextField();
+        jTextFieldGpt = new javax.swing.JTextField();
+        jTextFieldGgt = new javax.swing.JTextField();
+        jTextFieldAlkalikus_foszfataz = new javax.swing.JTextField();
+        jTextFieldCsontspecifikus_ap = new javax.swing.JTextField();
+        jTextFieldLdh = new javax.swing.JTextField();
+        jTextFieldLipaz = new javax.swing.JTextField();
+        jTextFieldKortizol = new javax.swing.JTextField();
+        jTextFieldHoma_index = new javax.swing.JTextField();
+        jTextFieldInzulin = new javax.swing.JTextField();
+        jTextFieldCa_egyhuszonot = new javax.swing.JTextField();
+        jTextFieldHe_negy = new javax.swing.JTextField();
+        jTextFieldCa_tizenotharom = new javax.swing.JTextField();
+        jTextFieldCa_hetvenkettonegy = new javax.swing.JTextField();
+        jTextFieldCa_tizenkilenckilenc = new javax.swing.JTextField();
+        jTextFieldAfp = new javax.swing.JTextField();
+        jTextFieldCea = new javax.swing.JTextField();
+        jTextFieldPsa = new javax.swing.JTextField();
+        jTextFieldFpsa = new javax.swing.JTextField();
+        jTextFieldReuma_faktor = new javax.swing.JTextField();
+        jTextFieldFeherje_elfo = new javax.swing.JTextField();
+        jTextFieldElfo_paraprot = new javax.swing.JTextField();
+        jButtonKlinikai_kemiai_rogzit = new javax.swing.JButton();
+        jLabelKlinikaKemia_adat_felvetel = new javax.swing.JLabel();
+        jDateChooserKlinikaKemia_adat_felvetel = new com.toedter.calendar.JDateChooser();
+        jLabelProlaktin = new javax.swing.JLabel();
+        jTextFieldProlaktin = new javax.swing.JTextField();
+        jLabelKoleszterin = new javax.swing.JLabel();
+        jTextFieldKoleszterin = new javax.swing.JTextField();
+        jLabelTriglicerid = new javax.swing.JLabel();
+        jTextFieldTriglicerid = new javax.swing.JTextField();
+        jLabel2 = new javax.swing.JLabel();
+        jTextFieldHdl_koleszterin = new javax.swing.JTextField();
+        jLabelOsszbilirubin = new javax.swing.JLabel();
+        jTextFieldOsszbilirubin = new javax.swing.JTextField();
+        jLabelCk = new javax.swing.JLabel();
+        jTextFieldCk = new javax.swing.JTextField();
+        jLabelAlfa_amilaz = new javax.swing.JLabel();
+        jTextFieldAlfa_amilaz = new javax.swing.JTextField();
+        jLabelFt4 = new javax.swing.JLabel();
+        jTextFieldFt4 = new javax.swing.JTextField();
+        jLabelFt3 = new javax.swing.JLabel();
+        jTextFieldFt3 = new javax.swing.JTextField();
+        jLabelTsh = new javax.swing.JLabel();
+        jTextFieldTsh = new javax.swing.JTextField();
+        jLabelThyreoglobulin = new javax.swing.JLabel();
+        jTextFieldThyreoglobulin = new javax.swing.JTextField();
+        jLabelD_vitamin = new javax.swing.JLabel();
+        jTextFieldD_vitamin = new javax.swing.JTextField();
+        jLabelParathormon = new javax.swing.JLabel();
+        jTextFieldParathormon = new javax.swing.JTextField();
+        jLabelAnti_muller_hormon = new javax.swing.JLabel();
+        jTextFieldAnti_muller_hormon = new javax.swing.JTextField();
+        jLabelFsh = new javax.swing.JLabel();
+        jTextFieldFsh = new javax.swing.JTextField();
+        jLabelLh = new javax.swing.JLabel();
+        jTextFieldLh = new javax.swing.JTextField();
+        jLabelOsztradiol = new javax.swing.JLabel();
+        jTextFieldOsztradiol = new javax.swing.JTextField();
+        jLabelProgeszteron = new javax.swing.JLabel();
+        jTextFieldProgeszteron = new javax.swing.JTextField();
+        jLabelTotal_tesztoszteron = new javax.swing.JLabel();
+        jTextFieldTotal_tesztoszteron = new javax.swing.JTextField();
+        jLabelAldoszteron = new javax.swing.JLabel();
+        jTextFieldAldoszteron = new javax.swing.JTextField();
+        jLabelIgf = new javax.swing.JLabel();
+        jTextFieldIgf = new javax.swing.JTextField();
+        jLabelInzulin_res = new javax.swing.JLabel();
+        jTextFieldInzulin_res = new javax.swing.JTextField();
+        jLabelPropsa = new javax.swing.JLabel();
+        jTextFieldPropsa = new javax.swing.JTextField();
+        jLabelNse = new javax.swing.JLabel();
+        jTextFieldNse = new javax.swing.JTextField();
+        jLabelS100 = new javax.swing.JLabel();
+        jTextFieldS100 = new javax.swing.JTextField();
+        jLabelTpa = new javax.swing.JLabel();
+        jTextFieldTpa = new javax.swing.JTextField();
+        jLabelM2_pk = new javax.swing.JLabel();
+        jTextFieldM2_pk = new javax.swing.JTextField();
+        jLabelColiakia = new javax.swing.JLabel();
+        jTextFieldColiakia = new javax.swing.JTextField();
+        jLabelAnti_tpo = new javax.swing.JLabel();
+        jTextFieldAnti_tpo = new javax.swing.JTextField();
+        jLabelThyreo_autoat = new javax.swing.JLabel();
+        jTextFieldThyreo_autoat = new javax.swing.JTextField();
+        jLabelTsh_receptor_autoat = new javax.swing.JLabel();
+        jTextFieldTsh_receptor_autoat = new javax.swing.JTextField();
+        jLabelImmun_a = new javax.swing.JLabel();
+        jTextFieldImmun_a = new javax.swing.JTextField();
+        jLabelImmun_g = new javax.swing.JLabel();
+        jTextFieldImmun_g = new javax.swing.JTextField();
+        jLabelImmun_m = new javax.swing.JLabel();
+        jTextFieldImmun_m = new javax.swing.JTextField();
+        jLabelIgg_alosztalyok = new javax.swing.JLabel();
+        jTextFieldIgg_alosztalyok = new javax.swing.JTextField();
         jPanel7 = new javax.swing.JPanel();
         jLabelRr = new javax.swing.JLabel();
         jTextFieldRr = new javax.swing.JTextField();
@@ -193,25 +355,14 @@ public class Kezelesek extends javax.swing.JFrame {
         jLabelMegjegyzes = new javax.swing.JLabel();
         jScrollPane5 = new javax.swing.JScrollPane();
         jTextAreaMegjegyzes = new javax.swing.JTextArea();
-        jButtonRogzitvizsgalat = new javax.swing.JButton();
-        jPanel2 = new javax.swing.JPanel();
-        jLabelDiagnozisegy = new javax.swing.JLabel();
-        jTextFieldDiagnozisegy = new javax.swing.JTextField();
-        jLabelDiagnozisketto = new javax.swing.JLabel();
-        jTextFieldDiagnozisketto = new javax.swing.JTextField();
-        jLabelDiagnozisharom = new javax.swing.JLabel();
-        jTextFieldDiganozisharom = new javax.swing.JTextField();
-        jLabelDiagnozisnegy = new javax.swing.JLabel();
-        jTextFieldDiagnozisnegy = new javax.swing.JTextField();
-        jLabelDiagnozisot = new javax.swing.JLabel();
-        jTextFieldDiagnozisot = new javax.swing.JTextField();
-        jLabelT = new javax.swing.JLabel();
-        jTextFieldT = new javax.swing.JTextField();
-        jLabelM = new javax.swing.JLabel();
-        jTextFieldM = new javax.swing.JTextField();
-        jLabelN = new javax.swing.JLabel();
-        jTextFieldN = new javax.swing.JTextField();
-        jButtonRogzitdiag = new javax.swing.JButton();
+        jButtonRogzitvizsgalat_adatok = new javax.swing.JButton();
+        jLabelVizsgalatiAdatok_adat_felvetel = new javax.swing.JLabel();
+        jDateChooserVizsgalatiAdatok_adat_felvetel = new com.toedter.calendar.JDateChooser();
+        jPanel8 = new javax.swing.JPanel();
+        jComboBoxLekerdezes = new javax.swing.JComboBox();
+        jScrollPane6 = new javax.swing.JScrollPane();
+        jTableLekerdezes = new javax.swing.JTable();
+        jButtonLekerdezes = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -223,10 +374,31 @@ public class Kezelesek extends javax.swing.JFrame {
 
         jLabelFurdokura.setText("Fürdőkúra:");
 
+        jLabelOxigen_kamra.setText("Oxigén kamra: ");
+
+        jLabelKemo.setText("Kemoterápia: ");
+
+        jLabelSugar_terapia.setText("Sugárterápia:");
+
+        jLabelHormonterapia.setText("Hormonterapia: ");
+
+        jButtonRogzit_kezadat.setText("Rögzit");
+        jButtonRogzit_kezadat.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButtonRogzit_kezadatActionPerformed(evt);
+            }
+        });
+
+        jLabeladat_felvetel_kezadat.setText("Rögzités időpontja: ");
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                .addContainerGap(398, Short.MAX_VALUE)
+                .addComponent(jButtonRogzit_kezadat)
+                .addGap(231, 231, 231))
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -235,18 +407,45 @@ public class Kezelesek extends javax.swing.JFrame {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(jDateChooserFelvetel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addComponent(jLabeladat_felvetel_kezadat)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jDateChooseradat_felvetel_kezadat, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
                         .addComponent(jLabelTavozas)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(jDateChooserTavozas, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel1)
-                            .addComponent(jLabelFurdokura))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                            .addComponent(jTextFieldFurdokura, javax.swing.GroupLayout.DEFAULT_SIZE, 82, Short.MAX_VALUE)
-                            .addComponent(jTextFieldIvokura))))
-                .addContainerGap(450, Short.MAX_VALUE))
+                    .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                        .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel1Layout.createSequentialGroup()
+                            .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel1Layout.createSequentialGroup()
+                                    .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                        .addComponent(jLabel1)
+                                        .addComponent(jLabelFurdokura))
+                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                    .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                        .addComponent(jTextFieldIvokura, javax.swing.GroupLayout.DEFAULT_SIZE, 85, Short.MAX_VALUE)
+                                        .addComponent(jTextFieldFurdokura)))
+                                .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel1Layout.createSequentialGroup()
+                                    .addComponent(jLabelKemo)
+                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                    .addComponent(jTextFieldKemo, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                            .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel1Layout.createSequentialGroup()
+                            .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel1Layout.createSequentialGroup()
+                                    .addComponent(jLabelOxigen_kamra)
+                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                    .addComponent(jTextFieldOxigen_kamra, javax.swing.GroupLayout.PREFERRED_SIZE, 65, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel1Layout.createSequentialGroup()
+                                        .addComponent(jLabelHormonterapia)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                        .addComponent(jTextFieldHormonterapia))
+                                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel1Layout.createSequentialGroup()
+                                        .addComponent(jLabelSugar_terapia)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                        .addComponent(jTextFieldSugar_terapia, javax.swing.GroupLayout.PREFERRED_SIZE, 71, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                            .addGap(0, 0, Short.MAX_VALUE)))))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -267,10 +466,154 @@ public class Kezelesek extends javax.swing.JFrame {
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabelFurdokura)
                     .addComponent(jTextFieldFurdokura, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(524, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabelOxigen_kamra)
+                    .addComponent(jTextFieldOxigen_kamra, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(14, 14, 14)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabelKemo)
+                    .addComponent(jTextFieldKemo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabelSugar_terapia)
+                    .addComponent(jTextFieldSugar_terapia, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabelHormonterapia)
+                    .addComponent(jTextFieldHormonterapia, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabeladat_felvetel_kezadat)
+                    .addComponent(jDateChooseradat_felvetel_kezadat, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(53, 53, 53)
+                .addComponent(jButtonRogzit_kezadat)
+                .addContainerGap(422, Short.MAX_VALUE))
         );
 
         jTabbedPane1.addTab("Kezlési Adatok", jPanel1);
+
+        jLabelDiagnozisegy.setText("Diagnózis 1:");
+
+        jLabelDiagnozisketto.setText("Diagnózis 2:");
+
+        jLabelDiagnozisharom.setText("Diagnózis 3: ");
+
+        jLabelDiagnozisnegy.setText("Diagnózis 4: ");
+
+        jLabelDiagnozisot.setText("Diagnózis 5: ");
+
+        jLabelT.setText("T: ");
+
+        jLabelM.setText("M: ");
+
+        jLabelN.setText("N: ");
+
+        jButtonRogzitdiag.setText("Rögzit");
+        jButtonRogzitdiag.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButtonRogzitdiagActionPerformed(evt);
+            }
+        });
+
+        jLabelDiag_adat_felvetel.setText("Rögzités időpontja: ");
+
+        javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
+        jPanel2.setLayout(jPanel2Layout);
+        jPanel2Layout.setHorizontalGroup(
+            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jButtonRogzitdiag)
+                .addGap(170, 170, 170))
+            .addGroup(jPanel2Layout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                        .addGroup(jPanel2Layout.createSequentialGroup()
+                            .addComponent(jLabelDiagnozisegy)
+                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                            .addComponent(jTextFieldDiagnozisegy, javax.swing.GroupLayout.PREFERRED_SIZE, 406, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGroup(jPanel2Layout.createSequentialGroup()
+                            .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                .addComponent(jLabelDiagnozisketto)
+                                .addComponent(jLabelDiagnozisharom))
+                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                            .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                .addComponent(jTextFieldDiagnozisketto)
+                                .addComponent(jTextFieldDiganozisharom)))
+                        .addGroup(jPanel2Layout.createSequentialGroup()
+                            .addComponent(jLabelDiagnozisnegy)
+                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                            .addComponent(jTextFieldDiagnozisnegy))
+                        .addGroup(jPanel2Layout.createSequentialGroup()
+                            .addComponent(jLabelDiagnozisot)
+                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                            .addComponent(jTextFieldDiagnozisot)))
+                    .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                        .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel2Layout.createSequentialGroup()
+                            .addComponent(jLabelN)
+                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                            .addComponent(jTextFieldN))
+                        .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel2Layout.createSequentialGroup()
+                            .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                .addComponent(jLabelT)
+                                .addComponent(jLabelM))
+                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                            .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                .addComponent(jTextFieldT)
+                                .addComponent(jTextFieldM, javax.swing.GroupLayout.DEFAULT_SIZE, 72, Short.MAX_VALUE))))
+                    .addGroup(jPanel2Layout.createSequentialGroup()
+                        .addComponent(jLabelDiag_adat_felvetel)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jDateChooserDiag_adat_felvetel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(214, Short.MAX_VALUE))
+        );
+        jPanel2Layout.setVerticalGroup(
+            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel2Layout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabelDiagnozisegy)
+                    .addComponent(jTextFieldDiagnozisegy, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabelDiagnozisketto)
+                    .addComponent(jTextFieldDiagnozisketto, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabelDiagnozisharom)
+                    .addComponent(jTextFieldDiganozisharom, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabelDiagnozisnegy)
+                    .addComponent(jTextFieldDiagnozisnegy, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabelDiagnozisot)
+                    .addComponent(jTextFieldDiagnozisot, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabelT)
+                    .addComponent(jTextFieldT, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabelM)
+                    .addComponent(jTextFieldM, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabelN)
+                    .addComponent(jTextFieldN, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabelDiag_adat_felvetel)
+                    .addComponent(jDateChooserDiag_adat_felvetel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(26, 26, 26)
+                .addComponent(jButtonRogzitdiag)
+                .addContainerGap(492, Short.MAX_VALUE))
+        );
+
+        jTabbedPane1.addTab("Diagnózis", jPanel2);
 
         jLabelT_sejt.setText("T sejt % limfocitákon belül: ");
 
@@ -284,7 +627,7 @@ public class Kezelesek extends javax.swing.JFrame {
 
         jLabelHla_dr.setText("HLA-DR+/CD3+ % limfocitákon belül: ");
 
-        jLabelCd_harom.setText("CD3+CD8+CD56+ % limfocitákon belül: ");
+        jLabelCd_haromnyolc.setText("CD3+CD8+CD56+ % limfocitákon belül: ");
 
         jLabelCd_negynyolc_arany.setText("CD4+/CD8+ arány: ");
 
@@ -315,10 +658,16 @@ public class Kezelesek extends javax.swing.JFrame {
             }
         });
 
+        jLabelImmun_adat_felvetel.setText("Rögzités időpontja: ");
+
         javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
         jPanel3.setLayout(jPanel3Layout);
         jPanel3Layout.setHorizontalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel3Layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jButtonImmun)
+                .addGap(166, 166, 166))
             .addGroup(jPanel3Layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -380,14 +729,14 @@ public class Kezelesek extends javax.swing.JFrame {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(jTextFieldHla_dr, javax.swing.GroupLayout.PREFERRED_SIZE, 114, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(jPanel3Layout.createSequentialGroup()
-                        .addComponent(jLabelCd_harom)
+                        .addComponent(jLabelCd_haromnyolc)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jTextFieldCd_haromnyolc, javax.swing.GroupLayout.PREFERRED_SIZE, 113, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(280, Short.MAX_VALUE))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel3Layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jButtonImmun)
-                .addGap(166, 166, 166))
+                        .addComponent(jTextFieldCd_haromnyolc, javax.swing.GroupLayout.PREFERRED_SIZE, 113, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jPanel3Layout.createSequentialGroup()
+                        .addComponent(jLabelImmun_adat_felvetel)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jDateChooserImmun_adat_felvetel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(370, Short.MAX_VALUE))
         );
         jPanel3Layout.setVerticalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -418,7 +767,7 @@ public class Kezelesek extends javax.swing.JFrame {
                     .addComponent(jTextFieldHla_dr, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabelCd_harom)
+                    .addComponent(jLabelCd_haromnyolc)
                     .addComponent(jTextFieldCd_haromnyolc, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
@@ -452,9 +801,13 @@ public class Kezelesek extends javax.swing.JFrame {
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabelHif)
                     .addComponent(jTextFieldHif, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(34, 34, 34)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabelImmun_adat_felvetel)
+                    .addComponent(jDateChooserImmun_adat_felvetel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(8, 8, 8)
                 .addComponent(jButtonImmun)
-                .addContainerGap(213, Short.MAX_VALUE))
+                .addContainerGap(340, Short.MAX_VALUE))
         );
 
         jTabbedPane1.addTab("Immunstátusz", jPanel3);
@@ -514,72 +867,79 @@ public class Kezelesek extends javax.swing.JFrame {
             }
         });
 
+        jLabelVerkep_adat_felvetel.setText("Rögzités időpontja: ");
+
         javax.swing.GroupLayout jPanel4Layout = new javax.swing.GroupLayout(jPanel4);
         jPanel4.setLayout(jPanel4Layout);
         jPanel4Layout.setHorizontalGroup(
             jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel4Layout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel4Layout.createSequentialGroup()
-                        .addComponent(jLabelFeherversejt)
+                        .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addGroup(jPanel4Layout.createSequentialGroup()
+                                .addComponent(jLabelFeherversejt)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(jTextFieldFeherversejt, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(jPanel4Layout.createSequentialGroup()
+                                .addComponent(jLabelVvt)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(jTextFieldVvt))
+                            .addGroup(jPanel4Layout.createSequentialGroup()
+                                .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(jLabelVorosversejt)
+                                    .addComponent(jLabelHemoglobin)
+                                    .addComponent(jLabelHematokrit)
+                                    .addComponent(jLabelMcv)
+                                    .addComponent(jLabelMch)
+                                    .addComponent(jLabelMchc)
+                                    .addComponent(jLabelTrombocitaszam)
+                                    .addComponent(jLabelRdwcv)
+                                    .addComponent(jLabelMpv)
+                                    .addComponent(jLabelNeut)
+                                    .addComponent(jLabelLymph)
+                                    .addComponent(jLabelMono)
+                                    .addComponent(jLabelEo)
+                                    .addComponent(jLabelBaso)
+                                    .addComponent(jLabelLuc)
+                                    .addComponent(jLabelNeutabsz)
+                                    .addComponent(jLabelLymphabsz)
+                                    .addComponent(jLabelMonoabsz)
+                                    .addComponent(jLabelEoabsz)
+                                    .addComponent(jLabelBasoabsz)
+                                    .addComponent(jLabelLucabsz))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(jTextFieldTrombocitaszam)
+                                    .addComponent(jTextFieldVorosoversejt)
+                                    .addComponent(jTextFieldHemoglobin)
+                                    .addComponent(jTextFieldHematokrit)
+                                    .addComponent(jTextFieldMcv)
+                                    .addComponent(jTextFieldMch)
+                                    .addComponent(jTextFieldMchc)
+                                    .addComponent(jTextFieldRdwcv)
+                                    .addComponent(jTextFieldMpv)
+                                    .addComponent(jTextFieldNeut)
+                                    .addComponent(jTextFieldLymph)
+                                    .addComponent(jTextFieldMono)
+                                    .addComponent(jTextFieldEo)
+                                    .addComponent(jTextFieldBaso)
+                                    .addComponent(jTextFieldLuc)
+                                    .addComponent(jTextFieldNeutabsz)
+                                    .addComponent(jTextFieldLymphabsz)
+                                    .addComponent(jTextFieldMonoabsz)
+                                    .addComponent(jTextFieldEoabsz)
+                                    .addComponent(jTextFieldBasoabsz)
+                                    .addComponent(jTextFieldLucabsz))))
+                        .addContainerGap(485, Short.MAX_VALUE))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel4Layout.createSequentialGroup()
+                        .addComponent(jLabelVerkep_adat_felvetel)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jTextFieldFeherversejt, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(jPanel4Layout.createSequentialGroup()
-                        .addComponent(jLabelVvt)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jTextFieldVvt))
-                    .addGroup(jPanel4Layout.createSequentialGroup()
-                        .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabelVorosversejt)
-                            .addComponent(jLabelHemoglobin)
-                            .addComponent(jLabelHematokrit)
-                            .addComponent(jLabelMcv)
-                            .addComponent(jLabelMch)
-                            .addComponent(jLabelMchc)
-                            .addComponent(jLabelTrombocitaszam)
-                            .addComponent(jLabelRdwcv)
-                            .addComponent(jLabelMpv)
-                            .addComponent(jLabelNeut)
-                            .addComponent(jLabelLymph)
-                            .addComponent(jLabelMono)
-                            .addComponent(jLabelEo)
-                            .addComponent(jLabelBaso)
-                            .addComponent(jLabelLuc)
-                            .addComponent(jLabelNeutabsz)
-                            .addComponent(jLabelLymphabsz)
-                            .addComponent(jLabelMonoabsz)
-                            .addComponent(jLabelEoabsz)
-                            .addComponent(jLabelBasoabsz)
-                            .addComponent(jLabelLucabsz))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jTextFieldTrombocitaszam)
-                            .addComponent(jTextFieldVorosoversejt)
-                            .addComponent(jTextFieldHemoglobin)
-                            .addComponent(jTextFieldHematokrit)
-                            .addComponent(jTextFieldMcv)
-                            .addComponent(jTextFieldMch)
-                            .addComponent(jTextFieldMchc)
-                            .addComponent(jTextFieldRdwcv)
-                            .addComponent(jTextFieldMpv)
-                            .addComponent(jTextFieldNeut)
-                            .addComponent(jTextFieldLymph)
-                            .addComponent(jTextFieldMono)
-                            .addComponent(jTextFieldEo)
-                            .addComponent(jTextFieldBaso)
-                            .addComponent(jTextFieldLuc)
-                            .addComponent(jTextFieldNeutabsz)
-                            .addComponent(jTextFieldLymphabsz)
-                            .addComponent(jTextFieldMonoabsz)
-                            .addComponent(jTextFieldEoabsz)
-                            .addComponent(jTextFieldBasoabsz)
-                            .addComponent(jTextFieldLucabsz))))
-                .addContainerGap(395, Short.MAX_VALUE))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel4Layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jButtonRogzitverkep)
-                .addGap(124, 124, 124))
+                        .addComponent(jDateChooserVerkep_adat_felvetel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(jButtonRogzitverkep)
+                        .addGap(124, 124, 124))))
         );
         jPanel4Layout.setVerticalGroup(
             jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -677,42 +1037,57 @@ public class Kezelesek extends javax.swing.JFrame {
                     .addComponent(jLabelVvt)
                     .addComponent(jTextFieldVvt, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jButtonRogzitverkep)
-                .addContainerGap(25, Short.MAX_VALUE))
+                .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(jButtonRogzitverkep)
+                        .addComponent(jLabelVerkep_adat_felvetel))
+                    .addComponent(jDateChooserVerkep_adat_felvetel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(152, Short.MAX_VALUE))
         );
 
         jTabbedPane1.addTab("Vérkép", jPanel4);
 
         jLabelKepalkotoct.setText("CT: ");
 
-        jTextArea1.setColumns(20);
-        jTextArea1.setRows(5);
-        jScrollPane1.setViewportView(jTextArea1);
+        jTextAreaCt.setColumns(20);
+        jTextAreaCt.setRows(5);
+        jScrollPane1.setViewportView(jTextAreaCt);
 
         jLabelKepalkotopetct.setText("Petct:");
 
-        jTextArea2.setColumns(20);
-        jTextArea2.setRows(5);
-        jScrollPane2.setViewportView(jTextArea2);
+        jTextAreaPetct.setColumns(20);
+        jTextAreaPetct.setRows(5);
+        jScrollPane2.setViewportView(jTextAreaPetct);
 
         jLabelUltrahang.setText("Ultrahang: ");
 
-        jTextArea3.setColumns(20);
-        jTextArea3.setRows(5);
-        jScrollPane3.setViewportView(jTextArea3);
+        jTextAreaUltrahang.setColumns(20);
+        jTextAreaUltrahang.setRows(5);
+        jScrollPane3.setViewportView(jTextAreaUltrahang);
 
         jLabelMri.setText("MRI: ");
 
-        jTextArea4.setColumns(20);
-        jTextArea4.setRows(5);
-        jScrollPane4.setViewportView(jTextArea4);
+        jTextAreaMri.setColumns(20);
+        jTextAreaMri.setRows(5);
+        jScrollPane4.setViewportView(jTextAreaMri);
 
         jButtonRogzitkepalkoto.setText("Rögzit");
+        jButtonRogzitkepalkoto.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButtonRogzitkepalkotoActionPerformed(evt);
+            }
+        });
+
+        jLabelKepalkoto_adat_felvetel.setText("Rögzités időpontja: ");
 
         javax.swing.GroupLayout jPanel5Layout = new javax.swing.GroupLayout(jPanel5);
         jPanel5.setLayout(jPanel5Layout);
         jPanel5Layout.setHorizontalGroup(
             jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel5Layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jButtonRogzitkepalkoto)
+                .addGap(58, 58, 58))
             .addGroup(jPanel5Layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -727,16 +1102,17 @@ public class Kezelesek extends javax.swing.JFrame {
                     .addGroup(jPanel5Layout.createSequentialGroup()
                         .addComponent(jLabelUltrahang)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jScrollPane3, javax.swing.GroupLayout.DEFAULT_SIZE, 524, Short.MAX_VALUE))
+                        .addComponent(jScrollPane3, javax.swing.GroupLayout.DEFAULT_SIZE, 614, Short.MAX_VALUE))
                     .addGroup(jPanel5Layout.createSequentialGroup()
                         .addComponent(jLabelMri)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(jScrollPane4)))
+                        .addComponent(jScrollPane4))
+                    .addGroup(jPanel5Layout.createSequentialGroup()
+                        .addComponent(jLabelKepalkoto_adat_felvetel)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jDateChooserKepalkoto_adat_felvetel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(0, 0, Short.MAX_VALUE)))
                 .addContainerGap())
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel5Layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jButtonRogzitkepalkoto)
-                .addGap(58, 58, 58))
         );
         jPanel5Layout.setVerticalGroup(
             jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -763,187 +1139,429 @@ public class Kezelesek extends javax.swing.JFrame {
                 .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabelMri)
                     .addComponent(jScrollPane4, javax.swing.GroupLayout.PREFERRED_SIZE, 133, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabelKepalkoto_adat_felvetel)
+                    .addComponent(jDateChooserKepalkoto_adat_felvetel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(76, 76, 76)
                 .addComponent(jButtonRogzitkepalkoto)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGap(47, 47, 47))
         );
 
         jTabbedPane1.addTab("Képalkotó", jPanel5);
 
+        jPanel6.setLayout(null);
+
         jLabelGlukoz.setText("Glukóz: ");
+        jPanel6.add(jLabelGlukoz);
+        jLabelGlukoz.setBounds(10, 14, 38, 14);
+        jPanel6.add(jTextFieldGlukoz);
+        jTextFieldGlukoz.setBounds(52, 11, 50, 20);
 
         jLabelHemoglobin_klinikakemia.setText("Hemoglobin: ");
+        jPanel6.add(jLabelHemoglobin_klinikakemia);
+        jLabelHemoglobin_klinikakemia.setBounds(10, 40, 62, 14);
 
         jLabelHugysav.setText("Hugysav: ");
+        jPanel6.add(jLabelHugysav);
+        jLabelHugysav.setBounds(10, 66, 49, 14);
 
         jLabelKalium.setText("Kálium: ");
+        jPanel6.add(jLabelKalium);
+        jLabelKalium.setBounds(10, 92, 37, 14);
 
         jLabelOsszfeherje.setText("Összfehérje: ");
+        jPanel6.add(jLabelOsszfeherje);
+        jLabelOsszfeherje.setBounds(10, 118, 65, 14);
 
         jLabelAlbumin.setText("Albumin: ");
+        jPanel6.add(jLabelAlbumin);
+        jLabelAlbumin.setBounds(10, 144, 44, 14);
 
         jLabelCrp.setText("CRP:");
+        jPanel6.add(jLabelCrp);
+        jLabelCrp.setBounds(10, 170, 24, 14);
 
         jLabelVas.setText("Vas: ");
+        jPanel6.add(jLabelVas);
+        jLabelVas.setBounds(10, 196, 24, 14);
 
         jLabelTranszferrin.setText("Transzferrin: ");
+        jPanel6.add(jLabelTranszferrin);
+        jLabelTranszferrin.setBounds(10, 222, 65, 14);
 
         jLabelGot.setText("GOT: ");
+        jPanel6.add(jLabelGot);
+        jLabelGot.setBounds(10, 248, 28, 14);
 
         jLabelGpt.setText("GPT: ");
+        jPanel6.add(jLabelGpt);
+        jLabelGpt.setBounds(10, 271, 26, 14);
 
         jLabelGgt.setText("GGT: ");
+        jPanel6.add(jLabelGgt);
+        jLabelGgt.setBounds(10, 300, 27, 14);
 
         jLabelAlkalikus_foszfataz.setText("Alkalikus foszfatáz: ");
+        jPanel6.add(jLabelAlkalikus_foszfataz);
+        jLabelAlkalikus_foszfataz.setBounds(10, 326, 95, 14);
 
         jLabelCsontspecifikus.setText("Csontspecifikus AP:");
+        jPanel6.add(jLabelCsontspecifikus);
+        jLabelCsontspecifikus.setBounds(10, 352, 94, 14);
 
         jLabelLdh.setText("LDH: ");
+        jPanel6.add(jLabelLdh);
+        jLabelLdh.setBounds(10, 378, 26, 14);
 
         jLabelLipaz.setText("Lipáz: ");
+        jPanel6.add(jLabelLipaz);
+        jLabelLipaz.setBounds(10, 401, 31, 14);
 
         jLabelKortizol.setText("Kortizol: ");
+        jPanel6.add(jLabelKortizol);
+        jLabelKortizol.setBounds(10, 430, 42, 14);
 
         jLabelHoma.setText("HOMA index: ");
+        jPanel6.add(jLabelHoma);
+        jLabelHoma.setBounds(10, 461, 66, 14);
 
         jLabelInzulin.setText("Inzulin: ");
+        jPanel6.add(jLabelInzulin);
+        jLabelInzulin.setBounds(16, 487, 38, 14);
 
         jLabelCa.setText("CA-125: ");
+        jPanel6.add(jLabelCa);
+        jLabelCa.setBounds(10, 513, 43, 14);
 
         jLabelHe.setText("HE-4: ");
+        jPanel6.add(jLabelHe);
+        jLabelHe.setBounds(10, 539, 48, 14);
 
         jLabelCa_egyot.setText("CA-15-3:");
+        jPanel6.add(jLabelCa_egyot);
+        jLabelCa_egyot.setBounds(10, 570, 44, 14);
 
         jLabelCa_hetketto.setText("CA-72-4:");
+        jPanel6.add(jLabelCa_hetketto);
+        jLabelCa_hetketto.setBounds(10, 600, 44, 14);
 
         jLabelCa_egykilenc.setText("CA-19-9:");
+        jPanel6.add(jLabelCa_egykilenc);
+        jLabelCa_egykilenc.setBounds(10, 630, 44, 14);
 
         jLabelAfp.setText("AFP:");
+        jPanel6.add(jLabelAfp);
+        jLabelAfp.setBounds(20, 660, 23, 14);
 
         jLabelCea.setText("CEA:");
+        jPanel6.add(jLabelCea);
+        jLabelCea.setBounds(20, 690, 24, 14);
 
         jLabelPsa.setText("PSA: ");
+        jPanel6.add(jLabelPsa);
+        jLabelPsa.setBounds(20, 720, 26, 14);
 
         jLabelFpsa.setText("FPSA: ");
+        jPanel6.add(jLabelFpsa);
+        jLabelFpsa.setBounds(20, 750, 32, 14);
 
         jLabelReuma.setText("Reuma faktor: ");
+        jPanel6.add(jLabelReuma);
+        jLabelReuma.setBounds(200, 40, 72, 14);
 
         jLabelFeherje.setText("Fehérje ELFO: ");
+        jPanel6.add(jLabelFeherje);
+        jLabelFeherje.setBounds(200, 70, 72, 14);
 
         jLabelElfo_para.setText("ELFO + Paraprot.:");
+        jPanel6.add(jLabelElfo_para);
+        jLabelElfo_para.setBounds(180, 100, 89, 14);
+        jPanel6.add(jTextFieldKlinikai_hemoglobin);
+        jTextFieldKlinikai_hemoglobin.setBounds(76, 37, 50, 20);
+        jPanel6.add(jTextFieldHugysav);
+        jTextFieldHugysav.setBounds(63, 63, 50, 20);
+        jPanel6.add(jTextFieldKalium);
+        jTextFieldKalium.setBounds(51, 89, 50, 20);
+        jPanel6.add(jTextFieldOsszfeherje);
+        jTextFieldOsszfeherje.setBounds(79, 115, 50, 20);
+        jPanel6.add(jTextFieldAlbumin);
+        jTextFieldAlbumin.setBounds(58, 141, 50, 20);
+        jPanel6.add(jTextFieldCrp);
+        jTextFieldCrp.setBounds(38, 167, 50, 20);
+        jPanel6.add(jTextFieldVas);
+        jTextFieldVas.setBounds(38, 193, 50, 20);
+        jPanel6.add(jTextFieldTranszferrin);
+        jTextFieldTranszferrin.setBounds(79, 219, 50, 20);
+        jPanel6.add(jTextFieldGot);
+        jTextFieldGot.setBounds(42, 245, 50, 20);
+        jPanel6.add(jTextFieldGpt);
+        jTextFieldGpt.setBounds(40, 271, 50, 20);
+        jPanel6.add(jTextFieldGgt);
+        jTextFieldGgt.setBounds(41, 297, 50, 20);
+        jPanel6.add(jTextFieldAlkalikus_foszfataz);
+        jTextFieldAlkalikus_foszfataz.setBounds(109, 323, 50, 20);
+        jPanel6.add(jTextFieldCsontspecifikus_ap);
+        jTextFieldCsontspecifikus_ap.setBounds(108, 349, 50, 20);
+        jPanel6.add(jTextFieldLdh);
+        jTextFieldLdh.setBounds(40, 375, 50, 20);
+        jPanel6.add(jTextFieldLipaz);
+        jTextFieldLipaz.setBounds(45, 401, 50, 20);
+        jPanel6.add(jTextFieldKortizol);
+        jTextFieldKortizol.setBounds(56, 427, 50, 20);
+        jPanel6.add(jTextFieldHoma_index);
+        jTextFieldHoma_index.setBounds(80, 458, 50, 20);
+        jPanel6.add(jTextFieldInzulin);
+        jTextFieldInzulin.setBounds(58, 484, 50, 20);
+        jPanel6.add(jTextFieldCa_egyhuszonot);
+        jTextFieldCa_egyhuszonot.setBounds(57, 510, 50, 20);
+        jPanel6.add(jTextFieldHe_negy);
+        jTextFieldHe_negy.setBounds(62, 536, 50, 20);
+        jPanel6.add(jTextFieldCa_tizenotharom);
+        jTextFieldCa_tizenotharom.setBounds(60, 570, 50, 20);
+        jPanel6.add(jTextFieldCa_hetvenkettonegy);
+        jTextFieldCa_hetvenkettonegy.setBounds(60, 600, 50, 20);
+        jPanel6.add(jTextFieldCa_tizenkilenckilenc);
+        jTextFieldCa_tizenkilenckilenc.setBounds(60, 630, 50, 20);
+        jPanel6.add(jTextFieldAfp);
+        jTextFieldAfp.setBounds(60, 660, 50, 20);
+        jPanel6.add(jTextFieldCea);
+        jTextFieldCea.setBounds(60, 690, 50, 20);
+        jPanel6.add(jTextFieldPsa);
+        jTextFieldPsa.setBounds(60, 720, 50, 20);
+        jPanel6.add(jTextFieldFpsa);
+        jTextFieldFpsa.setBounds(60, 750, 60, 20);
+        jPanel6.add(jTextFieldReuma_faktor);
+        jTextFieldReuma_faktor.setBounds(280, 40, 60, 20);
+        jPanel6.add(jTextFieldFeherje_elfo);
+        jTextFieldFeherje_elfo.setBounds(280, 70, 60, 20);
+        jPanel6.add(jTextFieldElfo_paraprot);
+        jTextFieldElfo_paraprot.setBounds(280, 100, 60, 20);
 
-        javax.swing.GroupLayout jPanel6Layout = new javax.swing.GroupLayout(jPanel6);
-        jPanel6.setLayout(jPanel6Layout);
-        jPanel6Layout.setHorizontalGroup(
-            jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel6Layout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel6Layout.createSequentialGroup()
-                        .addComponent(jLabelGlukoz)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jTextFieldGlukoz, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addComponent(jLabelHemoglobin_klinikakemia)
-                    .addComponent(jLabelHugysav)
-                    .addComponent(jLabelKalium)
-                    .addComponent(jLabelOsszfeherje)
-                    .addComponent(jLabelAlbumin)
-                    .addComponent(jLabelCrp)
-                    .addComponent(jLabelVas)
-                    .addComponent(jLabelTranszferrin)
-                    .addComponent(jLabelGot)
-                    .addComponent(jLabelGpt)
-                    .addComponent(jLabelGgt)
-                    .addComponent(jLabelAlkalikus_foszfataz)
-                    .addComponent(jLabelCsontspecifikus)
-                    .addComponent(jLabelLdh)
-                    .addComponent(jLabelLipaz)
-                    .addComponent(jLabelKortizol)
-                    .addComponent(jLabelHoma)
-                    .addComponent(jLabelInzulin)
-                    .addComponent(jLabelCa)
-                    .addComponent(jLabelHe)
-                    .addComponent(jLabelCa_egyot)
-                    .addComponent(jLabelCa_hetketto)
-                    .addComponent(jLabelCa_egykilenc)
-                    .addComponent(jLabelAfp)
-                    .addComponent(jLabelCea)
-                    .addComponent(jLabelPsa)
-                    .addComponent(jLabelFpsa)
-                    .addComponent(jLabelReuma)
-                    .addComponent(jLabelFeherje)
-                    .addComponent(jLabelElfo_para))
-                .addContainerGap(450, Short.MAX_VALUE))
-        );
-        jPanel6Layout.setVerticalGroup(
-            jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel6Layout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabelGlukoz)
-                    .addComponent(jTextFieldGlukoz, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jLabelHemoglobin_klinikakemia)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jLabelHugysav)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jLabelKalium)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jLabelOsszfeherje)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jLabelAlbumin)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jLabelCrp)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jLabelVas)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jLabelTranszferrin)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jLabelGot)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jLabelGpt)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jLabelGgt)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jLabelAlkalikus_foszfataz)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jLabelCsontspecifikus)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jLabelLdh)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jLabelLipaz)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jLabelKortizol)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jLabelHoma)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jLabelInzulin)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jLabelCa)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jLabelHe)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jLabelCa_egyot)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jLabelCa_hetketto)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jLabelCa_egykilenc)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jLabelAfp)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jLabelCea)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jLabelPsa)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jLabelFpsa)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jLabelReuma)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jLabelFeherje)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jLabelElfo_para)
-                .addContainerGap(34, Short.MAX_VALUE))
-        );
+        jButtonKlinikai_kemiai_rogzit.setText("Rögzit");
+        jButtonKlinikai_kemiai_rogzit.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButtonKlinikai_kemiai_rogzitActionPerformed(evt);
+            }
+        });
+        jPanel6.add(jButtonKlinikai_kemiai_rogzit);
+        jButtonKlinikai_kemiai_rogzit.setBounds(550, 610, 63, 23);
+
+        jLabelKlinikaKemia_adat_felvetel.setText("Rögzités időpontja:");
+        jPanel6.add(jLabelKlinikaKemia_adat_felvetel);
+        jLabelKlinikaKemia_adat_felvetel.setBounds(469, 461, 93, 14);
+        jPanel6.add(jDateChooserKlinikaKemia_adat_felvetel);
+        jDateChooserKlinikaKemia_adat_felvetel.setBounds(566, 458, 91, 20);
+
+        jLabelProlaktin.setText("Prolaktin:");
+        jPanel6.add(jLabelProlaktin);
+        jLabelProlaktin.setBounds(230, 430, 45, 20);
+        jPanel6.add(jTextFieldProlaktin);
+        jTextFieldProlaktin.setBounds(280, 430, 58, 20);
+
+        jLabelKoleszterin.setText("Koleszterin: ");
+        jPanel6.add(jLabelKoleszterin);
+        jLabelKoleszterin.setBounds(200, 760, 59, 14);
+        jPanel6.add(jTextFieldKoleszterin);
+        jTextFieldKoleszterin.setBounds(280, 760, 56, 20);
+
+        jLabelTriglicerid.setText("Triglicerid: ");
+        jPanel6.add(jLabelTriglicerid);
+        jLabelTriglicerid.setBounds(210, 730, 52, 14);
+        jPanel6.add(jTextFieldTriglicerid);
+        jTextFieldTriglicerid.setBounds(280, 730, 56, 20);
+
+        jLabel2.setText("HDL_koleszterin: ");
+        jPanel6.add(jLabel2);
+        jLabel2.setBounds(180, 700, 83, 14);
+        jPanel6.add(jTextFieldHdl_koleszterin);
+        jTextFieldHdl_koleszterin.setBounds(280, 700, 56, 20);
+
+        jLabelOsszbilirubin.setText("Összbilirubin:");
+        jPanel6.add(jLabelOsszbilirubin);
+        jLabelOsszbilirubin.setBounds(210, 520, 63, 14);
+        jPanel6.add(jTextFieldOsszbilirubin);
+        jTextFieldOsszbilirubin.setBounds(280, 520, 60, 20);
+
+        jLabelCk.setText("CK:");
+        jPanel6.add(jLabelCk);
+        jLabelCk.setBounds(250, 550, 17, 14);
+        jPanel6.add(jTextFieldCk);
+        jTextFieldCk.setBounds(280, 550, 63, 20);
+
+        jLabelAlfa_amilaz.setText("Alfa-Amiláz:");
+        jPanel6.add(jLabelAlfa_amilaz);
+        jLabelAlfa_amilaz.setBounds(210, 130, 57, 14);
+        jPanel6.add(jTextFieldAlfa_amilaz);
+        jTextFieldAlfa_amilaz.setBounds(280, 130, 63, 20);
+
+        jLabelFt4.setText("FT4: ");
+        jPanel6.add(jLabelFt4);
+        jLabelFt4.setBounds(240, 160, 25, 14);
+        jPanel6.add(jTextFieldFt4);
+        jTextFieldFt4.setBounds(280, 160, 60, 20);
+
+        jLabelFt3.setText("FT3:");
+        jPanel6.add(jLabelFt3);
+        jLabelFt3.setBounds(240, 190, 22, 14);
+        jPanel6.add(jTextFieldFt3);
+        jTextFieldFt3.setBounds(280, 190, 59, 20);
+
+        jLabelTsh.setText("TSH:");
+        jPanel6.add(jLabelTsh);
+        jLabelTsh.setBounds(240, 220, 23, 14);
+        jPanel6.add(jTextFieldTsh);
+        jTextFieldTsh.setBounds(280, 220, 59, 20);
+
+        jLabelThyreoglobulin.setText("Thyreoglobulin:");
+        jPanel6.add(jLabelThyreoglobulin);
+        jLabelThyreoglobulin.setBounds(190, 250, 74, 14);
+        jPanel6.add(jTextFieldThyreoglobulin);
+        jTextFieldThyreoglobulin.setBounds(280, 250, 59, 20);
+
+        jLabelD_vitamin.setText("D-Vitamin:");
+        jPanel6.add(jLabelD_vitamin);
+        jLabelD_vitamin.setBounds(210, 280, 49, 14);
+        jPanel6.add(jTextFieldD_vitamin);
+        jTextFieldD_vitamin.setBounds(280, 280, 59, 20);
+
+        jLabelParathormon.setText("Parathormon:");
+        jPanel6.add(jLabelParathormon);
+        jLabelParathormon.setBounds(200, 310, 66, 14);
+        jPanel6.add(jTextFieldParathormon);
+        jTextFieldParathormon.setBounds(280, 310, 59, 20);
+
+        jLabelAnti_muller_hormon.setText("Anti Müllerián hormon:");
+        jPanel6.add(jLabelAnti_muller_hormon);
+        jLabelAnti_muller_hormon.setBounds(170, 340, 107, 14);
+        jPanel6.add(jTextFieldAnti_muller_hormon);
+        jTextFieldAnti_muller_hormon.setBounds(280, 340, 61, 20);
+
+        jLabelFsh.setText("FSH:");
+        jPanel6.add(jLabelFsh);
+        jLabelFsh.setBounds(240, 370, 23, 14);
+        jPanel6.add(jTextFieldFsh);
+        jTextFieldFsh.setBounds(280, 370, 61, 20);
+
+        jLabelLh.setText("Lh:");
+        jPanel6.add(jLabelLh);
+        jLabelLh.setBounds(250, 400, 15, 14);
+        jPanel6.add(jTextFieldLh);
+        jTextFieldLh.setBounds(280, 400, 61, 20);
+
+        jLabelOsztradiol.setText("Ösztradiol:");
+        jPanel6.add(jLabelOsztradiol);
+        jLabelOsztradiol.setBounds(220, 490, 52, 14);
+        jPanel6.add(jTextFieldOsztradiol);
+        jTextFieldOsztradiol.setBounds(280, 490, 58, 20);
+
+        jLabelProgeszteron.setText("Progeszteron: ");
+        jPanel6.add(jLabelProgeszteron);
+        jLabelProgeszteron.setBounds(210, 460, 71, 14);
+        jPanel6.add(jTextFieldProgeszteron);
+        jTextFieldProgeszteron.setBounds(280, 460, 58, 20);
+
+        jLabelTotal_tesztoszteron.setText("Totál tesztoszteron:");
+        jPanel6.add(jLabelTotal_tesztoszteron);
+        jLabelTotal_tesztoszteron.setBounds(170, 580, 97, 14);
+        jPanel6.add(jTextFieldTotal_tesztoszteron);
+        jTextFieldTotal_tesztoszteron.setBounds(280, 580, 60, 20);
+
+        jLabelAldoszteron.setText("Aldoszteron:");
+        jPanel6.add(jLabelAldoszteron);
+        jLabelAldoszteron.setBounds(200, 610, 61, 14);
+        jPanel6.add(jTextFieldAldoszteron);
+        jTextFieldAldoszteron.setBounds(280, 610, 60, 20);
+
+        jLabelIgf.setText("IGF-1:");
+        jPanel6.add(jLabelIgf);
+        jLabelIgf.setBounds(230, 640, 31, 14);
+        jPanel6.add(jTextFieldIgf);
+        jTextFieldIgf.setBounds(280, 640, 60, 20);
+
+        jLabelInzulin_res.setText("Inzulin rezisztancia: ");
+        jPanel6.add(jLabelInzulin_res);
+        jLabelInzulin_res.setBounds(170, 670, 97, 14);
+        jPanel6.add(jTextFieldInzulin_res);
+        jTextFieldInzulin_res.setBounds(280, 670, 60, 20);
+
+        jLabelPropsa.setText("ProPSA: ");
+        jPanel6.add(jLabelPropsa);
+        jLabelPropsa.setBounds(230, 10, 50, 14);
+        jPanel6.add(jTextFieldPropsa);
+        jTextFieldPropsa.setBounds(280, 10, 60, 20);
+
+        jLabelNse.setText("NSE:");
+        jPanel6.add(jLabelNse);
+        jLabelNse.setBounds(460, 10, 23, 14);
+        jPanel6.add(jTextFieldNse);
+        jTextFieldNse.setBounds(500, 10, 59, 20);
+
+        jLabelS100.setText("S100 protein: ");
+        jPanel6.add(jLabelS100);
+        jLabelS100.setBounds(420, 40, 70, 14);
+        jPanel6.add(jTextFieldS100);
+        jTextFieldS100.setBounds(500, 40, 60, 20);
+
+        jLabelTpa.setText("TPA:");
+        jPanel6.add(jLabelTpa);
+        jLabelTpa.setBounds(460, 70, 23, 14);
+        jPanel6.add(jTextFieldTpa);
+        jTextFieldTpa.setBounds(500, 70, 60, 20);
+
+        jLabelM2_pk.setText("M2-PK marker: ");
+        jPanel6.add(jLabelM2_pk);
+        jLabelM2_pk.setBounds(420, 100, 80, 14);
+        jPanel6.add(jTextFieldM2_pk);
+        jTextFieldM2_pk.setBounds(500, 100, 60, 20);
+
+        jLabelColiakia.setText("Cöliákia szűrés:");
+        jPanel6.add(jLabelColiakia);
+        jLabelColiakia.setBounds(420, 130, 80, 14);
+        jPanel6.add(jTextFieldColiakia);
+        jTextFieldColiakia.setBounds(500, 130, 60, 20);
+
+        jLabelAnti_tpo.setText("Anti_TPO:");
+        jPanel6.add(jLabelAnti_tpo);
+        jLabelAnti_tpo.setBounds(440, 160, 49, 14);
+        jPanel6.add(jTextFieldAnti_tpo);
+        jTextFieldAnti_tpo.setBounds(500, 160, 60, 20);
+
+        jLabelThyreo_autoat.setText("Thyreoglobulin autoat.:");
+        jPanel6.add(jLabelThyreo_autoat);
+        jLabelThyreo_autoat.setBounds(370, 190, 120, 14);
+        jPanel6.add(jTextFieldThyreo_autoat);
+        jTextFieldThyreo_autoat.setBounds(500, 190, 60, 20);
+
+        jLabelTsh_receptor_autoat.setText("TSH receptor autoat.:");
+        jPanel6.add(jLabelTsh_receptor_autoat);
+        jLabelTsh_receptor_autoat.setBounds(374, 220, 110, 14);
+        jPanel6.add(jTextFieldTsh_receptor_autoat);
+        jTextFieldTsh_receptor_autoat.setBounds(500, 220, 60, 20);
+
+        jLabelImmun_a.setText("Immunoglobulin A:");
+        jPanel6.add(jLabelImmun_a);
+        jLabelImmun_a.setBounds(390, 250, 100, 14);
+        jPanel6.add(jTextFieldImmun_a);
+        jTextFieldImmun_a.setBounds(500, 250, 60, 20);
+
+        jLabelImmun_g.setText("Immunoglobulin G:");
+        jPanel6.add(jLabelImmun_g);
+        jLabelImmun_g.setBounds(390, 280, 90, 14);
+        jPanel6.add(jTextFieldImmun_g);
+        jTextFieldImmun_g.setBounds(500, 280, 60, 20);
+
+        jLabelImmun_m.setText("Immonuglobulin M:");
+        jPanel6.add(jLabelImmun_m);
+        jLabelImmun_m.setBounds(390, 310, 90, 14);
+        jPanel6.add(jTextFieldImmun_m);
+        jTextFieldImmun_m.setBounds(500, 310, 60, 20);
+
+        jLabelIgg_alosztalyok.setText("IgG alosztályok:");
+        jPanel6.add(jLabelIgg_alosztalyok);
+        jLabelIgg_alosztalyok.setBounds(400, 340, 80, 14);
+        jPanel6.add(jTextFieldIgg_alosztalyok);
+        jTextFieldIgg_alosztalyok.setBounds(500, 340, 6, 20);
 
         jTabbedPane1.addTab("Klinikai Kémiai", jPanel6);
 
@@ -965,12 +1583,23 @@ public class Kezelesek extends javax.swing.JFrame {
         jTextAreaMegjegyzes.setRows(5);
         jScrollPane5.setViewportView(jTextAreaMegjegyzes);
 
-        jButtonRogzitvizsgalat.setText("Rögzit");
+        jButtonRogzitvizsgalat_adatok.setText("Rögzit");
+        jButtonRogzitvizsgalat_adatok.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButtonRogzitvizsgalat_adatokActionPerformed(evt);
+            }
+        });
+
+        jLabelVizsgalatiAdatok_adat_felvetel.setText("Rögzités időpontja: ");
 
         javax.swing.GroupLayout jPanel7Layout = new javax.swing.GroupLayout(jPanel7);
         jPanel7.setLayout(jPanel7Layout);
         jPanel7Layout.setHorizontalGroup(
             jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel7Layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jButtonRogzitvizsgalat_adatok)
+                .addGap(118, 118, 118))
             .addGroup(jPanel7Layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -1004,13 +1633,13 @@ public class Kezelesek extends javax.swing.JFrame {
                             .addGroup(jPanel7Layout.createSequentialGroup()
                                 .addComponent(jLabelOxsat)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(jTextFieldOxsat, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                        .addGap(0, 378, Short.MAX_VALUE)))
+                                .addComponent(jTextFieldOxsat, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(jPanel7Layout.createSequentialGroup()
+                                .addComponent(jLabelVizsgalatiAdatok_adat_felvetel)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(jDateChooserVizsgalatiAdatok_adat_felvetel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addGap(0, 468, Short.MAX_VALUE)))
                 .addContainerGap())
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel7Layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jButtonRogzitvizsgalat)
-                .addGap(122, 122, 122))
         );
         jPanel7Layout.setVerticalGroup(
             jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -1043,125 +1672,73 @@ public class Kezelesek extends javax.swing.JFrame {
                 .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabelMegjegyzes)
                     .addComponent(jScrollPane5, javax.swing.GroupLayout.PREFERRED_SIZE, 124, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(41, 41, 41)
-                .addComponent(jButtonRogzitvizsgalat)
-                .addContainerGap(305, Short.MAX_VALUE))
+                .addGap(29, 29, 29)
+                .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabelVizsgalatiAdatok_adat_felvetel)
+                    .addComponent(jDateChooserVizsgalatiAdatok_adat_felvetel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(95, 95, 95)
+                .addComponent(jButtonRogzitvizsgalat_adatok)
+                .addContainerGap(329, Short.MAX_VALUE))
         );
 
         jTabbedPane1.addTab("Vizsgálati Adatok", jPanel7);
 
-        jLabelDiagnozisegy.setText("Diagnózis 1:");
+        jComboBoxLekerdezes.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Kezelési Adatok", "Immunstátusz", "Vérkép", "Klinikai Kémiai", "Vizsgálati Adatok" }));
 
-        jLabelDiagnozisketto.setText("Diagnózis 2:");
+        jTableLekerdezes.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null}
+            },
+            new String [] {
+                "Title 1", "Title 2", "Title 3", "Title 4"
+            }
+        ));
+        jScrollPane6.setViewportView(jTableLekerdezes);
 
-        jLabelDiagnozisharom.setText("Diagnózis 3: ");
+        jButtonLekerdezes.setText("OK");
+        jButtonLekerdezes.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButtonLekerdezesActionPerformed(evt);
+            }
+        });
 
-        jLabelDiagnozisnegy.setText("Diagnózis 4: ");
-
-        jLabelDiagnozisot.setText("Diagnózis 5: ");
-
-        jLabelT.setText("T: ");
-
-        jLabelM.setText("M: ");
-
-        jLabelN.setText("N: ");
-
-        jButtonRogzitdiag.setText("Rögzit");
-
-        javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
-        jPanel2.setLayout(jPanel2Layout);
-        jPanel2Layout.setHorizontalGroup(
-            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel2Layout.createSequentialGroup()
+        javax.swing.GroupLayout jPanel8Layout = new javax.swing.GroupLayout(jPanel8);
+        jPanel8.setLayout(jPanel8Layout);
+        jPanel8Layout.setHorizontalGroup(
+            jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel8Layout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                        .addGroup(jPanel2Layout.createSequentialGroup()
-                            .addComponent(jLabelDiagnozisegy)
-                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                            .addComponent(jTextFieldDiagnozisegy, javax.swing.GroupLayout.PREFERRED_SIZE, 406, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGroup(jPanel2Layout.createSequentialGroup()
-                            .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                .addComponent(jLabelDiagnozisketto)
-                                .addComponent(jLabelDiagnozisharom))
-                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                            .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                .addComponent(jTextFieldDiagnozisketto)
-                                .addComponent(jTextFieldDiganozisharom)))
-                        .addGroup(jPanel2Layout.createSequentialGroup()
-                            .addComponent(jLabelDiagnozisnegy)
-                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                            .addComponent(jTextFieldDiagnozisnegy))
-                        .addGroup(jPanel2Layout.createSequentialGroup()
-                            .addComponent(jLabelDiagnozisot)
-                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                            .addComponent(jTextFieldDiagnozisot)))
-                    .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                        .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel2Layout.createSequentialGroup()
-                            .addComponent(jLabelN)
-                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                            .addComponent(jTextFieldN))
-                        .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel2Layout.createSequentialGroup()
-                            .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                .addComponent(jLabelT)
-                                .addComponent(jLabelM))
-                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                            .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                .addComponent(jTextFieldT)
-                                .addComponent(jTextFieldM, javax.swing.GroupLayout.DEFAULT_SIZE, 72, Short.MAX_VALUE)))))
-                .addContainerGap(124, Short.MAX_VALUE))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
+                .addComponent(jComboBoxLekerdezes, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(jScrollPane6, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(106, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel8Layout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jButtonRogzitdiag)
-                .addGap(176, 176, 176))
+                .addComponent(jButtonLekerdezes)
+                .addGap(88, 88, 88))
         );
-        jPanel2Layout.setVerticalGroup(
-            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel2Layout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabelDiagnozisegy)
-                    .addComponent(jTextFieldDiagnozisegy, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabelDiagnozisketto)
-                    .addComponent(jTextFieldDiagnozisketto, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabelDiagnozisharom)
-                    .addComponent(jTextFieldDiganozisharom, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabelDiagnozisnegy)
-                    .addComponent(jTextFieldDiagnozisnegy, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabelDiagnozisot)
-                    .addComponent(jTextFieldDiagnozisot, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabelT)
-                    .addComponent(jTextFieldT, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabelM)
-                    .addComponent(jTextFieldM, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabelN)
-                    .addComponent(jTextFieldN, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jButtonRogzitdiag)
-                .addContainerGap(418, Short.MAX_VALUE))
+        jPanel8Layout.setVerticalGroup(
+            jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel8Layout.createSequentialGroup()
+                .addGap(45, 45, 45)
+                .addGroup(jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jComboBoxLekerdezes, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jScrollPane6, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(65, 65, 65)
+                .addComponent(jButtonLekerdezes)
+                .addContainerGap(509, Short.MAX_VALUE))
         );
 
-        jTabbedPane1.addTab("Diagnózis", jPanel2);
+        jTabbedPane1.addTab("Lekérdezések", jPanel8);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(jTabbedPane1)
                 .addContainerGap())
@@ -1201,6 +1778,8 @@ public class Kezelesek extends javax.swing.JFrame {
         double basoabsz = Double.parseDouble(jTextFieldBasoabsz.getText());
         double lucabsz = Double.parseDouble(jTextFieldLucabsz.getText());
         double vvt = Double.parseDouble(jTextFieldVvt.getText());
+        Date date_rogzites = jDateChooseradat_felvetel_kezadat.getDate();
+        LocalDate rogzites = date_rogzites.toInstant().atZone(ZoneId.systemDefault()).toLocalDate();
         Verkep verkep = new Verkep();
         verkep.setFeherversejt(feher);
         verkep.setVorosversejt(voros);
@@ -1225,6 +1804,17 @@ public class Kezelesek extends javax.swing.JFrame {
         verkep.setBaso_absz(basoabsz);
         verkep.setLuc_Absz(lucabsz);
         verkep.setVvtsullyedes(vvt);
+        verkep.setAdat_felvetel(rogzites);
+        verkep.setBetegAdat(beteg_adat);
+        if (update) {
+            Verkep_Manager.updateVerkep(verkep);
+            //verkep update 
+        }else{
+            
+            Verkep_Manager.createVerkep(verkep);
+        }
+        
+        
         
     }//GEN-LAST:event_jButtonRogzitverkepActionPerformed
 
@@ -1246,14 +1836,594 @@ public class Kezelesek extends javax.swing.JFrame {
         double nk_funkcio_szamitott = Double.parseDouble(jTextFieldNk_szamitott.getText());
         double citotoxicitasi_index_szamitott = Double.parseDouble(jTextFieldCitotoxicitasi_index.getText());
         double nk_limfocita_szam = Double.parseDouble(jTextFieldNk_limfoctaszam.getText());
+        double c_vitamin = Double.parseDouble(jTextFieldC_vitamin.getText());
+        double hif_egy_alfa = Double.parseDouble(jTextFieldHif.getText());
+        Date date_rogzites = jDateChooserImmun_adat_felvetel.getDate();
+        LocalDate rogzites = date_rogzites.toInstant().atZone(ZoneId.systemDefault()).toLocalDate();
         Immun immun = new Immun();
         immun.setT_sejt_limfocitak(t_sejt);
         immun.setB_sejt_limfocitak(b_sejt);
-        
-        
-        
+        immun.setNK_tipusu_sejtek_CD3_CD8_CD56(nk_sejt);
+        immun.setCD4_helpert_limfocitak(cd_negy);
+        immun.setCD8_citotoxikus_T_sejt_limfocitak(cd_nyolc);
+        immun.setHla_dr_cd3_limfocitakon_belul(hla_dr);
+        immun.setCD3_CD8_CD56_limfocitakon_belul(cd_haromnyolc);
+        immun.setCD4_CD8_arany(cd_negynyolc);
+        immun.setNK_funkció_szamitott(nk_funkcio_szamitott);
+        immun.setMK_funkcio(nk_funkcio);
+        immun.setCitotoxicitasi_index(citotoxicitasi_index);
+        immun.setNk_sejt_limfocitak(nk_limfocita_szam);
+        immun.setC_vitamin(c_vitamin);
+        immun.setHIF_1_alfa(hif_egy_alfa);
+        immun.setAdat_felvetel(rogzites);
+        immun.setBeteg_Adat(beteg_adat);
+        if (update) {
+            Immun_Manager.updateImmun(immun);
+        }else{
+            Immun_Manager.createImmun(immun);
+        }
         
     }//GEN-LAST:event_jButtonImmunActionPerformed
+
+    private void jButtonRogzitkepalkotoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonRogzitkepalkotoActionPerformed
+        String ct = jTextAreaCt.getText();
+        String petct = jTextAreaPetct.getText();
+        String ultrahang = jTextAreaUltrahang.getText();
+        String mri = jTextAreaMri.getText();
+        Date date_rogzites = jDateChooseradat_felvetel_kezadat.getDate();
+        LocalDate rogzites = date_rogzites.toInstant().atZone(ZoneId.systemDefault()).toLocalDate();
+        Kepalkoto kepalkoto = new Kepalkoto();
+        kepalkoto.setKepalkoto(ct);
+        kepalkoto.setKepalkoto_petct(petct);
+        kepalkoto.setKepalkoto_ultrahang(ultrahang);
+        kepalkoto.setMri(mri);
+        kepalkoto.setAdat_felvetel(rogzites);
+        kepalkoto.setBetegAdat(beteg_adat);
+        if (update) {
+            Kepalkoto_Manager.updateKepalkoto(kepalkoto);
+        }else{
+        Kepalkoto_Manager.createKepalkoto(kepalkoto);
+        }
+    }//GEN-LAST:event_jButtonRogzitkepalkotoActionPerformed
+
+    private void jButtonKlinikai_kemiai_rogzitActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonKlinikai_kemiai_rogzitActionPerformed
+        double glukoz = Double.parseDouble(jTextFieldGlukoz.getText());
+        double kkhemoglobin = Double.parseDouble(jTextFieldKlinikai_hemoglobin.getText());
+        double hugysav = Double.parseDouble(jTextFieldHugysav.getText());
+        double kalium = Double.parseDouble(jTextFieldKalium.getText());
+        double osszfeherje = Double.parseDouble(jTextFieldOsszfeherje.getText());
+        double albumin = Double.parseDouble(jTextFieldAlbumin.getText());
+        double crp = Double.parseDouble(jTextFieldCrp.getText());
+        double vas = Double.parseDouble(jTextFieldVas.getText());
+        double transzferrin = Double.parseDouble(jTextFieldTranszferrin.getText());
+        double got = Double.parseDouble(jTextFieldGot.getText());
+        double gpt = Double.parseDouble(jTextFieldGpt.getText());
+        double ggt = Double.parseDouble(jTextFieldGgt.getText());
+        double alkalikus_foszfataz = Double.parseDouble(jTextFieldAlkalikus_foszfataz.getText());
+        double csontspecifikus_ap = Double.parseDouble(jTextFieldCsontspecifikus_ap.getText());
+        double ldh = Double.parseDouble(jTextFieldLdh.getText());
+        double lipaz = Double.parseDouble(jTextFieldLipaz.getText());
+        double kortizol = Double.parseDouble(jTextFieldKortizol.getText());
+        double homa_index = Double.parseDouble(jTextFieldHoma_index.getText());
+        double inzulin = Double.parseDouble(jTextFieldInzulin.getText());
+        double ca_egyhuszonot = Double.parseDouble(jTextFieldCa_egyhuszonot.getText());
+        double he_negy = Double.parseDouble(jTextFieldHe_negy.getText());
+        double ca_tizenotharom = Double.parseDouble(jTextFieldCa_tizenotharom.getText());
+        double ca_hetvenkettonegy = Double.parseDouble(jTextFieldCa_hetvenkettonegy.getText());
+        double ca_tizenkilenckilenc = Double.parseDouble(jTextFieldCa_tizenkilenckilenc.getText());
+        double afp = Double.parseDouble(jTextFieldAfp.getText());
+        double cea = Double.parseDouble(jTextFieldCea.getText());
+        double psa = Double.parseDouble(jTextFieldPsa.getText());
+        double fpsa = Double.parseDouble(jTextFieldFpsa.getText());
+        double reuma_faktor = Double.parseDouble(jTextFieldReuma_faktor.getText());
+        double feherje_elfo = Double.parseDouble(jTextFieldFeherje_elfo.getText());
+        double elfo_paraprot = Double.parseDouble(jTextFieldElfo_paraprot.getText());
+        double prolaktin = Double.parseDouble(jTextFieldProlaktin.getText());
+        double koleszterin = Double.parseDouble(jTextFieldKoleszterin.getText());
+        double triglicerid = Double.parseDouble(jTextFieldTriglicerid.getText());
+        double hdl_koleszterin = Double.parseDouble(jTextFieldHdl_koleszterin.getText());
+        double osszbilirubin = Double.parseDouble(jTextFieldOsszbilirubin.getText());
+        double ck = Double.parseDouble(jTextFieldCk.getText());
+        double alfa_amilaz = Double.parseDouble(jTextFieldAlfa_amilaz.getText());
+        double ft4 = Double.parseDouble(jTextFieldFt4.getText());
+        double ft3 = Double.parseDouble(jTextFieldFt3.getText());
+        double tsh = Double.parseDouble(jTextFieldTsh.getText());
+        double thyreoglobulin = Double.parseDouble(jTextFieldThyreoglobulin.getText());
+        double d_vitamin = Double.parseDouble(jTextFieldD_vitamin.getText());
+        double parathormon = Double.parseDouble(jTextFieldParathormon.getText());
+        double anti = Double.parseDouble(jTextFieldAnti_muller_hormon.getText());
+        double fsh = Double.parseDouble(jTextFieldFsh.getText());
+        double lh = Double.parseDouble(jTextFieldLh.getText());
+        double osztradiol = Double.parseDouble(jTextFieldOsztradiol.getText());
+        double progeszteron = Double.parseDouble(jTextFieldProgeszteron.getText());
+        double total_tesztoszteron = Double.parseDouble(jTextFieldTotal_tesztoszteron.getText());
+        double aldoszteron = Double.parseDouble(jTextFieldAldoszteron.getText());
+        double igf = Double.parseDouble(jTextFieldIgf.getText());
+        double inzulin_res = Double.parseDouble(jTextFieldInzulin_res.getText());
+        double propsa = Double.parseDouble(jTextFieldPropsa.getText());
+        double nse = Double.parseDouble(jTextFieldNse.getText());
+        double s100 = Double.parseDouble(jTextFieldS100.getText());
+        double tpa = Double.parseDouble(jTextFieldTpa.getText());
+        double m2 = Double.parseDouble(jTextFieldM2_pk.getText());
+        double coliakia = Double.parseDouble(jTextFieldColiakia.getText());
+        double anti_tpo = Double.parseDouble(jTextFieldAnti_tpo.getText());
+        double thyreo_autoat = Double.parseDouble(jTextFieldThyreo_autoat.getText());
+        double tsh_receptor_autoat = Double.parseDouble(jTextFieldTsh_receptor_autoat.getText());
+        double immun_a = Double.parseDouble(jTextFieldImmun_a.getText());
+        double immun_g = Double.parseDouble(jTextFieldImmun_g.getText());
+        double immun_m = Double.parseDouble(jTextFieldImmun_m.getText());
+        double igg = Double.parseDouble(jTextFieldIgg_alosztalyok.getText());
+        Date date_rogzites = jDateChooseradat_felvetel_kezadat.getDate();
+        LocalDate rogzites = date_rogzites.toInstant().atZone(ZoneId.systemDefault()).toLocalDate();
+        KlinikaKemia klinikakemia = new KlinikaKemia();
+        klinikakemia.setGlukoz(glukoz);
+        klinikakemia.setHemoglobin(kkhemoglobin);
+        klinikakemia.setHugysav(hugysav);
+        klinikakemia.setKalium(kalium);
+        klinikakemia.setOsszfeherje(osszfeherje);
+        klinikakemia.setAlbumin(albumin);
+        klinikakemia.setCrp(crp);
+        klinikakemia.setVas(vas);
+        klinikakemia.setTranszferrin(transzferrin);
+        klinikakemia.setGot(got);
+        klinikakemia.setGpt(gpt);
+        klinikakemia.setGgt(ggt);
+        klinikakemia.setAlkalikus_foszfataz(alkalikus_foszfataz);
+        klinikakemia.setCsontspecifikus_ap(csontspecifikus_ap);
+        klinikakemia.setLdh(ldh);
+        klinikakemia.setLipaz(lipaz);
+        klinikakemia.setKortizol(kortizol);
+        klinikakemia.setHoma_index(homa_index);
+        klinikakemia.setInzulin(inzulin);
+        klinikakemia.setCa_125(ca_egyhuszonot);
+        klinikakemia.setHe4(he_negy);
+        klinikakemia.setCa15_3(ca_tizenotharom);
+        klinikakemia.setCa72_4(ca_hetvenkettonegy);
+        klinikakemia.setCa19_9(ca_tizenkilenckilenc);
+        klinikakemia.setAfp(afp);
+        klinikakemia.setCea(cea);
+        klinikakemia.setPsa(psa);
+        klinikakemia.setFpsa(fpsa);
+        klinikakemia.setReumafaktor(reuma_faktor);
+        klinikakemia.setFeherje_elfo(feherje_elfo);
+        klinikakemia.setElfo_paraprot(elfo_paraprot);
+        klinikakemia.setProlaktin(prolaktin);
+        klinikakemia.setKoleszterin(koleszterin);
+        klinikakemia.setTriglicerin(triglicerid);
+        klinikakemia.setHdl_kis_koleszterin(hdl_koleszterin);
+        klinikakemia.setOsszbilirubin(osszbilirubin);
+        klinikakemia.setCk(ck);
+        klinikakemia.setAlfa_amiláz(alfa_amilaz);
+        klinikakemia.setFt4(ft4);
+        klinikakemia.setFt3(ft3);
+        klinikakemia.setTsh(tsh);
+        klinikakemia.setThyreoglobulin(thyreoglobulin);
+        klinikakemia.setD_vitamin(d_vitamin);
+        klinikakemia.setParathormon(parathormon);
+        klinikakemia.setAnti_mullerian_hormon(anti);
+        klinikakemia.setFsh(fsh);
+        klinikakemia.setLh(lh);
+        klinikakemia.setOssztradiol(osztradiol);
+        klinikakemia.setProgeszteron(progeszteron);
+        klinikakemia.setTotaltesztoszteron(total_tesztoszteron);
+        klinikakemia.setAldoszteron(aldoszteron);
+        klinikakemia.setIgf_1(igf);
+        klinikakemia.setInzulin_reziztencia(inzulin_res);
+        klinikakemia.setPro_psa(propsa);
+        klinikakemia.setNse(nse);
+        klinikakemia.setS100_protein(s100);
+        klinikakemia.setTpa(tpa);
+        klinikakemia.setM2_pk_marker(m2);
+        klinikakemia.setColiakiaszures(coliakia);
+        klinikakemia.setAnti_tpo(anti_tpo);
+        klinikakemia.setThyreoglobulin_autoat(thyreo_autoat);
+        klinikakemia.setTsh_receptor_autoat(tsh_receptor_autoat);
+        klinikakemia.setImmunglobulin_a(immun_a);
+        klinikakemia.setImmunglobulin_g(immun_g);
+        klinikakemia.setImmunglobulin_m(immun_m);
+        klinikakemia.setIgg_alosztalyok(igg);
+        klinikakemia.setAdat_felvetel(rogzites);
+        
+        if (update) {
+            KlinikaKemia_Manager.updateKlinikaKemia(klinikakemia);
+        }else{
+        KlinikaKemia_Manager.createKlinikakemia(klinikakemia);
+        }
+    }//GEN-LAST:event_jButtonKlinikai_kemiai_rogzitActionPerformed
+
+    private void jButtonRogzitvizsgalat_adatokActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonRogzitvizsgalat_adatokActionPerformed
+       int rr = Integer.parseInt(jTextFieldRr.getText());
+       int tpo = Integer.parseInt(jTextFieldTpo.getText());
+       int spo = Integer.parseInt(jTextFieldSpo.getText());
+       int oxihemoglobin = Integer.parseInt(jTextFieldOxihemoglobin.getText());
+       int dezoxihemoglobin = Integer.parseInt(jTextFieldDezoxihemoglobin.getText());
+       int oxsat = Integer.parseInt(jTextFieldOxsat.getText());
+       String megjegyzes = jTextAreaMegjegyzes.getText();
+       Date date_rogzites = jDateChooseradat_felvetel_kezadat.getDate();
+        LocalDate rogzites = date_rogzites.toInstant().atZone(ZoneId.systemDefault()).toLocalDate();
+       VizsgalatiAdatok vizsgalatiadatok = new VizsgalatiAdatok();
+       vizsgalatiadatok.setRr(rr);
+       vizsgalatiadatok.setTpo(tpo);
+       vizsgalatiadatok.setSpo(spo);
+       vizsgalatiadatok.setOxihemoglobin(oxihemoglobin);
+       vizsgalatiadatok.setDezoxihemoglobin(dezoxihemoglobin);
+       vizsgalatiadatok.setOxsat(oxsat);
+       vizsgalatiadatok.setMegjegyzes(megjegyzes);
+       vizsgalatiadatok.setAdat_felvetel(rogzites);
+       
+        if (update) {
+            VizsgalatiAdatok_Manager.updateVizsgalatiAdatok(vizsgalatiadatok);
+        }else{
+       VizsgalatiAdatok_Manager.createVizsgalatiAdatok(vizsgalatiadatok);
+        }
+    }//GEN-LAST:event_jButtonRogzitvizsgalat_adatokActionPerformed
+
+    private void jButtonRogzitdiagActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonRogzitdiagActionPerformed
+        String diagnozis_1 = jTextFieldDiagnozisegy.getText();
+        String diagnozis_2 = jTextFieldDiagnozisketto.getText();
+        String diagnozis_3 = jTextFieldDiganozisharom.getText();
+        String diagnozis_4 = jTextFieldDiagnozisnegy.getText();
+        String diagnozis_5 = jTextFieldDiagnozisot.getText();
+        String t = jTextFieldT.getText();
+        String m = jTextFieldM.getText();
+        String n = jTextFieldN.getText();
+        Date date_rogzites = jDateChooseradat_felvetel_kezadat.getDate();
+        LocalDate rogzites = date_rogzites.toInstant().atZone(ZoneId.systemDefault()).toLocalDate();
+        Diagnozis diagnozis = new Diagnozis();
+        diagnozis.setDiangozis1(diagnozis_1);
+        diagnozis.setDiagnozis2(diagnozis_2);
+        diagnozis.setDiagnozis3(diagnozis_3);
+        diagnozis.setDiagnozis4(diagnozis_4);
+        diagnozis.setDiagnozis5(diagnozis_5);
+        diagnozis.setT(t);
+        diagnozis.setM(m);
+        diagnozis.setN(n);
+        diagnozis.setAdat_felvetel(rogzites);
+        
+        if (update) {
+            Diagnozis_Manager.updateDiagnozis(diagnozis);
+        }else{
+        Diagnozis_Manager.createDiangozis(diagnozis);
+        }
+    }//GEN-LAST:event_jButtonRogzitdiagActionPerformed
+
+    private void jButtonRogzit_kezadatActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonRogzit_kezadatActionPerformed
+        Date date_felvetel = jDateChooserFelvetel.getDate();
+        LocalDate felvetel = date_felvetel.toInstant().atZone(ZoneId.systemDefault()).toLocalDate();
+        Date date_tavozas = jDateChooserTavozas.getDate();
+        LocalDate tavozas = date_tavozas.toInstant().atZone(ZoneId.systemDefault()).toLocalDate();
+        Date date_rogzites = jDateChooseradat_felvetel_kezadat.getDate();
+        LocalDate rogzites = date_rogzites.toInstant().atZone(ZoneId.systemDefault()).toLocalDate();
+        int ivokura = Integer.parseInt(jTextFieldIvokura.getText());
+        int furdokura = Integer.parseInt(jTextFieldFurdokura.getText());
+        int oxigen_kamra = Integer.parseInt(jTextFieldOxigen_kamra.getText());
+        int kemo = Integer.parseInt(jTextFieldKemo.getText());
+        int sugar = Integer.parseInt(jTextFieldSugar_terapia.getText());
+        int hormon = Integer.parseInt(jTextFieldHormonterapia.getText());
+        KezAdat kezadat = new KezAdat();
+        kezadat.setFelvetel(felvetel);
+        kezadat.setTavozas(tavozas);
+        kezadat.setAdat_felvetel(rogzites);
+        kezadat.setIvokura(ivokura);
+        kezadat.setFurdokura(furdokura);
+        kezadat.setOxigen_kamra(oxigen_kamra);
+        kezadat.setKemoterapia(kemo);
+        kezadat.setSugarterapia(sugar);
+        kezadat.setHormonterapia(hormon);
+        
+        if (update) {
+            KezAdat_Manager.updateKezAdat(kezadat);
+        }else{
+        KezAdat_Manager.createKezAdat(kezadat);
+        }
+    }//GEN-LAST:event_jButtonRogzit_kezadatActionPerformed
+
+    private void jButtonLekerdezesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonLekerdezesActionPerformed
+        if (jComboBoxLekerdezes.getSelectedIndex() == 0) {
+            
+            Vector<String> tableHeaders = new Vector<String>();
+                tableHeaders.add("ivokura");
+                tableHeaders.add("furdokura");
+                tableHeaders.add("oxigen_kamra");
+                tableHeaders.add("kemoterapia");
+                tableHeaders.add("sugarterapia");
+                tableHeaders.add("hormonterapia");
+                tableHeaders.add("adat_felvetel");
+        
+
+        Vector tableData = new Vector();
+        for (KezAdat kezadat : KezAdat_Manager.timeSortKezAdat()) {
+            Vector<Object> oneRow = new Vector<Object>();
+            oneRow.add(kezadat.getIvokura());
+            oneRow.add(kezadat.getFurdokura());
+            oneRow.add(kezadat.getOxigen_kamra());
+            oneRow.add(kezadat.getKemoterapia());
+            oneRow.add(kezadat.getSugarterapia());
+            oneRow.add(kezadat.getHormonterapia());
+            oneRow.add(kezadat.getAdat_felvetel());
+            tableData.add(oneRow);
+        }
+
+        jTableLekerdezes.setModel(new DefaultTableModel(tableData, tableHeaders));
+        
+        }else if(jComboBoxLekerdezes.getSelectedIndex() == 1){
+            Vector<String> tableHeaders = new Vector<String>();
+                tableHeaders.add("t_sejt_limfocitak");
+                tableHeaders.add("b_sejt_limfocitak");
+                tableHeaders.add("nk_sejt_limfocitak");
+                tableHeaders.add("CD4_helpert_limfocitak");
+                tableHeaders.add("CD8_citotoxikus_T_sejt_limfocitak");
+                tableHeaders.add("Aktivalt_T_sejtek_HLA_DR_CD3");
+                tableHeaders.add("NK_tipusu_sejtek_CD3_CD8_CD56");
+                tableHeaders.add("CD4_CD8_arany");
+                tableHeaders.add("NK_funkcio");
+                tableHeaders.add("Citotoxicitasi_index");
+                tableHeaders.add("NK_funkció_szamitott");
+                tableHeaders.add("C_vitamin");
+                tableHeaders.add("HIF_1_alfa");
+                tableHeaders.add("Hla_dr_cd3_limfocitakon_belul");
+                tableHeaders.add("CD3_CD8_CD56_limfocitakon_belul");
+                tableHeaders.add("adat_felvetel");
+        
+
+        Vector tableData = new Vector();
+        for (Immun immunok : Immun_Manager.timeSortImmun()) {
+            Vector<Object> oneRow = new Vector<Object>();
+            oneRow.add(immunok.getT_sejt_limfocitak());
+            oneRow.add(immunok.getB_sejt_limfocitak());
+            oneRow.add(immunok.getNk_sejt_limfocitak());
+            oneRow.add(immunok.getCD4_helpert_limfocitak());
+            oneRow.add(immunok.getCD8_citotoxikus_T_sejt_limfocitak());
+            oneRow.add(immunok.getAktivalt_T_sejtek_HLA_DR_CD3());
+            oneRow.add(immunok.getNK_tipusu_sejtek_CD3_CD8_CD56());
+            oneRow.add(immunok.getCD4_CD8_arany());
+            oneRow.add(immunok.getNK_funkcio());
+            oneRow.add(immunok.getCitotoxicitasi_index());
+            oneRow.add(immunok.getNK_funkció_szamitott());
+            oneRow.add(immunok.getC_vitamin());
+            oneRow.add(immunok.getHIF_1_alfa());
+            oneRow.add(immunok.getHla_dr_cd3_limfocitakon_belul());
+            oneRow.add(immunok.getCD3_CD8_CD56_limfocitakon_belul());
+            oneRow.add(immunok.getAdat_felvetel());
+            tableData.add(oneRow);
+            
+            jTableLekerdezes.setModel(new DefaultTableModel(tableData, tableHeaders));
+        }
+        }else if(jComboBoxLekerdezes.getSelectedIndex() == 2){
+            Vector<String> tableHeaders = new Vector<String>();
+                tableHeaders.add("feherversejt");
+                tableHeaders.add("vorosversejt");
+                tableHeaders.add("hemoglobin");
+                tableHeaders.add("hematokrit");
+                tableHeaders.add("mcv");
+                tableHeaders.add("mch");
+                tableHeaders.add("mchc");
+                tableHeaders.add("trombocitszam");
+                tableHeaders.add("rdw_cv");
+                tableHeaders.add("mpv");
+                tableHeaders.add("neut");
+                tableHeaders.add("lymph");
+                tableHeaders.add("mono");
+                tableHeaders.add("eo");
+                tableHeaders.add("baso");
+                tableHeaders.add("luc");
+                tableHeaders.add("neut_absz");
+                tableHeaders.add("lymph_absz");
+                tableHeaders.add("mono_absz");
+                tableHeaders.add("eo_absz");
+                tableHeaders.add("baso_absz");
+                tableHeaders.add("luc_absz");
+                tableHeaders.add("vvt_sullyedes");
+                tableHeaders.add("adat_felvetel");
+                
+        
+
+        Vector tableData = new Vector();
+        for (Verkep verkepek : Verkep_Manager.timeSortVerkep()) {
+            Vector<Object> oneRow = new Vector<Object>();
+            oneRow.add(verkepek.getFeherversejt());
+            oneRow.add(verkepek.getVorosversejt());
+            oneRow.add(verkepek.getHemoglobin());
+            oneRow.add(verkepek.getHematokrit());
+            oneRow.add(verkepek.getMcv());
+            oneRow.add(verkepek.getMch());
+            oneRow.add(verkepek.getMchc());
+            oneRow.add(verkepek.getTrombocitaszam());
+            oneRow.add(verkepek.getRdw_cv());
+            oneRow.add(verkepek.getMpv());
+            oneRow.add(verkepek.getNeut());
+            oneRow.add(verkepek.getLymph());
+            oneRow.add(verkepek.getMono());
+            oneRow.add(verkepek.getEo());
+            oneRow.add(verkepek.getBaso());
+            oneRow.add(verkepek.getLuc());
+            oneRow.add(verkepek.getNeut_absz());
+            oneRow.add(verkepek.getLymph_absz());
+            oneRow.add(verkepek.getMono_absz());
+            oneRow.add(verkepek.getEo_absz());
+            oneRow.add(verkepek.getBaso_absz());
+            oneRow.add(verkepek.getLuc_Absz());
+            oneRow.add(verkepek.getVvt_sullyedes());
+            oneRow.add(verkepek.getAdat_felvetel());
+            tableData.add(oneRow);
+            
+            jTableLekerdezes.setModel(new DefaultTableModel(tableData, tableHeaders));
+            
+        }
+        }else if(jComboBoxLekerdezes.getSelectedIndex() == 3){
+            
+             Vector<String> tableHeaders = new Vector<String>();
+                tableHeaders.add("hugysav");
+                tableHeaders.add("kalium");
+                tableHeaders.add("osszfeherje");
+                tableHeaders.add("albumin");
+                tableHeaders.add("crp");
+                tableHeaders.add("vas");
+                tableHeaders.add("transzferrin");
+                tableHeaders.add("koleszterin");
+                tableHeaders.add("triglicerin");
+                tableHeaders.add("hdl_kis_koleszterin");
+                tableHeaders.add("eldl_koleszterin");
+                tableHeaders.add("osszbilirubin");
+                tableHeaders.add("got");
+                tableHeaders.add("gpt");
+                tableHeaders.add("ggt");
+                tableHeaders.add("alkalikus_foszfataz");
+                tableHeaders.add("csontspecifikus_ap");
+                tableHeaders.add("ldh");
+                tableHeaders.add("lipaz");
+                tableHeaders.add("ck");
+                tableHeaders.add("alfa_amiláz");
+                tableHeaders.add("lipaz");
+                tableHeaders.add("ft4");
+                tableHeaders.add("ft3");
+                tableHeaders.add("tsh");
+                tableHeaders.add("thyreoglobulin");
+                tableHeaders.add("d_vitamin");
+                tableHeaders.add("parathormon");
+                tableHeaders.add("anti_mullerian_hormon");
+                tableHeaders.add("fsh");
+                tableHeaders.add("lh");
+                tableHeaders.add("prolaktin");
+                tableHeaders.add("ossztradiol");
+                tableHeaders.add("progeszteron");
+                tableHeaders.add("totaltesztoszteron");
+                tableHeaders.add("aldoszteron");
+                tableHeaders.add("kortizol");
+                tableHeaders.add("homa_index");
+                tableHeaders.add("igf_1");
+                tableHeaders.add("inzulin");
+                tableHeaders.add("inzulin_reziztencia");
+                tableHeaders.add("ca_125");
+                tableHeaders.add("he4");
+                tableHeaders.add("ca15_3");
+                tableHeaders.add("ca72_4");
+                tableHeaders.add("ca19_9");
+                tableHeaders.add("afp");
+                tableHeaders.add("cea");
+                tableHeaders.add("psa");
+                tableHeaders.add("fpsa");
+                tableHeaders.add("pro_psa");
+                tableHeaders.add("nse");
+                tableHeaders.add("s100_protein");
+                tableHeaders.add("tpa");
+                tableHeaders.add("m2_pk_marker");
+                tableHeaders.add("reumafaktor");
+                tableHeaders.add("coliakiaszures");
+                tableHeaders.add("anti_tpo");
+                tableHeaders.add("thyreoglobulin_autoat");
+                tableHeaders.add("tsh_receptor_autoat");
+                tableHeaders.add("feherje_elfo");
+                tableHeaders.add("elfo_paraprot");
+                tableHeaders.add("ast");
+                tableHeaders.add("inmunglobuliun_a");
+                tableHeaders.add("inmunglobulin_g");
+                tableHeaders.add("inmunglobulin_m");
+                tableHeaders.add("igg_alosztalyok");
+                tableHeaders.add("glukoz");
+                tableHeaders.add("hemoglobin");
+                tableHeaders.add("adat_felvetel");
+        
+
+        Vector tableData = new Vector();
+        for (KlinikaKemia klinikakemiai : KlinikaKemia_Manager.timeSortKlinikaKemia()) {
+            Vector<Object> oneRow = new Vector<Object>();
+            oneRow.add(klinikakemiai.getHugysav());
+            oneRow.add(klinikakemiai.getKalium());
+            oneRow.add(klinikakemiai.getOsszfeherje());
+            oneRow.add(klinikakemiai.getAlbumin());
+            oneRow.add(klinikakemiai.getCrp());
+            oneRow.add(klinikakemiai.getVas());
+            oneRow.add(klinikakemiai.getTranszferrin());
+            oneRow.add(klinikakemiai.getKoleszterin());
+            oneRow.add(klinikakemiai.getTriglicerin());
+            oneRow.add(klinikakemiai.getHdl_kis_koleszterin());
+            oneRow.add(klinikakemiai.getOsszbilirubin());
+            oneRow.add(klinikakemiai.getGot());
+            oneRow.add(klinikakemiai.getGpt());
+            oneRow.add(klinikakemiai.getGgt());
+            oneRow.add(klinikakemiai.getAlkalikus_foszfataz());
+            oneRow.add(klinikakemiai.getCsontspecifikus_ap());
+            oneRow.add(klinikakemiai.getLdh());
+            oneRow.add(klinikakemiai.getCk());
+            oneRow.add(klinikakemiai.getAlfa_amiláz());
+            oneRow.add(klinikakemiai.getLipaz());
+            oneRow.add(klinikakemiai.getFt4());
+            oneRow.add(klinikakemiai.getFt3());
+            oneRow.add(klinikakemiai.getTsh());
+            oneRow.add(klinikakemiai.getThyreoglobulin());
+            oneRow.add(klinikakemiai.getD_vitamin());
+            oneRow.add(klinikakemiai.getParathormon());
+            oneRow.add(klinikakemiai.getAnti_mullerian_hormon());
+            oneRow.add(klinikakemiai.getFsh());
+            oneRow.add(klinikakemiai.getLh());
+            oneRow.add(klinikakemiai.getProlaktin());
+            oneRow.add(klinikakemiai.getOssztradiol());
+            oneRow.add(klinikakemiai.getKortizol());
+            oneRow.add(klinikakemiai.getHoma_index());
+            oneRow.add(klinikakemiai.getInzulin());
+            oneRow.add(klinikakemiai.getInzulin_reziztencia());
+            oneRow.add(klinikakemiai.getCa_125());
+            oneRow.add(klinikakemiai.getHe4());
+            oneRow.add(klinikakemiai.getCa15_3());
+            oneRow.add(klinikakemiai.getCa72_4());
+            oneRow.add(klinikakemiai.getCa19_9());
+            oneRow.add(klinikakemiai.getAfp());
+            oneRow.add(klinikakemiai.getCea());
+            oneRow.add(klinikakemiai.getPsa());
+            oneRow.add(klinikakemiai.getFpsa());
+            oneRow.add(klinikakemiai.getPro_psa());
+            oneRow.add(klinikakemiai.getNse());
+            oneRow.add(klinikakemiai.getS100_protein());
+            oneRow.add(klinikakemiai.getTpa());
+            oneRow.add(klinikakemiai.getM2_pk_marker());
+            oneRow.add(klinikakemiai.getReumafaktor());
+            oneRow.add(klinikakemiai.getColiakiaszures());
+            oneRow.add(klinikakemiai.getAnti_tpo());
+            oneRow.add(klinikakemiai.getThyreoglobulin_autoat());
+            oneRow.add(klinikakemiai.getTsh_receptor_autoat());
+            oneRow.add(klinikakemiai.getFeherje_elfo());
+            oneRow.add(klinikakemiai.getElfo_paraprot());
+            oneRow.add(klinikakemiai.getImmunglobulin_a());
+            oneRow.add(klinikakemiai.getImmunglobulin_g());
+            oneRow.add(klinikakemiai.getImmunglobulin_m());
+            oneRow.add(klinikakemiai.getIgg_alosztalyok());
+            oneRow.add(klinikakemiai.getAdat_felvetel());
+            
+            tableData.add(oneRow);
+        }
+
+        jTableLekerdezes.setModel(new DefaultTableModel(tableData, tableHeaders));
+            
+            
+        }else if(jComboBoxLekerdezes.getSelectedIndex() == 4){
+             Vector<String> tableHeaders = new Vector<String>();
+             tableHeaders.add("rr");
+             tableHeaders.add("tpo");
+             tableHeaders.add("spo");
+             tableHeaders.add("oxihemoglobin");
+             tableHeaders.add("dezoxihemoglobin");
+             tableHeaders.add("oxsat");
+             tableHeaders.add("adat_felvetel");
+             
+              Vector tableData = new Vector();
+        for (VizsgalatiAdatok vizsgalatiAdatok : VizsgalatiAdatok_Manager.timeSortVizsgalataiAdatok()) {
+            Vector<Object> oneRow = new Vector<Object>();
+            oneRow.add(vizsgalatiAdatok.getRr());
+            oneRow.add(vizsgalatiAdatok.getTpo());
+            oneRow.add(vizsgalatiAdatok.getSpo());
+            oneRow.add(vizsgalatiAdatok.getOxihemoglobin());
+            oneRow.add(vizsgalatiAdatok.getDezoxihemoglobin());
+            oneRow.add(vizsgalatiAdatok.getOxsat());
+            oneRow.add(vizsgalatiAdatok.getAdat_felvetel());
+            
+            tableData.add(oneRow);
+            
+        }
+        
+        jTableLekerdezes.setModel(new DefaultTableModel(tableData, tableHeaders));
+        }
+    }//GEN-LAST:event_jButtonLekerdezesActionPerformed
 
     private Double converttodouble(String text){
         double retval = 0.0;
@@ -1300,18 +2470,44 @@ public class Kezelesek extends javax.swing.JFrame {
         });
     }
 
+    public boolean isUpdate() {
+        return update;
+    }
+
+    public void setUpdate(boolean update) {
+        this.update = update;
+    }
+    
+    
+
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButtonImmun;
+    private javax.swing.JButton jButtonKlinikai_kemiai_rogzit;
+    private javax.swing.JButton jButtonLekerdezes;
+    private javax.swing.JButton jButtonRogzit_kezadat;
     private javax.swing.JButton jButtonRogzitdiag;
     private javax.swing.JButton jButtonRogzitkepalkoto;
     private javax.swing.JButton jButtonRogzitverkep;
-    private javax.swing.JButton jButtonRogzitvizsgalat;
+    private javax.swing.JButton jButtonRogzitvizsgalat_adatok;
+    private javax.swing.JComboBox jComboBoxLekerdezes;
+    private com.toedter.calendar.JDateChooser jDateChooserDiag_adat_felvetel;
     private com.toedter.calendar.JDateChooser jDateChooserFelvetel;
+    private com.toedter.calendar.JDateChooser jDateChooserImmun_adat_felvetel;
+    private com.toedter.calendar.JDateChooser jDateChooserKepalkoto_adat_felvetel;
+    private com.toedter.calendar.JDateChooser jDateChooserKlinikaKemia_adat_felvetel;
     private com.toedter.calendar.JDateChooser jDateChooserTavozas;
+    private com.toedter.calendar.JDateChooser jDateChooserVerkep_adat_felvetel;
+    private com.toedter.calendar.JDateChooser jDateChooserVizsgalatiAdatok_adat_felvetel;
+    private com.toedter.calendar.JDateChooser jDateChooseradat_felvetel_kezadat;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabelAfp;
     private javax.swing.JLabel jLabelAlbumin;
+    private javax.swing.JLabel jLabelAldoszteron;
+    private javax.swing.JLabel jLabelAlfa_amilaz;
     private javax.swing.JLabel jLabelAlkalikus_foszfataz;
+    private javax.swing.JLabel jLabelAnti_muller_hormon;
+    private javax.swing.JLabel jLabelAnti_tpo;
     private javax.swing.JLabel jLabelB_sejt;
     private javax.swing.JLabel jLabelBaso;
     private javax.swing.JLabel jLabelBasoabsz;
@@ -1320,16 +2516,20 @@ public class Kezelesek extends javax.swing.JFrame {
     private javax.swing.JLabel jLabelCa_egykilenc;
     private javax.swing.JLabel jLabelCa_egyot;
     private javax.swing.JLabel jLabelCa_hetketto;
-    private javax.swing.JLabel jLabelCd_harom;
+    private javax.swing.JLabel jLabelCd_haromnyolc;
     private javax.swing.JLabel jLabelCd_negy;
     private javax.swing.JLabel jLabelCd_negynyolc_arany;
     private javax.swing.JLabel jLabelCd_nyolc;
     private javax.swing.JLabel jLabelCea;
     private javax.swing.JLabel jLabelCitotoxicitas;
     private javax.swing.JLabel jLabelCitotoxicitas_szamitott;
+    private javax.swing.JLabel jLabelCk;
+    private javax.swing.JLabel jLabelColiakia;
     private javax.swing.JLabel jLabelCrp;
     private javax.swing.JLabel jLabelCsontspecifikus;
+    private javax.swing.JLabel jLabelD_vitamin;
     private javax.swing.JLabel jLabelDezoxihemoglobin;
+    private javax.swing.JLabel jLabelDiag_adat_felvetel;
     private javax.swing.JLabel jLabelDiagnozisegy;
     private javax.swing.JLabel jLabelDiagnozisharom;
     private javax.swing.JLabel jLabelDiagnozisketto;
@@ -1342,6 +2542,9 @@ public class Kezelesek extends javax.swing.JFrame {
     private javax.swing.JLabel jLabelFeherversejt;
     private javax.swing.JLabel jLabelFelvetel;
     private javax.swing.JLabel jLabelFpsa;
+    private javax.swing.JLabel jLabelFsh;
+    private javax.swing.JLabel jLabelFt3;
+    private javax.swing.JLabel jLabelFt4;
     private javax.swing.JLabel jLabelFurdokura;
     private javax.swing.JLabel jLabelGgt;
     private javax.swing.JLabel jLabelGlukoz;
@@ -1354,19 +2557,33 @@ public class Kezelesek extends javax.swing.JFrame {
     private javax.swing.JLabel jLabelHif;
     private javax.swing.JLabel jLabelHla_dr;
     private javax.swing.JLabel jLabelHoma;
+    private javax.swing.JLabel jLabelHormonterapia;
     private javax.swing.JLabel jLabelHugysav;
+    private javax.swing.JLabel jLabelIgf;
+    private javax.swing.JLabel jLabelIgg_alosztalyok;
+    private javax.swing.JLabel jLabelImmun_a;
+    private javax.swing.JLabel jLabelImmun_adat_felvetel;
+    private javax.swing.JLabel jLabelImmun_g;
+    private javax.swing.JLabel jLabelImmun_m;
     private javax.swing.JLabel jLabelInzulin;
+    private javax.swing.JLabel jLabelInzulin_res;
     private javax.swing.JLabel jLabelKalium;
+    private javax.swing.JLabel jLabelKemo;
+    private javax.swing.JLabel jLabelKepalkoto_adat_felvetel;
     private javax.swing.JLabel jLabelKepalkotoct;
     private javax.swing.JLabel jLabelKepalkotopetct;
+    private javax.swing.JLabel jLabelKlinikaKemia_adat_felvetel;
+    private javax.swing.JLabel jLabelKoleszterin;
     private javax.swing.JLabel jLabelKortizol;
     private javax.swing.JLabel jLabelLdh;
+    private javax.swing.JLabel jLabelLh;
     private javax.swing.JLabel jLabelLipaz;
     private javax.swing.JLabel jLabelLuc;
     private javax.swing.JLabel jLabelLucabsz;
     private javax.swing.JLabel jLabelLymph;
     private javax.swing.JLabel jLabelLymphabsz;
     private javax.swing.JLabel jLabelM;
+    private javax.swing.JLabel jLabelM2_pk;
     private javax.swing.JLabel jLabelMch;
     private javax.swing.JLabel jLabelMchc;
     private javax.swing.JLabel jLabelMcv;
@@ -1382,24 +2599,44 @@ public class Kezelesek extends javax.swing.JFrame {
     private javax.swing.JLabel jLabelNk_limfocita_szam;
     private javax.swing.JLabel jLabelNk_sejt;
     private javax.swing.JLabel jLabelNk_szamitott;
+    private javax.swing.JLabel jLabelNse;
+    private javax.swing.JLabel jLabelOsszbilirubin;
     private javax.swing.JLabel jLabelOsszfeherje;
+    private javax.swing.JLabel jLabelOsztradiol;
+    private javax.swing.JLabel jLabelOxigen_kamra;
     private javax.swing.JLabel jLabelOxihemoglobin;
     private javax.swing.JLabel jLabelOxsat;
+    private javax.swing.JLabel jLabelParathormon;
+    private javax.swing.JLabel jLabelProgeszteron;
+    private javax.swing.JLabel jLabelProlaktin;
+    private javax.swing.JLabel jLabelPropsa;
     private javax.swing.JLabel jLabelPsa;
     private javax.swing.JLabel jLabelRdwcv;
     private javax.swing.JLabel jLabelReuma;
     private javax.swing.JLabel jLabelRr;
+    private javax.swing.JLabel jLabelS100;
     private javax.swing.JLabel jLabelSpo;
+    private javax.swing.JLabel jLabelSugar_terapia;
     private javax.swing.JLabel jLabelT;
     private javax.swing.JLabel jLabelT_sejt;
     private javax.swing.JLabel jLabelTavozas;
+    private javax.swing.JLabel jLabelThyreo_autoat;
+    private javax.swing.JLabel jLabelThyreoglobulin;
+    private javax.swing.JLabel jLabelTotal_tesztoszteron;
+    private javax.swing.JLabel jLabelTpa;
     private javax.swing.JLabel jLabelTpo;
     private javax.swing.JLabel jLabelTranszferrin;
+    private javax.swing.JLabel jLabelTriglicerid;
     private javax.swing.JLabel jLabelTrombocitaszam;
+    private javax.swing.JLabel jLabelTsh;
+    private javax.swing.JLabel jLabelTsh_receptor_autoat;
     private javax.swing.JLabel jLabelUltrahang;
     private javax.swing.JLabel jLabelVas;
+    private javax.swing.JLabel jLabelVerkep_adat_felvetel;
+    private javax.swing.JLabel jLabelVizsgalatiAdatok_adat_felvetel;
     private javax.swing.JLabel jLabelVorosversejt;
     private javax.swing.JLabel jLabelVvt;
+    private javax.swing.JLabel jLabeladat_felvetel_kezadat;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
@@ -1407,48 +2644,98 @@ public class Kezelesek extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel5;
     private javax.swing.JPanel jPanel6;
     private javax.swing.JPanel jPanel7;
+    private javax.swing.JPanel jPanel8;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JScrollPane jScrollPane3;
     private javax.swing.JScrollPane jScrollPane4;
     private javax.swing.JScrollPane jScrollPane5;
+    private javax.swing.JScrollPane jScrollPane6;
     private javax.swing.JTabbedPane jTabbedPane1;
-    private javax.swing.JTextArea jTextArea1;
-    private javax.swing.JTextArea jTextArea2;
-    private javax.swing.JTextArea jTextArea3;
-    private javax.swing.JTextArea jTextArea4;
+    private javax.swing.JTable jTableLekerdezes;
+    private javax.swing.JTextArea jTextAreaCt;
     private javax.swing.JTextArea jTextAreaMegjegyzes;
+    private javax.swing.JTextArea jTextAreaMri;
+    private javax.swing.JTextArea jTextAreaPetct;
+    private javax.swing.JTextArea jTextAreaUltrahang;
+    private javax.swing.JTextField jTextFieldAfp;
+    private javax.swing.JTextField jTextFieldAlbumin;
+    private javax.swing.JTextField jTextFieldAldoszteron;
+    private javax.swing.JTextField jTextFieldAlfa_amilaz;
+    private javax.swing.JTextField jTextFieldAlkalikus_foszfataz;
+    private javax.swing.JTextField jTextFieldAnti_muller_hormon;
+    private javax.swing.JTextField jTextFieldAnti_tpo;
     private javax.swing.JTextField jTextFieldB_sejt;
     private javax.swing.JTextField jTextFieldBaso;
     private javax.swing.JTextField jTextFieldBasoabsz;
     private javax.swing.JTextField jTextFieldC_vitamin;
+    private javax.swing.JTextField jTextFieldCa_egyhuszonot;
+    private javax.swing.JTextField jTextFieldCa_hetvenkettonegy;
+    private javax.swing.JTextField jTextFieldCa_tizenkilenckilenc;
+    private javax.swing.JTextField jTextFieldCa_tizenotharom;
     private javax.swing.JTextField jTextFieldCd_haromnyolc;
     private javax.swing.JTextField jTextFieldCd_negy;
     private javax.swing.JTextField jTextFieldCd_negynyolc;
     private javax.swing.JTextField jTextFieldCd_nyolc;
+    private javax.swing.JTextField jTextFieldCea;
     private javax.swing.JTextField jTextFieldCitotoxicitas_szamitott;
     private javax.swing.JTextField jTextFieldCitotoxicitasi_index;
+    private javax.swing.JTextField jTextFieldCk;
+    private javax.swing.JTextField jTextFieldColiakia;
+    private javax.swing.JTextField jTextFieldCrp;
+    private javax.swing.JTextField jTextFieldCsontspecifikus_ap;
+    private javax.swing.JTextField jTextFieldD_vitamin;
     private javax.swing.JTextField jTextFieldDezoxihemoglobin;
     private javax.swing.JTextField jTextFieldDiagnozisegy;
     private javax.swing.JTextField jTextFieldDiagnozisketto;
     private javax.swing.JTextField jTextFieldDiagnozisnegy;
     private javax.swing.JTextField jTextFieldDiagnozisot;
     private javax.swing.JTextField jTextFieldDiganozisharom;
+    private javax.swing.JTextField jTextFieldElfo_paraprot;
     private javax.swing.JTextField jTextFieldEo;
     private javax.swing.JTextField jTextFieldEoabsz;
+    private javax.swing.JTextField jTextFieldFeherje_elfo;
     private javax.swing.JTextField jTextFieldFeherversejt;
+    private javax.swing.JTextField jTextFieldFpsa;
+    private javax.swing.JTextField jTextFieldFsh;
+    private javax.swing.JTextField jTextFieldFt3;
+    private javax.swing.JTextField jTextFieldFt4;
     private javax.swing.JTextField jTextFieldFurdokura;
+    private javax.swing.JTextField jTextFieldGgt;
     private javax.swing.JTextField jTextFieldGlukoz;
+    private javax.swing.JTextField jTextFieldGot;
+    private javax.swing.JTextField jTextFieldGpt;
+    private javax.swing.JTextField jTextFieldHdl_koleszterin;
+    private javax.swing.JTextField jTextFieldHe_negy;
     private javax.swing.JTextField jTextFieldHematokrit;
     private javax.swing.JTextField jTextFieldHemoglobin;
     private javax.swing.JTextField jTextFieldHif;
     private javax.swing.JTextField jTextFieldHla_dr;
+    private javax.swing.JTextField jTextFieldHoma_index;
+    private javax.swing.JTextField jTextFieldHormonterapia;
+    private javax.swing.JTextField jTextFieldHugysav;
+    private javax.swing.JTextField jTextFieldIgf;
+    private javax.swing.JTextField jTextFieldIgg_alosztalyok;
+    private javax.swing.JTextField jTextFieldImmun_a;
+    private javax.swing.JTextField jTextFieldImmun_g;
+    private javax.swing.JTextField jTextFieldImmun_m;
+    private javax.swing.JTextField jTextFieldInzulin;
+    private javax.swing.JTextField jTextFieldInzulin_res;
     private javax.swing.JTextField jTextFieldIvokura;
+    private javax.swing.JTextField jTextFieldKalium;
+    private javax.swing.JTextField jTextFieldKemo;
+    private javax.swing.JTextField jTextFieldKlinikai_hemoglobin;
+    private javax.swing.JTextField jTextFieldKoleszterin;
+    private javax.swing.JTextField jTextFieldKortizol;
+    private javax.swing.JTextField jTextFieldLdh;
+    private javax.swing.JTextField jTextFieldLh;
+    private javax.swing.JTextField jTextFieldLipaz;
     private javax.swing.JTextField jTextFieldLuc;
     private javax.swing.JTextField jTextFieldLucabsz;
     private javax.swing.JTextField jTextFieldLymph;
     private javax.swing.JTextField jTextFieldLymphabsz;
     private javax.swing.JTextField jTextFieldM;
+    private javax.swing.JTextField jTextFieldM2_pk;
     private javax.swing.JTextField jTextFieldMch;
     private javax.swing.JTextField jTextFieldMchc;
     private javax.swing.JTextField jTextFieldMcv;
@@ -1462,15 +2749,37 @@ public class Kezelesek extends javax.swing.JFrame {
     private javax.swing.JTextField jTextFieldNk_limfoctaszam;
     private javax.swing.JTextField jTextFieldNk_sejt;
     private javax.swing.JTextField jTextFieldNk_szamitott;
+    private javax.swing.JTextField jTextFieldNse;
+    private javax.swing.JTextField jTextFieldOsszbilirubin;
+    private javax.swing.JTextField jTextFieldOsszfeherje;
+    private javax.swing.JTextField jTextFieldOsztradiol;
+    private javax.swing.JTextField jTextFieldOxigen_kamra;
     private javax.swing.JTextField jTextFieldOxihemoglobin;
     private javax.swing.JTextField jTextFieldOxsat;
+    private javax.swing.JTextField jTextFieldParathormon;
+    private javax.swing.JTextField jTextFieldProgeszteron;
+    private javax.swing.JTextField jTextFieldProlaktin;
+    private javax.swing.JTextField jTextFieldPropsa;
+    private javax.swing.JTextField jTextFieldPsa;
     private javax.swing.JTextField jTextFieldRdwcv;
+    private javax.swing.JTextField jTextFieldReuma_faktor;
     private javax.swing.JTextField jTextFieldRr;
+    private javax.swing.JTextField jTextFieldS100;
     private javax.swing.JTextField jTextFieldSpo;
+    private javax.swing.JTextField jTextFieldSugar_terapia;
     private javax.swing.JTextField jTextFieldT;
     private javax.swing.JTextField jTextFieldT_sejt;
+    private javax.swing.JTextField jTextFieldThyreo_autoat;
+    private javax.swing.JTextField jTextFieldThyreoglobulin;
+    private javax.swing.JTextField jTextFieldTotal_tesztoszteron;
+    private javax.swing.JTextField jTextFieldTpa;
     private javax.swing.JTextField jTextFieldTpo;
+    private javax.swing.JTextField jTextFieldTranszferrin;
+    private javax.swing.JTextField jTextFieldTriglicerid;
     private javax.swing.JTextField jTextFieldTrombocitaszam;
+    private javax.swing.JTextField jTextFieldTsh;
+    private javax.swing.JTextField jTextFieldTsh_receptor_autoat;
+    private javax.swing.JTextField jTextFieldVas;
     private javax.swing.JTextField jTextFieldVorosoversejt;
     private javax.swing.JTextField jTextFieldVvt;
     // End of variables declaration//GEN-END:variables

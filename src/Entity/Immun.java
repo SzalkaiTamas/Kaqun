@@ -2,6 +2,8 @@
 package Entity;
 
 import Entity.Beteg_Adat;
+import java.time.LocalDate;
+import java.util.Date;
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -52,7 +54,7 @@ public class Immun {
     private double CD4_CD8_arany;
     
     @Column
-    private double MK_funkcio;
+    private double NK_funkcio;
     
     @Column
     private double Citotoxicitasi_index;
@@ -65,6 +67,50 @@ public class Immun {
     
     @Column
     private double HIF_1_alfa;
+    
+    @Column
+    private double Hla_dr_cd3_limfocitakon_belul;
+    
+    @Column
+    private double CD3_CD8_CD56_limfocitakon_belul;
+    
+    @Column
+    private LocalDate adat_felvetel;
+
+    public void setAdat_felvetel(LocalDate adat_felvetel) {
+        this.adat_felvetel = adat_felvetel;
+    }
+
+    public LocalDate getAdat_felvetel() {
+        return adat_felvetel;
+    }
+
+    public void setNK_funkcio(double NK_funkcio) {
+        this.NK_funkcio = NK_funkcio;
+    }
+
+   
+    public double getNK_funkcio() {
+        return NK_funkcio;
+    }
+
+  
+
+    public void setCD3_CD8_CD56_limfocitakon_belul(double CD3_CD8_CD56_limfocitakon_belul) {
+        this.CD3_CD8_CD56_limfocitakon_belul = CD3_CD8_CD56_limfocitakon_belul;
+    }
+
+    public double getCD3_CD8_CD56_limfocitakon_belul() {
+        return CD3_CD8_CD56_limfocitakon_belul;
+    }
+
+    public void setHla_dr_cd3_limfocitakon_belul(double Hla_dr_cd3_limfocitakon_belul) {
+        this.Hla_dr_cd3_limfocitakon_belul = Hla_dr_cd3_limfocitakon_belul;
+    }
+
+    public double getHla_dr_cd3_limfocitakon_belul() {
+        return Hla_dr_cd3_limfocitakon_belul;
+    }
 
     public void setBeteg_Adat(Beteg_Adat beteg_Adat) {
         this.beteg_Adat = beteg_Adat;
@@ -107,7 +153,7 @@ public class Immun {
     }
 
     public void setMK_funkcio(double MK_funkcio) {
-        this.MK_funkcio = MK_funkcio;
+        this.NK_funkcio = MK_funkcio;
     }
 
     public void setCitotoxicitasi_index(double Citotoxicitasi_index) {
@@ -167,7 +213,7 @@ public class Immun {
     }
 
     public double getMK_funkcio() {
-        return MK_funkcio;
+        return NK_funkcio;
     }
 
     public double getCitotoxicitasi_index() {

@@ -68,4 +68,45 @@ public class Beteg_Adat_Manager extends Manager {
             factory.close();
         }
     }
+    
+    public static Beteg_Adat findById(Integer id){ //Mindegyik managerben szükséges
+         SessionFactory factory = getSessionFactory();
+         Session session = factory.getCurrentSession();
+         Beteg_Adat beteg_adat = null;
+         try {
+            session.beginTransaction();
+            beteg_adat = (Beteg_Adat)session.get(Beteg_Adat.class, id);
+            session.getTransaction().commit();
+        } finally {
+             session.close();
+             factory.close();
+                    
+        }
+        return beteg_adat;
+     }
+    
+    public static void updateBeteg_Adat(Beteg_Adat beteg_adat){
+        SessionFactory factory = getSessionFactory();
+        Session session = factory.getCurrentSession();
+        
+        try {
+            session.beginTransaction();
+            session.update(beteg_adat);
+            session.getTransaction().commit();
+        } finally {
+            session.close();
+            factory.close();
+        }
+    }
+    
+    public static void timeSort(Beteg_Adat beteg_adat){
+        SessionFactory factory = getSessionFactory();
+        Session session = factory.getCurrentSession();
+        try {
+            
+        } finally {
+            session.close();
+            factory.close();
+        }
+    }
 }

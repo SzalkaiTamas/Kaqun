@@ -2,6 +2,8 @@
 package Entity;
 
 import Entity.Beteg_Adat;
+import java.time.LocalDate;
+import java.util.Date;
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -95,7 +97,29 @@ public class Verkep {
     
     @Column
     private double vvt_sullyedes;
+    
+    @Column
+    private LocalDate adat_felvetel;
 
+    public void setAdat_felvetel(LocalDate adat_felvetel) {
+        this.adat_felvetel = adat_felvetel;
+    }
+
+    public LocalDate getAdat_felvetel() {
+        return adat_felvetel;
+    }
+
+    public void setVvt_sullyedes(double vvt_sullyedes) {
+        this.vvt_sullyedes = vvt_sullyedes;
+    }
+
+    
+
+    public double getVvt_sullyedes() {
+        return vvt_sullyedes;
+    }
+
+ 
     public Beteg_Adat getBeteg_Adat() {
         return beteg_Adat;
     }

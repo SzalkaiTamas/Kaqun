@@ -7,13 +7,11 @@ package GUI;
 
 import Entity.Beteg_Adat;
 import Managers.Beteg_Adat_Manager;
-import Managers.Manager;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Vector;
 import javax.swing.JFrame;
 import javax.swing.JOptionPane;
-import javax.swing.WindowConstants;
 import javax.swing.table.DefaultTableModel;
 import javax.swing.table.TableColumn;
 
@@ -26,8 +24,10 @@ public class Beteg_Modosit extends javax.swing.JFrame {
     /**
      * Creates new form Beteg_Modosit
      */
+    
     public Beteg_Modosit() {
         initComponents();
+        
     }
 
     /**
@@ -48,7 +48,8 @@ public class Beteg_Modosit extends javax.swing.JFrame {
         jButtonModosit = new javax.swing.JButton();
         jButtonTorol = new javax.swing.JButton();
         jButtonUj = new javax.swing.JButton();
-        jButton1 = new javax.swing.JButton();
+        jButtonBeteg_kezelesek = new javax.swing.JButton();
+        jButtonSzemelyes_modosit = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -100,7 +101,19 @@ public class Beteg_Modosit extends javax.swing.JFrame {
             }
         });
 
-        jButton1.setText("jButton1");
+        jButtonBeteg_kezelesek.setText("Beteg kezelései");
+        jButtonBeteg_kezelesek.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButtonBeteg_kezelesekActionPerformed(evt);
+            }
+        });
+
+        jButtonSzemelyes_modosit.setText("Személyes adatok módosítása");
+        jButtonSzemelyes_modosit.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButtonSzemelyes_modositActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -125,7 +138,8 @@ public class Beteg_Modosit extends javax.swing.JFrame {
                             .addComponent(jButtonModosit)
                             .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addComponent(jButtonTorol)))
-                    .addComponent(jButton1))
+                    .addComponent(jButtonBeteg_kezelesek)
+                    .addComponent(jButtonSzemelyes_modosit))
                 .addGap(0, 0, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
@@ -145,8 +159,10 @@ public class Beteg_Modosit extends javax.swing.JFrame {
                     .addComponent(jButtonModosit)
                     .addComponent(jButtonTorol))
                 .addGap(18, 18, 18)
-                .addComponent(jButton1)
-                .addContainerGap(97, Short.MAX_VALUE))
+                .addComponent(jButtonBeteg_kezelesek)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jButtonSzemelyes_modosit)
+                .addContainerGap(68, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -182,16 +198,12 @@ public class Beteg_Modosit extends javax.swing.JFrame {
     }//GEN-LAST:event_jButtonKeresActionPerformed
 
     private void jButtonModositActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonModositActionPerformed
-       int[] rowIndex = jTable1.getSelectedRows();
-        if (rowIndex.length == 0) {
-            JOptionPane.showMessageDialog(Beteg_Modosit.this, "Nincs sor kiválasztva!", "Hiba!", JOptionPane.WARNING_MESSAGE);
-        }else{
-            Integer id = (Integer)jTable1.getValueAt(rowIndex[0], 5);
-            Kezelesek kezelesek = new Kezelesek(id);
-            kezelesek.setVisible(true);
-            kezelesek.setDefaultCloseOperation(JFrame.HIDE_ON_CLOSE);
+   
+            KezelesekAblak(true);
+            
+            
            
-        }
+        
     }//GEN-LAST:event_jButtonModositActionPerformed
 
     private void jButtonTorolActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonTorolActionPerformed
@@ -209,6 +221,28 @@ public class Beteg_Modosit extends javax.swing.JFrame {
         }
         
     }//GEN-LAST:event_jButtonTorolActionPerformed
+
+    private void jButtonBeteg_kezelesekActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonBeteg_kezelesekActionPerformed
+        
+        
+        KezelesekAblak(false);
+        
+    }//GEN-LAST:event_jButtonBeteg_kezelesekActionPerformed
+
+    private void jButtonSzemelyes_modositActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonSzemelyes_modositActionPerformed
+        int[] rowIndex = jTable1.getSelectedRows();
+        if (rowIndex.length == 0) {
+            JOptionPane.showMessageDialog(Beteg_Modosit.this, "Nincs sor kiválasztva!", "Hiba!", JOptionPane.WARNING_MESSAGE);
+        }else if(rowIndex.length > 1){
+            JOptionPane.showMessageDialog(Beteg_Modosit.this, "Egy sort válasszon ki!", "Hiba!", JOptionPane.WARNING_MESSAGE);
+        }else{
+            Integer id = (Integer)jTable1.getValueAt(rowIndex[0], 5);
+            Beteg_Felvetel beteg_felvetel = new Beteg_Felvetel(id);
+            beteg_felvetel.setjTable1(this);
+            beteg_felvetel.setVisible(true);
+            beteg_felvetel.setDefaultCloseOperation(JFrame.HIDE_ON_CLOSE);
+        }
+    }//GEN-LAST:event_jButtonSzemelyes_modositActionPerformed
 
     /**
      * @param args the command line arguments
@@ -248,7 +282,7 @@ public class Beteg_Modosit extends javax.swing.JFrame {
     }
     
     
-    private void populateTable(List<Beteg_Adat> beteg_Adatok){
+     void populateTable(List<Beteg_Adat> beteg_Adatok){
         Vector<String> tableHeaders = new Vector<String>();
         tableHeaders.add("Id");
         tableHeaders.add("Név");
@@ -279,9 +313,10 @@ public class Beteg_Modosit extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButton1;
+    private javax.swing.JButton jButtonBeteg_kezelesek;
     private javax.swing.JButton jButtonKeres;
     private javax.swing.JButton jButtonModosit;
+    private javax.swing.JButton jButtonSzemelyes_modosit;
     private javax.swing.JButton jButtonTorol;
     private javax.swing.JButton jButtonUj;
     private javax.swing.JLabel jLabelKeres;
@@ -290,4 +325,22 @@ public class Beteg_Modosit extends javax.swing.JFrame {
     private javax.swing.JTable jTable1;
     private javax.swing.JTextField jTextFieldKeres;
     // End of variables declaration//GEN-END:variables
+
+    private void KezelesekAblak(boolean update) {
+        int[] rowIndex = jTable1.getSelectedRows();
+        
+        if (rowIndex.length == 0) {
+            JOptionPane.showMessageDialog(Beteg_Modosit.this, "Nincs sor kiválasztva!", "Hiba!", JOptionPane.WARNING_MESSAGE);
+        }else if(rowIndex.length > 1){
+            JOptionPane.showMessageDialog(Beteg_Modosit.this, "Egy sort válasszon ki!", "Hiba", JOptionPane.WARNING_MESSAGE);
+        }
+        else{
+            Integer id = (Integer)jTable1.getValueAt(rowIndex[0], 5);
+            Kezelesek kezelesek = new Kezelesek(id);
+            kezelesek.setVisible(true);
+            kezelesek.setUpdate(update);
+            kezelesek.setDefaultCloseOperation(JFrame.HIDE_ON_CLOSE);
+    }
 }
+}
+

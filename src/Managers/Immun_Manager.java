@@ -1,20 +1,22 @@
 
 package Managers;
 
-import Entity.Verkep;
+import Entity.Immun;
 import java.util.ArrayList;
 import java.util.List;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 
-public class Verkep_Manager extends Manager{
-    List<Verkep> verkep = new ArrayList<>();
-    public static void createVerkep(Verkep verkep){
+
+public class Immun_Manager extends Manager {
+    List<Immun> immun = new ArrayList<>();
+    
+    public static void createImmun(Immun immun){
         SessionFactory factory = getSessionFactory();
         Session session = factory.getCurrentSession();
         try {
             session.beginTransaction();
-            session.save(verkep);
+            session.save(immun);
             session.getTransaction().commit();
         } finally {
             session.close();
@@ -23,12 +25,12 @@ public class Verkep_Manager extends Manager{
         
     }
     
-    public static void updateVerkep(Verkep verkep){
+    public static void updateImmun(Immun immun){
         SessionFactory factory = getSessionFactory();
         Session session = factory.getCurrentSession();
         try {
             session.beginTransaction();
-            session.update(verkep);
+            session.update(immun);
             session.getTransaction().commit();
         }finally {
             session.close();
@@ -36,19 +38,19 @@ public class Verkep_Manager extends Manager{
         }
     }
     
-     public static List<Verkep> timeSortVerkep(){
+     public static List<Immun> timeSortImmun(){
        SessionFactory factory = getSessionFactory();
        Session session = factory.getCurrentSession();
-       List<Verkep> verkepek = new ArrayList<>();
+       List<Immun> immunok = new ArrayList<>();
        try {
            session.beginTransaction();
-           session.createQuery("FROM verkep ve ORDER BY ve.adat_felvetel DESC").getResultList();
+           session.createQuery("FROM immunstatusz im ORDER BY im.adat_felvetel DESC").getResultList();
            
            session.getTransaction().commit();
        } finally {
            session.close();
            factory.close();
        }
-       return verkepek;
+       return immunok;
    }
 }

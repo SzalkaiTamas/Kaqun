@@ -19,9 +19,30 @@ import org.apache.commons.validator.routines.EmailValidator;
  */
 public class Beteg_Felvetel extends javax.swing.JFrame {
 
+    private Integer betegAdatId;
+    private Beteg_Adat beteg_adat;
+    private Beteg_Modosit jTable1;
     /**
      * Creates new form KaqunUI
      */
+    
+    public Beteg_Felvetel(Integer id){
+        this.betegAdatId = id;
+        initComponents();
+        beteg_adat = Beteg_Adat_Manager.findById(id);
+        jTextField1.setText(beteg_adat.getNev());
+        jTextFieldEmail.setText(beteg_adat.getEmail());
+        jTextFieldLakcim.setText(beteg_adat.getLakcim());
+        
+        if (beteg_adat.getNem().equals("f")) {
+            jComboBoxNem.setSelectedIndex(0);
+        }else{
+            jComboBoxNem.setSelectedIndex(1);
+        }
+        jDateChooser1.setDate(Date.from(beteg_adat.getSzul_date().atStartOfDay(ZoneId.systemDefault()).toInstant()));
+        
+        
+    }
     public Beteg_Felvetel() {
         initComponents();
        
@@ -88,27 +109,25 @@ public class Beteg_Felvetel extends javax.swing.JFrame {
                 .addContainerGap()
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addComponent(jLabelLakcim)
+                        .addComponent(jLabelNev)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jTextFieldLakcim))
+                        .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 206, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addComponent(jLabelNev)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 206, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addComponent(jLabelSzulDate)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(jDateChooser1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addComponent(jComboBoxNem, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jButtonFelvetel)
-                            .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addComponent(jLabelEmail)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(jTextFieldEmail, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                        .addGap(0, 120, Short.MAX_VALUE)))
-                .addContainerGap())
+                        .addComponent(jLabelSzulDate)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jDateChooser1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jComboBoxNem, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jButtonFelvetel)
+                    .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                        .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel1Layout.createSequentialGroup()
+                            .addComponent(jLabelLakcim)
+                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                            .addComponent(jTextFieldLakcim))
+                        .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel1Layout.createSequentialGroup()
+                            .addComponent(jLabelEmail)
+                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                            .addComponent(jTextFieldEmail, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                .addContainerGap(130, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -158,9 +177,7 @@ public class Beteg_Felvetel extends javax.swing.JFrame {
 
     private void jButtonFelvetelActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonFelvetelActionPerformed
        String nev = jTextField1.getText();
-        if (nev.matches("[0-9]+")) {
-            JOptionPane.showMessageDialog(Beteg_Felvetel.this, "A név nem tartalmazhat számot!", "Hiba!", JOptionPane.WARNING_MESSAGE);
-        }
+        
        String lakcim = jTextFieldLakcim.getText();
        String email = jTextFieldEmail.getText();
         if (!EmailValidator.getInstance().isValid(email)) {
@@ -175,6 +192,13 @@ public class Beteg_Felvetel extends javax.swing.JFrame {
         
        Date date = jDateChooser1.getDate();
        LocalDate birthDate = date.toInstant().atZone(ZoneId.systemDefault()).toLocalDate();
+       
+       boolean update = true;
+        if (beteg_adat == null) {
+            beteg_adat = new Beteg_Adat();
+            update = false;
+        }
+        
        Beteg_Adat beteg_Adat = new Beteg_Adat();
        beteg_Adat.setEmail(email);
        beteg_Adat.setNem(nem);
@@ -182,11 +206,19 @@ public class Beteg_Felvetel extends javax.swing.JFrame {
        beteg_Adat.setLakcim(lakcim);
        beteg_Adat.setSzul_date(birthDate);
        Beteg_Adat_Manager.createBetegAdat(beteg_Adat);
+       
+        if (update) {
+            Beteg_Adat_Manager.updateBeteg_Adat(beteg_Adat);
+        }else{
+            Beteg_Adat_Manager.createBetegAdat(beteg_Adat);
+        }
+        JOptionPane.showMessageDialog(Beteg_Felvetel.this, "A felvétel sikeres!", "Módosítás", JOptionPane.DEFAULT_OPTION);
+        jTable1.populateTable(Beteg_Adat_Manager.listAll());
     }//GEN-LAST:event_jButtonFelvetelActionPerformed
 
     private void formWindowClosing(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowClosing
        JOptionPane optionPane = new JOptionPane("Biztos bezárja a programot?", JOptionPane.QUESTION_MESSAGE, JOptionPane.YES_NO_OPTION);
-
+       
    
     }//GEN-LAST:event_formWindowClosing
 
@@ -240,6 +272,16 @@ public class Beteg_Felvetel extends javax.swing.JFrame {
     private javax.swing.JTextField jTextFieldLakcim;
     // End of variables declaration//GEN-END:variables
 
+    public Beteg_Modosit getjTable1() {
+        return jTable1;
+    }
+
+    public void setjTable1(Beteg_Modosit jTable1) {
+        this.jTable1 = jTable1;
+    }
+
+    
+    
    
 
   

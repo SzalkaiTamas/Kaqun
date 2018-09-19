@@ -2,6 +2,8 @@
 package Entity;
 
 import Entity.Beteg_Adat;
+import java.time.LocalDate;
+import java.util.Date;
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -211,25 +213,48 @@ public class KlinikaKemia {
     private double feherje_elfo;
     
     @Column
-    private double elfo_parapot;
+    private double elfo_paraprot;
     
     @Column
     private double ast;
     
     @Column
-    private double inmunglobuliun_a;
+    private double immunglobulin_a;
     
     @Column
-    private double inmunglobulin_g;
+    private double immunglobulin_g;
     
     @Column
-    private double inmunglobulin_m;
+    private double immunglobulin_m;
     
     @Column
     private double igg_alosztalyok;
     
     @Column
     private double glukoz;
+    
+    @Column
+    private double hemoglobin;
+    
+    @Column
+    private LocalDate adat_felvetel;
+
+    public void setAdat_felvetel(LocalDate adat_felvetel) {
+        this.adat_felvetel = adat_felvetel;
+    }
+
+    public LocalDate getAdat_felvetel() {
+        return adat_felvetel;
+    }
+
+
+    public void setHemoglobin(double hemoglobin) {
+        this.hemoglobin = hemoglobin;
+    }
+
+    public double getHemoglobin() {
+        return hemoglobin;
+    }
 
     public void setBeteg_Adat(Beteg_Adat beteg_Adat) {
         this.beteg_Adat = beteg_Adat;
@@ -431,24 +456,24 @@ public class KlinikaKemia {
         this.feherje_elfo = feherje_elfo;
     }
 
-    public void setElfo_parapot(double elfo_parapot) {
-        this.elfo_parapot = elfo_parapot;
+    public void setElfo_paraprot(double elfo_paraprot) {
+        this.elfo_paraprot = elfo_paraprot;
     }
 
     public void setAst(double ast) {
         this.ast = ast;
     }
 
-    public void setInmunglobuliun_a(double inmunglobuliun_a) {
-        this.inmunglobuliun_a = inmunglobuliun_a;
+    public void setImmunglobulin_a(double immunglobulin_a) {
+        this.immunglobulin_a = immunglobulin_a;
     }
 
-    public void setInmunglobulin_g(double inmunglobulin_g) {
-        this.inmunglobulin_g = inmunglobulin_g;
+    public void setImmunglobulin_g(double immunglobulin_g) {
+        this.immunglobulin_g = immunglobulin_g;
     }
 
-    public void setInmunglobulin_m(double inmunglobulin_m) {
-        this.inmunglobulin_m = inmunglobulin_m;
+    public void setImmunglobulin_m(double immunglobulin_m) {
+        this.immunglobulin_m = immunglobulin_m;
     }
 
     public void setIgg_alosztalyok(double igg_alosztalyok) {
@@ -703,24 +728,24 @@ public class KlinikaKemia {
         return feherje_elfo;
     }
 
-    public double getElfo_parapot() {
-        return elfo_parapot;
+    public double getElfo_paraprot() {
+        return elfo_paraprot;
     }
 
     public double getAst() {
         return ast;
     }
 
-    public double getInmunglobuliun_a() {
-        return inmunglobuliun_a;
+    public double getImmunglobulin_a() {
+        return immunglobulin_a;
     }
 
-    public double getInmunglobulin_g() {
-        return inmunglobulin_g;
+    public double getImmunglobulin_g() {
+        return immunglobulin_g;
     }
 
-    public double getInmunglobulin_m() {
-        return inmunglobulin_m;
+    public double getImmunglobulin_m() {
+        return immunglobulin_m;
     }
 
     public double getIgg_alosztalyok() {
@@ -791,225 +816,7 @@ public class KlinikaKemia {
         this.osszbilirubin = osszbilirubin;
     }
 
-    public void setGot(int got) {
-        this.got = got;
-    }
-
-    public void setGpt(int gpt) {
-        this.gpt = gpt;
-    }
-
-    public void setGgt(int ggt) {
-        this.ggt = ggt;
-    }
-
-    public void setAlkalikus_foszfataz(int alkalikus_foszfataz) {
-        this.alkalikus_foszfataz = alkalikus_foszfataz;
-    }
-
-    public void setCsontspecifikus_ap(int csontspecifikus_ap) {
-        this.csontspecifikus_ap = csontspecifikus_ap;
-    }
-
-    public void setLdh(int ldh) {
-        this.ldh = ldh;
-    }
-
-    public void setCk(int ck) {
-        this.ck = ck;
-    }
-
-    public void setAlfa_amiláz(int alfa_amiláz) {
-        this.alfa_amiláz = alfa_amiláz;
-    }
-
-    public void setLipaz(int lipaz) {
-        this.lipaz = lipaz;
-    }
-
-    public void setFt4(int ft4) {
-        this.ft4 = ft4;
-    }
-
-    public void setFt3(int ft3) {
-        this.ft3 = ft3;
-    }
-
-    public void setTsh(int tsh) {
-        this.tsh = tsh;
-    }
-
-    public void setThyreoglobulin(int thyreoglobulin) {
-        this.thyreoglobulin = thyreoglobulin;
-    }
-
-    public void setD_vitamin(int d_vitamin) {
-        this.d_vitamin = d_vitamin;
-    }
-
-    public void setParathormon(int parathormon) {
-        this.parathormon = parathormon;
-    }
-
-    public void setAnti_mullerian_hormon(int anti_mullerian_hormon) {
-        this.anti_mullerian_hormon = anti_mullerian_hormon;
-    }
-
-    public void setFsh(int fsh) {
-        this.fsh = fsh;
-    }
-
-    public void setLh(int lh) {
-        this.lh = lh;
-    }
-
-    public void setProlaktin(int prolaktin) {
-        this.prolaktin = prolaktin;
-    }
-
-    public void setOssztradiol(int ossztradiol) {
-        this.ossztradiol = ossztradiol;
-    }
-
-    public void setProgeszteron(int progeszteron) {
-        this.progeszteron = progeszteron;
-    }
-
-    public void setTotaltesztoszteron(int totaltesztoszteron) {
-        this.totaltesztoszteron = totaltesztoszteron;
-    }
-
-    public void setAldoszteron(int aldoszteron) {
-        this.aldoszteron = aldoszteron;
-    }
-
-    public void setKortizol(int kortizol) {
-        this.kortizol = kortizol;
-    }
-
-    public void setHoma_index(int homa_index) {
-        this.homa_index = homa_index;
-    }
-
-    public void setIgf_1(int igf_1) {
-        this.igf_1 = igf_1;
-    }
-
-    public void setInzulin(int inzulin) {
-        this.inzulin = inzulin;
-    }
-
-    public void setInzulin_reziztencia(int inzulin_reziztencia) {
-        this.inzulin_reziztencia = inzulin_reziztencia;
-    }
-
-    public void setCa_125(int ca_125) {
-        this.ca_125 = ca_125;
-    }
-
-    public void setHe4(int he4) {
-        this.he4 = he4;
-    }
-
-    public void setCa15_3(int ca15_3) {
-        this.ca15_3 = ca15_3;
-    }
-
-    public void setCa72_4(int ca72_4) {
-        this.ca72_4 = ca72_4;
-    }
-
-    public void setCa19_9(int ca19_9) {
-        this.ca19_9 = ca19_9;
-    }
-
-    public void setAfp(int afp) {
-        this.afp = afp;
-    }
-
-    public void setCea(int cea) {
-        this.cea = cea;
-    }
-
-    public void setPsa(int psa) {
-        this.psa = psa;
-    }
-
-    public void setFpsa(int fpsa) {
-        this.fpsa = fpsa;
-    }
-
-    public void setPro_psa(int pro_psa) {
-        this.pro_psa = pro_psa;
-    }
-
-    public void setNse(int nse) {
-        this.nse = nse;
-    }
-
-    public void setS100_protein(int s100_protein) {
-        this.s100_protein = s100_protein;
-    }
-
-    public void setTpa(int tpa) {
-        this.tpa = tpa;
-    }
-
-    public void setM2_pk_marker(int m2_pk_marker) {
-        this.m2_pk_marker = m2_pk_marker;
-    }
-
-    public void setReumafaktor(int reumafaktor) {
-        this.reumafaktor = reumafaktor;
-    }
-
-    public void setColiakiaszures(int coliakiaszures) {
-        this.coliakiaszures = coliakiaszures;
-    }
-
-    public void setAnti_tpo(int anti_tpo) {
-        this.anti_tpo = anti_tpo;
-    }
-
-    public void setThyreoglobulin_autoat(int thyreoglobulin_autoat) {
-        this.thyreoglobulin_autoat = thyreoglobulin_autoat;
-    }
-
-    public void setTsh_receptor_autoat(int tsh_receptor_autoat) {
-        this.tsh_receptor_autoat = tsh_receptor_autoat;
-    }
-
-    public void setFeherje_elfo(int feherje_elfo) {
-        this.feherje_elfo = feherje_elfo;
-    }
-
-    public void setElfo_parapot(int elfo_parapot) {
-        this.elfo_parapot = elfo_parapot;
-    }
-
-    public void setAst(int ast) {
-        this.ast = ast;
-    }
-
-    public void setInmunglobuliun_a(int inmunglobuliun_a) {
-        this.inmunglobuliun_a = inmunglobuliun_a;
-    }
-
-    public void setInmunglobulin_g(int inmunglobulin_g) {
-        this.inmunglobulin_g = inmunglobulin_g;
-    }
-
-    public void setInmunglobulin_m(int inmunglobulin_m) {
-        this.inmunglobulin_m = inmunglobulin_m;
-    }
-
-    public void setIgg_alosztalyok(int igg_alosztalyok) {
-        this.igg_alosztalyok = igg_alosztalyok;
-    }
-
-    public int getIdklinikai_kemiai() {
-        return idklinikai_kemiai;
-    }
+  
     
      public void setBetegAdat(Beteg_Adat beteg_Adat){
        this.beteg_Adat = beteg_Adat;

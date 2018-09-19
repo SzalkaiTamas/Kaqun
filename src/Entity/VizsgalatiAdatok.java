@@ -2,6 +2,8 @@
 package Entity;
 
 import Entity.Beteg_Adat;
+import java.time.LocalDate;
+import java.util.Date;
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -27,6 +29,82 @@ public class VizsgalatiAdatok {
     
     @Column
     private int rr;
+    
+    @Column
+    private int tpo;
+    
+    @Column
+    private int spo;
+    
+    @Column
+    private int oxihemoglobin;
+    
+    @Column
+    private int dezoxihemoglobin;
+    
+    @Column
+    private int oxsat;
+    
+    @Column
+    private LocalDate adat_felvetel;
+
+    public void setAdat_felvetel(LocalDate adat_felvetel) {
+        this.adat_felvetel = adat_felvetel;
+    }
+
+    public LocalDate getAdat_felvetel() {
+        return adat_felvetel;
+    }
+
+    
+
+    public void setBeteg_Adat(Beteg_Adat beteg_Adat) {
+        this.beteg_Adat = beteg_Adat;
+    }
+
+    public void setTpo(int tpo) {
+        this.tpo = tpo;
+    }
+
+    public void setSpo(int spo) {
+        this.spo = spo;
+    }
+
+    public void setOxihemoglobin(int oxihemoglobin) {
+        this.oxihemoglobin = oxihemoglobin;
+    }
+
+    public void setDezoxihemoglobin(int dezoxihemoglobin) {
+        this.dezoxihemoglobin = dezoxihemoglobin;
+    }
+
+    public void setOxsat(int oxsat) {
+        this.oxsat = oxsat;
+    }
+
+    public Beteg_Adat getBeteg_Adat() {
+        return beteg_Adat;
+    }
+
+    public int getTpo() {
+        return tpo;
+    }
+
+    public int getSpo() {
+        return spo;
+    }
+
+    public int getOxihemoglobin() {
+        return oxihemoglobin;
+    }
+
+    public int getDezoxihemoglobin() {
+        return dezoxihemoglobin;
+    }
+
+    public int getOxsat() {
+        return oxsat;
+    }
     
     @Column
     private String megjegyzes;

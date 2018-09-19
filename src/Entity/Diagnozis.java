@@ -3,6 +3,7 @@ package Entity;
 
 import Entity.Beteg_Adat;
 import java.time.LocalDate;
+import java.util.Date;
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Table;
@@ -60,6 +61,7 @@ public class Diagnozis {
     public String getN() {
         return N;
     }
+    
 
     public void setIdDiagnózis(int idDiagnózis) {
         this.idDiagnozis = idDiagnózis;
@@ -133,5 +135,36 @@ public class Diagnozis {
     
     @Column
     private String N;
+    
+    @Column
+    private LocalDate adat_felvetel;
+
+    public void setAdat_felvetel(LocalDate adat_felvetel) {
+        this.adat_felvetel = adat_felvetel;
+    }
+
+    public LocalDate getAdat_felvetel() {
+        return adat_felvetel;
+    }
+
+    public void setBeteg_Adat(Beteg_Adat beteg_Adat) {
+        this.beteg_Adat = beteg_Adat;
+    }
+
+    public void setIdDiagnozis(int idDiagnozis) {
+        this.idDiagnozis = idDiagnozis;
+    }
+
+    
+
+    public Beteg_Adat getBeteg_Adat() {
+        return beteg_Adat;
+    }
+
+    public int getIdDiagnozis() {
+        return idDiagnozis;
+    }
+
+    
     
 }

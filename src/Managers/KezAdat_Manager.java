@@ -1,34 +1,36 @@
 
 package Managers;
 
-import Entity.Verkep;
+import Entity.KezAdat;
 import java.util.ArrayList;
 import java.util.List;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 
-public class Verkep_Manager extends Manager{
-    List<Verkep> verkep = new ArrayList<>();
-    public static void createVerkep(Verkep verkep){
+
+public class KezAdat_Manager extends Manager {
+    List<KezAdat> kezadat = new ArrayList<>();
+    
+    public static void createKezAdat(KezAdat kezadat){
         SessionFactory factory = getSessionFactory();
         Session session = factory.getCurrentSession();
+        
         try {
             session.beginTransaction();
-            session.save(verkep);
+            session.save(kezadat);
             session.getTransaction().commit();
         } finally {
             session.close();
             factory.close();
         }
-        
     }
     
-    public static void updateVerkep(Verkep verkep){
+    public static void updateKezAdat(KezAdat kezadat){
         SessionFactory factory = getSessionFactory();
         Session session = factory.getCurrentSession();
         try {
             session.beginTransaction();
-            session.update(verkep);
+            session.update(kezadat);
             session.getTransaction().commit();
         }finally {
             session.close();
@@ -36,19 +38,20 @@ public class Verkep_Manager extends Manager{
         }
     }
     
-     public static List<Verkep> timeSortVerkep(){
+   public static List<KezAdat> timeSortKezAdat(){
        SessionFactory factory = getSessionFactory();
        Session session = factory.getCurrentSession();
-       List<Verkep> verkepek = new ArrayList<>();
+       List<KezAdat> kezadatok = new ArrayList<>();
        try {
            session.beginTransaction();
-           session.createQuery("FROM verkep ve ORDER BY ve.adat_felvetel DESC").getResultList();
+           session.createQuery("FROM KezAdat ka ORDER BY ka.adat_felvetel DESC").getResultList();
            
            session.getTransaction().commit();
        } finally {
            session.close();
            factory.close();
        }
-       return verkepek;
+       return kezadatok;
    }
+    
 }

@@ -3,6 +3,7 @@ package Entity;
 
 import Entity.Beteg_Adat;
 import java.time.LocalDate;
+import java.util.Date;
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -50,6 +51,29 @@ public class KezAdat {
     
     @Column
     private int hormonterapia;
+    
+    @Column
+    private LocalDate adat_felvetel;
+
+    public void setAdat_felvetel(LocalDate adat_felvetel) {
+        this.adat_felvetel = adat_felvetel;
+    }
+
+    public LocalDate getAdat_felvetel() {
+        return adat_felvetel;
+    }
+
+    public void setBeteg_Adat(Beteg_Adat beteg_Adat) {
+        this.beteg_Adat = beteg_Adat;
+    }
+
+   
+
+    public Beteg_Adat getBeteg_Adat() {
+        return beteg_Adat;
+    }
+
+   
     
 
     public void setIdKezelesi_Adatok(int idKezelesi_Adatok) {

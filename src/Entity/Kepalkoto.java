@@ -2,6 +2,8 @@
 package Entity;
 
 import Entity.Beteg_Adat;
+import java.time.LocalDate;
+import java.util.Date;
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -36,6 +38,29 @@ public class Kepalkoto {
     
     @Column
     private String mri;
+    
+    @Column
+    private LocalDate adat_felvetel;
+
+    public void setAdat_felvetel(LocalDate adat_felvetel) {
+        this.adat_felvetel = adat_felvetel;
+    }
+
+    public LocalDate getAdat_felvetel() {
+        return adat_felvetel;
+    }
+
+    public void setKepalkoto_ct(String kepalkoto_ct) {
+        this.kepalkoto_ct = kepalkoto_ct;
+    }
+
+   
+
+    public String getKepalkoto_ct() {
+        return kepalkoto_ct;
+    }
+
+    
 
     public void setBeteg_Adat(Beteg_Adat beteg_Adat) {
         this.beteg_Adat = beteg_Adat;

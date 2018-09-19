@@ -1,34 +1,35 @@
 
 package Managers;
 
-import Entity.Verkep;
+import Entity.VizsgalatiAdatok;
 import java.util.ArrayList;
 import java.util.List;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 
-public class Verkep_Manager extends Manager{
-    List<Verkep> verkep = new ArrayList<>();
-    public static void createVerkep(Verkep verkep){
+public class VizsgalatiAdatok_Manager extends Manager {
+    List<VizsgalatiAdatok> vizsgalatiadatok = new ArrayList<>();
+    
+    public static void createVizsgalatiAdatok(VizsgalatiAdatok vizsgalatiadatok){
         SessionFactory factory = getSessionFactory();
         Session session = factory.getCurrentSession();
+        
         try {
             session.beginTransaction();
-            session.save(verkep);
+            session.save(vizsgalatiadatok);
             session.getTransaction().commit();
         } finally {
             session.close();
             factory.close();
         }
-        
     }
     
-    public static void updateVerkep(Verkep verkep){
+    public static void updateVizsgalatiAdatok(VizsgalatiAdatok vizsgalatiAdatok){
         SessionFactory factory = getSessionFactory();
         Session session = factory.getCurrentSession();
         try {
             session.beginTransaction();
-            session.update(verkep);
+            session.update(vizsgalatiAdatok);
             session.getTransaction().commit();
         }finally {
             session.close();
@@ -36,19 +37,20 @@ public class Verkep_Manager extends Manager{
         }
     }
     
-     public static List<Verkep> timeSortVerkep(){
+     public static List<VizsgalatiAdatok> timeSortVizsgalataiAdatok(){
        SessionFactory factory = getSessionFactory();
        Session session = factory.getCurrentSession();
-       List<Verkep> verkepek = new ArrayList<>();
+       List<VizsgalatiAdatok> vizsgalati_adatok = new ArrayList<>();
        try {
            session.beginTransaction();
-           session.createQuery("FROM verkep ve ORDER BY ve.adat_felvetel DESC").getResultList();
+           session.createQuery("FROM vizsgalati_adatok va ORDER BY va.adat_felvetel DESC").getResultList();
            
            session.getTransaction().commit();
        } finally {
            session.close();
            factory.close();
        }
-       return verkepek;
+       return vizsgalati_adatok;
    }
+    
 }
